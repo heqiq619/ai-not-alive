@@ -5,7 +5,10 @@
 
 作者：何淇（独立研究者）｜AI 协作：DeepSeek
 
-预印本 DOI：https://doi.org/10.5281/zenodo.23488543
+预印本 DOI（第一章）：https://doi.org/10.5281/zenodo.23488543
+
+**第二章：容量不能替代数据的更新** —— 语言升维下的失配测量（scaling vs 持续学习：一个弱结论）
+DOI：https://doi.org/10.5281/zenodo.23503050
 
 ---
 
