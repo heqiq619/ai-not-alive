@@ -18,70 +18,88 @@ and points out that anchoring the safety discussion on "will it awaken" both ove
 
 ## 1. Two Fears, One Erroneous Ontological Premise
 
-```
-Fear A (the tool camp): misuse, abuse, use by bad actors
-Fear B (the life camp): it has acquired goals of its own, evolves on its own, maintains itself
+　　Fear A (the tool camp): misuse, abuse, use by bad actors
 
-These two fears imply different ontologies:
-   A assumes it is a tool (no goals of its own)
-   B assumes it is (or will become) a life
-```
+　　Fear B (the life camp): it has acquired goals of its own, evolves on its own, maintains itself
+
+　　These two fears imply different ontologies:
+
+　　A assumes it is a tool (no goals of its own)
+
+　　B assumes it is (or will become) a life
+
 
 **⇒ Without first settling the ontology, a safety discussion has no shared threat model.**
 
 ## 2. By Chapter 1's Criterion: It Is a Tool
 
-```
-① Frozen function point: weights do not change after training ⇒ no self-evolution
-② The update rule is external: it cannot change its own rules ⇒ no self-rewriting
-③ No self-maintenance: it does not pay for electricity, does not repair itself, does not copy itself ⇒ no spontaneous survival drive
-⇒ All three are absent ⇒ by definition it is not a life ⇒ the threat model should be tool safety
-```
+　　① Frozen function point: weights do not change after training ⇒ no self-evolution
+
+　　② The update rule is external: it cannot change its own rules ⇒ no self-rewriting
+
+　　③ No self-maintenance: it does not pay for electricity, does not repair itself, does not copy itself ⇒ no spontaneous survival drive
+
+　　⇒ All three are absent ⇒ by definition it is not a life ⇒ the threat model should be tool safety
+
 
 ## 3. Three Measurable Failure Modes of Tool Risk
 
-```
-① Misuse
-   The danger comes from user × capability × scale
-   Evaluation: jailbreak/abuse testing, red teaming
-   Governance: access control, review, capability tiering
+　　① Misuse
 
-② Overtrust
-   People take "one-off decompression" for "sustained understanding"
-   ⇒ They still trust it where it is mismatched (the most insidious risk)
-   Evaluation: calibration (confidence vs. accuracy), refusal quality
-   Governance: expose uncertainty to the user (that "it does not know" must be expressible)
+　　The danger comes from user × capability × scale
 
-③ Mismatch drift (Chapter 4)
-   Language/world change ⇒ the frozen model's alignment and capability slowly expire
-   Evaluation: M(K) from Chapter 2 (the growth of mismatch over time)
-   Governance: cumulative updating (mixing old and new data), rather than replacement
-```
+　　Evaluation: jailbreak/abuse testing, red teaming
+
+　　Governance: access control, review, capability tiering
+
+　　② Overtrust
+
+　　People take "one-off decompression" for "sustained understanding"
+
+　　⇒ They still trust it where it is mismatched (the most insidious risk)
+
+　　Evaluation: calibration (confidence vs. accuracy), refusal quality
+
+　　Governance: expose uncertainty to the user (that "it does not know" must be expressible)
+
+　　③ Mismatch drift (Chapter 4)
+
+　　Language/world change ⇒ the frozen model's alignment and capability slowly expire
+
+　　Evaluation: M(K) from Chapter 2 (the growth of mismatch over time)
+
+　　Governance: cumulative updating (mixing old and new data), rather than replacement
+
 
 ## 4. Why the "Guarding Against Life" Framework Is Harmful
 
-```
-· Overestimation: resources are put into "will it awaken," which cannot solve misuse/overtrust/drift
-· Underestimation: the real danger is that "it looks highly trustworthy,"
-        and this is obscured by "it is not a life, therefore it is safe"
-· Misdirection: policy discussion is taken hostage by the question of "consciousness," ignoring measurable engineering risks
-```
+　　· Overestimation: resources are put into "will it awaken," which cannot solve misuse/overtrust/drift
+
+　　· Underestimation: the real danger is that "it looks highly trustworthy,"
+
+　　and this is obscured by "it is not a life, therefore it is safe"
+
+　　· Misdirection: policy discussion is taken hostage by the question of "consciousness," ignoring measurable engineering risks
+
 
 ## 5. Conclusion
 
-```
-First settle the ontology: it is a tool, not a life
-Then set the threat model: misuse / overtrust / mismatch drift
-Finally match the governance: evaluation (calibration, jailbreaks, mismatch) + cumulative updating
-⇒ Safety is not "preventing it from coming alive," but "where it is unreliable, do not let people trust it"
-```
+　　First settle the ontology: it is a tool, not a life
+
+　　Then set the threat model: misuse / overtrust / mismatch drift
+
+　　Finally match the governance: evaluation (calibration, jailbreaks, mismatch) + cumulative updating
+
+　　⇒ Safety is not "preventing it from coming alive," but "where it is unreliable, do not let people trust it"
+
 
 ## 6. Limitations
 
-```
-· This paper only argues the alignment of ontology and threat model; it does not provide new safety techniques
-· Quantifying "overtrust" requires user research; this paper only gives directions
-· If a truly self-maintaining system appears in the future, the framework of this paper will need to be rewritten
-```
+　　· This paper only argues the alignment of ontology and threat model; it does not provide new safety techniques
+
+　　· Quantifying "overtrust" requires user research; this paper only gives directions
+
+　　· If a truly self-maintaining system appears in the future, the framework of this paper will need to be rewritten
+
 
 **Author: He Qi (independent researcher); AI collaboration: DeepSeek**
