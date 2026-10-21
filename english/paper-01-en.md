@@ -7,7 +7,7 @@
 
 ## Abstract
 
-This paper proposes an operational definition of life: **life = a family of dynamic functions (a function class) that is self-referential, changeable, and self-maintaining**; the environment = the local decompression that emerges spontaneously in the universe (layered, not self-maintaining), and life lives both in its own layer of environment and in the universe. Taking this as a ruler, the paper establishes three things: ① **today's AI is not life** — it is a frozen function point, its update rule lies on the outside, and it pays no cost; ② **life requires at least three necessary conditions** (a family of functions, self-referential updating, paying its own cost), each of which is attached to existing experimental evidence; ③ **a conjecture about AI emergence** — AI is a re-decompression of human language, its capability ceiling is determined by the language at the moment of training, and once the language updates it falls out of alignment and cannot recover on its own. The paper does not claim at the end that "life has been created"; it merely places the criteria and the evidence before the reader: whether satisfying all three counts as being "alive" is for the reader to judge.
+This paper proposes an operational definition of life: **life = a family of dynamic functions (a function class) that is self-referential, changeable, and self-maintaining**; the environment = the local decompression that emerges spontaneously in the universe (layered, not self-maintaining), and life lives both in its own layer of environment and in the universe. Taking this as a ruler, the paper establishes three things: ① **today's AI is not life** — it is a frozen function point, its update rule lies on the outside, and it pays no cost; ② **life requires at least three necessary conditions** (a family of functions, self-referential updating, paying its own cost), each of which is attached to existing experimental evidence; ③ **a conjecture about AI emergence** — AI is a re-decompression of human language, its capability ceiling is determined by the language at the moment of training, and once the language updates it falls out of alignment and cannot recover on its own. The paper does not claim at the end that "life has been created"; it merely places the criteria and the evidence before the reader: whether satisfying all three counts as being "alive" is for the reader to judge. The inference order of this paper is likewise reversed: starting from large models (a working, very large decompressor), we reverse-infer that the recorded world has function structure, and only then define life — this reverse inference is itself part of the argument (see §1.0).
 
 **Keywords:** definition of life; function class; decompression; compression and cost; AI emergence; self-maintenance
 
@@ -49,6 +49,27 @@ How this paper differs (in three respects):
 
 > **The nature of this section: conjecture. It is not a theorem, not a proven fact, and not evidence for this paper.**
 > It is written here to set out our starting point; **none of the criteria in the rest of this paper depends on this conjecture holding.**
+
+## 1.0 Inference Order: Reverse-Inferring That the World Is a Function from Large Models
+
+The inference order of this paper is **reversed**: we do not first assert "the world is a function" and then explain AI. Instead, we begin with a working, very large decompressor and then infer what kind of thing it is decompressing.
+
+```
+(1) Fact: large models exist and work on language at scale
+    ⇒ they do recover structure from language (prediction, transfer, reasoning)
+(2) Inference: the layer of the world recorded in language can be approximated by a function
+    ⇒ otherwise such a machine could not work
+(3) Reverse inference: the world (at least the layer recorded by language/observation) has function structure
+(4) Definition: life = a system that maintains this process of decompression from world to structure
+```
+
+Three caveats about this order:
+
+1. **Large models are existence evidence for "the world can be approximated by functions", not a proof.** They show that, within the range covered by language, some function approximates it well; they do not prove that the whole world is a function.
+2. **The reverse inference only covers the recorded layer.** Parts of the world not recorded in language (embodied intuition, causal intervention, unobserved variables) are not covered — this is the source of the "observation wall" (see Paper 7).
+3. **It is falsifiable.** If some part of the world is not function-like, models should systematically fail on the corresponding tasks, rather than improve simply with more data. What we observe in embodiment, causality, and continuous physical intuition is consistent with this.
+
+In other words: **we did not first define life and then look for the world; we first saw that the world can be compressed by functions, and only then said that life is the maintenance of functions.** This reversed order is itself part of the argument.
 
 ## 1.1 The content of the conjecture
 
