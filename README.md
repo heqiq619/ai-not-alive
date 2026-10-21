@@ -51,7 +51,8 @@
 - `paper02.md` / `paper02.txt` — 第二章 / Chapter 2
 - `paper03.md` / `paper03.txt` — 第三章 / Chapter 3
 - `paper04.md` / `paper04.txt` — 第四章 / Chapter 4
-- `paper05.md` / `paper05.txt` — 第五章 / Chapter 5
+- paper05.md / paper05.txt — 第五章 / Chapter 5
+- paper09.md / paper09.txt — 实验篇 2：结构换算力（Structure for Compute Efficiency）
 
 英文版 / English translations:
 
