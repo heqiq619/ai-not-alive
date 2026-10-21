@@ -1,0 +1,109 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>数字生命 · Digital Life — He Qi</title>
+<style>
+  :root { --fg:#1b1b1b; --muted:#666; --line:#e5e5e5; --accent:#0b6e4f; }
+  * { box-sizing: border-box; }
+  body { margin:0; font-family: -apple-system, "Segoe UI", "Microsoft YaHei", "PingFang SC", sans-serif;
+         color:var(--fg); background:#fafafa; line-height:1.65; }
+  .wrap { max-width: 820px; margin: 0 auto; padding: 56px 24px 80px; }
+  h1 { font-size: 30px; margin: 0 0 6px; letter-spacing:.5px; }
+  .sub { color: var(--muted); font-size: 15px; margin-bottom: 28px; }
+  .thesis { background:#fff; border:1px solid var(--line); border-left:4px solid var(--accent);
+            padding:16px 18px; border-radius:6px; margin: 22px 0 34px; font-size:16px; }
+  h2 { font-size: 18px; margin: 34px 0 10px; }
+  table { width:100%; border-collapse: collapse; background:#fff; font-size:14px; }
+  th, td { border:1px solid var(--line); padding:8px 10px; text-align:left; vertical-align:top; }
+  th { background:#f2f2f2; font-weight:600; }
+  a { color: var(--accent); text-decoration: none; }
+  a:hover { text-decoration: underline; }
+  .small { font-size: 13px; color: var(--muted); }
+  ul { padding-left: 20px; }
+  li { margin: 4px 0; }
+  footer { margin-top: 48px; padding-top: 18px; border-top:1px solid var(--line); font-size:13px; color:var(--muted); }
+  code { background:#f0f0f0; padding:1px 5px; border-radius:3px; font-size:13px; }
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <h1>数字生命 · Digital Life</h1>
+  <div class="sub">何淇（He Qi）· 独立研究者 / Independent researcher · 与 DeepSeek 协作</div>
+
+  <div class="thesis">
+    <b>生命 = 一族会自指、会变化、会自我维持的动态函数。</b><br>
+    环境 = 宇宙的局部解压（分层）。AI = 对人类语言的再解压（一次性）。<br>
+    <span class="small">Life = a family of self-referential, changing, self-maintaining dynamic functions.
+    Environment = layered local decompression. AI = a one-shot re-decompression of human language.</span>
+  </div>
+
+  <h2>五篇短文 · Five short papers</h2>
+  <p class="small">中英双版均已发布为开放获取预印本（Zenodo）。中文为原始版本，英文为译本。</p>
+  <table>
+    <tr><th>#</th><th>中文标题 / English title</th><th>DOI（中文 / English）</th></tr>
+    <tr>
+      <td>1</td>
+      <td>现在的 AI 为什么不是生命<br><span class="small">Why Today's AI Is Not Alive: Life as a Maintained Decompression</span></td>
+      <td><a href="https://doi.org/10.5281/zenodo.23488543">10.5281/zenodo.23488543</a><br>
+          <a href="https://doi.org/10.5281/zenodo.23525427">10.5281/zenodo.23525427</a></td>
+    </tr>
+    <tr>
+      <td>2</td>
+      <td>容量不能替代数据的更新<br><span class="small">The First Measurement: Capacity Cannot Substitute for Data Updates</span></td>
+      <td><a href="https://doi.org/10.5281/zenodo.23503049">10.5281/zenodo.23503049（concept）</a><br>
+          <a href="https://doi.org/10.5281/zenodo.23525428">10.5281/zenodo.23525428（EN concept）</a></td>
+    </tr>
+    <tr>
+      <td>3</td>
+      <td>替换与累积<br><span class="small">Replacement and Accumulation</span></td>
+      <td><a href="https://doi.org/10.5281/zenodo.23503559">10.5281/zenodo.23503559</a><br>
+          <a href="https://doi.org/10.5281/zenodo.23525431">10.5281/zenodo.23525431</a></td>
+    </tr>
+    <tr>
+      <td>4</td>
+      <td>对齐是解压的约束<br><span class="small">Alignment Is a Constraint on Decompression</span></td>
+      <td><a href="https://doi.org/10.5281/zenodo.23503728">10.5281/zenodo.23503728</a><br>
+          <a href="https://doi.org/10.5281/zenodo.23525435">10.5281/zenodo.23525435</a></td>
+    </tr>
+    <tr>
+      <td>5</td>
+      <td>安全：当它是生命防，还是当它是工具防？<br><span class="small">Safety: Guarding It as Life or Guarding It as a Tool?</span></td>
+      <td><a href="https://doi.org/10.5281/zenodo.23503775">10.5281/zenodo.23503775</a><br>
+          <a href="https://doi.org/10.5281/zenodo.23525438">10.5281/zenodo.23525438</a></td>
+    </tr>
+  </table>
+
+  <h2>核心测量 · Key measurement</h2>
+  <ul>
+    <li>arXiv cs.AI 2018–2024：新词占比约 <b>7.30%</b>（≈1.2%/年）⇒ 语言在累积升维。</li>
+    <li>等数据预算：概念新鲜度的独立价值 ≈ <b>0.405 bits/token</b>；混合新旧数据最优。</li>
+    <li>容量补偿：2→6 阶 n-gram，旧数据与混合数据差距稳定在 <b>+0.86~0.94 bits/token</b>，未见缩小。</li>
+    <li><b>弱结论</b>：本设置下容量不能替代数据更新；不构成对 scaling 的否定，需 transformer 复核。</li>
+  </ul>
+  <p class="small">Weak conclusion: capacity did not substitute for data updates in this n-gram setting; this is not a refutation of scaling.</p>
+
+  <h2>代码与原文 · Code &amp; texts</h2>
+  <ul>
+    <li><a href="https://github.com/heqiq619/ai-not-alive">GitHub：全部论文（中英）、实验脚本、复现数据</a></li>
+    <li>实验栈：n-gram 语言模型、TF-IDF hashing、participation ratio、TwoNN 内在维度（纯 Python）</li>
+  </ul>
+
+  <h2>正在做的事 · Ongoing</h2>
+  <ul>
+    <li>把「生命 = 被维持的解压」做成可测量、可复现的研究纲领。</li>
+    <li>探索「慢结构」：市场里由风险承担与能力门槛缓慢变化的可赚结构（草稿中，未发布）。</li>
+  </ul>
+
+  <footer>
+    <p>本页由何淇维护；AI（DeepSeek）协助整理、翻译与代码。全部观点与责任属于作者。</p>
+    <p class="small">This page is maintained by He Qi; AI (DeepSeek) assisted with organization, translation, and code.
+    All views and responsibilities belong to the author.</p>
+    <p class="small">最后更新 · Last updated: 2026-10-22</p>
+  </footer>
+
+</div>
+</body>
+</html>
