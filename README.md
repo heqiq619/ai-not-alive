@@ -19,6 +19,8 @@
 | 3 | 替换与累积 | Replacement and Accumulation | [10.5281/zenodo.23503559](https://doi.org/10.5281/zenodo.23503559) | [10.5281/zenodo.23525431](https://doi.org/10.5281/zenodo.23525431) |
 | 4 | 对齐是解压的约束 | Alignment Is a Constraint on Decompression | [10.5281/zenodo.23503728](https://doi.org/10.5281/zenodo.23503728) | [10.5281/zenodo.23525435](https://doi.org/10.5281/zenodo.23525435) |
 | 5 | 安全：当它是生命防，还是当它是工具防？ | Safety: Guarding It as Life or Guarding It as a Tool? | [10.5281/zenodo.23503775](https://doi.org/10.5281/zenodo.23503775) | [10.5281/zenodo.23525438](https://doi.org/10.5281/zenodo.23525438) |
+| 6 | （草稿，未发布）市场的解压结构 | — | — | — |
+| 7 | 大模型的极限：工程墙、观测墙与世界本体墙 | The Limits of Large Models: The Engineering Wall, the Observation Wall, and the World-in-Itself Wall | [10.5281/zenodo.23527882](https://doi.org/10.5281/zenodo.23527882) | [10.5281/zenodo.23527902](https://doi.org/10.5281/zenodo.23527902) |
 
 ---
 
@@ -52,6 +54,7 @@
 - `paper03.md` / `paper03.txt` — 第三章 / Chapter 3
 - `paper04.md` / `paper04.txt` — 第四章 / Chapter 4
 - `paper05.md` / `paper05.txt` — 第五章 / Chapter 5
+- `paper07.md` / `paper07.txt` — 第七章 / Chapter 7（大模型的极限 / limits of large models）
 
 英文版 / English translations:
 
@@ -60,6 +63,7 @@
 - `english/paper-03-en.md` — Chapter 3
 - `english/paper-04-en.md` — Chapter 4
 - `english/paper-05-en.md` — Chapter 5
+- `english/paper-07-en.md` — Chapter 7
 - `english/alignment-forum-intro.md` — series introduction / 系列简介
 
 实验脚本 / Experiment code:
