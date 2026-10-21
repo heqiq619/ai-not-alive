@@ -86,3 +86,8 @@
 
 本文由何淇创作，DeepSeek（AI）协助文献检索、结构梳理、文字润色、翻译与实验代码编写；全部观点与责任属于作者。
 *Written by He Qi with AI (DeepSeek) assistance for literature search, structure, editing, translation, and experiment code; all views and responsibilities belong to the author.*
+
+## 合集 / Compendium
+
+《数字生命：一个可测量的生命定义（系列合集）》：https://doi.org/10.5281/zenodo.23543323 
+（文件：compendium.md / compendium.pdf）
