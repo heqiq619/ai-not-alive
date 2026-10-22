@@ -14,7 +14,7 @@
 
 | # | 中文标题 | English title | 中文 DOI | English DOI |
 |---|---|---|---|---|
-| 1 | 现在的 AI 为什么不是生命 | Why Today's AI Is Not Alive: Life as a Maintained Decompression | [10.5281/zenodo.23556637](https://doi.org/10.5281/zenodo.23556637)（v2） | [10.5281/zenodo.23528456](https://doi.org/10.5281/zenodo.23528456)（v2） |
+| 1 | 现在的 AI 为什么不是生命 | Why Today's AI Is Not Alive: Life as a Maintained Decompression | [10.5281/zenodo.23556844](https://doi.org/10.5281/zenodo.23556844)（v2） | [10.5281/zenodo.23528456](https://doi.org/10.5281/zenodo.23528456)（v2） |
 | 2 | 容量不能替代数据的更新 | The First Measurement: Capacity Cannot Substitute for Data Updates | [10.5281/zenodo.23503050](https://doi.org/10.5281/zenodo.23503050) | [10.5281/zenodo.23525429](https://doi.org/10.5281/zenodo.23525429) |
 | 3 | 替换与累积 | Replacement and Accumulation | [10.5281/zenodo.23503559](https://doi.org/10.5281/zenodo.23503559) | [10.5281/zenodo.23525431](https://doi.org/10.5281/zenodo.23525431) |
 | 4 | 对齐是解压的约束 | Alignment Is a Constraint on Decompression | [10.5281/zenodo.23503728](https://doi.org/10.5281/zenodo.23503728) | [10.5281/zenodo.23525435](https://doi.org/10.5281/zenodo.23525435) |
