@@ -91,3 +91,18 @@
 
 《数字生命：一个可测量的生命定义（系列合集）》：https://doi.org/10.5281/zenodo.23543323 
 （文件：compendium.md / compendium.pdf）
+
+## English
+
+- **Series compendium (English)**: `english/compendium-en.md` — DOI: https://doi.org/10.5281/zenodo.23592170
+- Introduction: `english/paper-00-en.md` — DOI: https://doi.org/10.5281/zenodo.23592095
+- Paper 1 (rigorous): `english/paper-01-en-rigorous.md` — DOI: https://doi.org/10.5281/zenodo.23592097
+- Paper 10 (color): `english/paper-10-en.md` — DOI: https://doi.org/10.5281/zenodo.23592102
+- Paper 11 (growth & memory): `english/paper-11-en.md` — DOI: https://doi.org/10.5281/zenodo.23592108
+- Paper 14 (semantic residual): `english/paper-14-en.md` — DOI: https://doi.org/10.5281/zenodo.23592114
+- Paper 16 (layering): `english/paper-16-en.md` — DOI: https://doi.org/10.5281/zenodo.23592122
+- Paper 17 (thickness & randomness): `english/paper-17-en.md` — DOI: https://doi.org/10.5281/zenodo.23592133
+- Appendix A (thickness & dimension): `english/paper-15-en.md` — DOI: https://doi.org/10.5281/zenodo.23592147
+- Earlier English papers (2, 3, 4, 9, alignment, safety) are referenced in the English compendium's contents.
+
+*Note: the Chinese text is authoritative; English files are translations.*

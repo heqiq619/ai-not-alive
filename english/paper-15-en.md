@@ -1,0 +1,105 @@
+# Paper 15 (Draft) · Thickness and Dimension: A Geometric Picture of the Residual
+
+> He Qi · with DeepSeek (AI)
+> Digital Life Series · Theory Note 2 (internal number: Paper 15)
+> Date: 2026-10-24
+> English translation of the Chinese original. The Chinese text is authoritative: https://doi.org/10.5281/zenodo.23590887
+> English compendium: https://doi.org/10.5281/zenodo.23592082
+> Series page: https://github.com/heqiq619/ai-not-alive
+
+---
+
+## Abstract
+
+This paper gives "residual" a geometric picture, and puts several scattered concepts from the series into a single picture.
+
+The picture is this: treat a function as its own graph — a surface. The ideal functionizable function is a "thin" surface: one input corresponds to one output. Once the same input corresponds to a family of outputs (error band, ambiguity, uncertainty), the surface has "thickness."
+
+The key step is raising dimension: flatten the thickness into extra coordinates, and the thick surface becomes a thin surface in a higher-dimensional space. Thus the residual divides into two kinds — the kind that can be flattened by raising dimension (reducible), and the kind that cannot be flattened (irreducible, geometrically the candidate for R). The ratio of thickness to scale is the relative residual: when the distinguishable dimensions of the world decrease, the scale shrinks while the thickness does not decrease, so the relative residual rises, and in the extreme the surface blurs into a single mass (heat death).
+
+This picture also gives one interpretation of "layering": a layer is a dimension in the thickness direction, and adding layers amounts to hanging more representations on the same input. This paper labels this part [conjecture], and maps the measurable parts (the raising-dimension experiment, semantic residual) onto experiments the series already has.
+
+---
+
+## I. The Problem
+
+Several concepts have appeared in the series; each can be stated clearly on its own, but their relations to one another have so far been held together by prose: functionizability, residual, reducible and irreducible, growth and degradation, layering and dynamics. The question of this paper is: can they be given a common picture?
+
+The answer is yes: a surface that has thickness and that evolves.
+
+## II. The Picture
+
+Treat a function as its graph: the set of points formed by all inputs together with their corresponding outputs is a surface.
+
+- Thin surface: one input corresponds to one output. This is what "functionizable" looks like.
+- Thick surface: the same input corresponds to a family of outputs — error band, ambiguity, uncertainty. This is what "having a residual" looks like.
+
+A surface has three directions that must be made clear: the middle surface (the ideal function itself), the thickness direction (the range of outputs over the same input), and the time direction (the movement and deformation of the surface over time). What one sees at any instant is a frozen thick surface.
+
+## III. Three Correspondences (Definitions)
+
+**Correspondence One (functionizable ⇔ thin)**: an object is functionizable if and only if the thickness of its surface can approach zero.
+
+**Correspondence Two (residual ⇔ thickness)**: the residual is the thickness. The absolute residual is the absolute width of the thickness; the relative residual is the ratio of thickness to scale, where the scale is the range over which outputs can be distinguished.
+
+**Correspondence Three (reducible/irreducible ⇔ flattenable/non-flattenable)**: raising dimension is adding coordinates to the surface; thickness can be flattened into extra coordinates, and the surface becomes thinner accordingly. Thickness that can be flattened by adding dimensions is reducible residual; thickness that cannot be flattened no matter how high the dimension is raised is irreducible residual — this is the geometric candidate for R.
+
+The "irreducible" in the third statement is something at the [definition/speculation] level, not a theorem: we do not know whether non-flattenable thickness really exists, and we write it down only as a candidate concept.
+
+**Correspondence Four (dimension coupling ⇔ thickness that cannot be spread out)**: the dimensions of life are not all independent. Some dimensions are tied together — they appear together and change together, and cannot be separated on their own. In separable directions, raising dimension can flatten the thickness; in directions that are tied shut, the thickness cannot be flattened: it is not that we do not know, and not that the world has a non-functionizable part, but that these dimensions are coupled and cannot be pulled apart.
+
+Thus "thickness" can be divided into three classes: reducible thickness (raising dimension can flatten it), structural thickness (dimension coupling, cannot be pulled apart), and the R candidate (no dimension works, undecided). This statement is likewise [speculation].
+
+## IV. The Picture of Dimensional Reduction ([conjecture])
+
+With the two quantities thickness and scale, one evolutionary direction can be described:
+
+Starting point: thin but high-dimensional. There are many distinguishable directions, the scale is large, the residual is small, and the surface is stretched out.
+
+Process: the distinguishable dimensions decrease. The scale shrinks; if the thickness does not shrink along with it, the relative residual rises, and the surface is compressed from "thin but high-dimensional" into "thick but low-dimensional."
+
+End point: zero-dimensional and entirely thick. All directions disappear, and only a constant remains; the surface degenerates into a layer of fog — this is what heat death looks like geometrically.
+
+In this picture, life and growth are the reverse process: raise dimension, flatten the thickness away, and make the relative residual fall. It is an energy-consuming counter-current: locally opposing the tendency to "decrease in dimension and thicken."
+
+This entire section is [conjecture], not theorem. It agrees in direction with the series' "Information Non-Increase Theorem" and "The Contraction of Functionizable Content," but those conclusions are at the information-theoretic level; here we only give them a picture.
+
+## V. Layering Is a Dimension in the Thickness Direction ([conjecture])
+
+For a frozen model, there is no real time evolution; the only thing it has for "simulating dynamics" is depth. In this picture, a layer can be seen as an extra dimension in the thickness direction: each added layer hangs a new set of representations on the same input, which amounts to thickening the surface and then adding coordinates.
+
+This yields a testable claim: the more "steps" (time evolution) a task requires, the greater the depth a frozen model requires — it trades space (layers) for time (evolution). This claim can be turned into an experiment: use iterative tasks to measure "number of layers vs number of steps required."
+
+This entire section is labeled [conjecture].
+
+## VI. The Measurable Parts
+
+In this picture, two parts can be made concrete.
+
+The first is the raising-dimension experiment: add dimensions (add input channels, add modalities, enlarge the model) and see whether the thickness gets thinner. The series' semantic residual experiment is one example: text-only, the residual has an analytical floor (the thickness cannot be flattened); once images are attached, the residual falls to zero (the thickness is flattened). This is exactly "reducible residual."
+
+The second is the "number of layers vs number of steps" experiment: use iterative tasks to test whether the depth a frozen model requires grows with the number of steps. This item is not done in this paper and is left for later work.
+
+## VII. What It Shows and What It Does Not Show
+
+What it shows: residual, reducible and irreducible, growth and degradation, layering and dynamics can all be described uniformly by a single surface that has thickness; within this, "reducible/irreducible" has a geometric counterpart (flattenable/non-flattenable), and "dimensional reduction" has a geometric counterpart (the scale shrinks, the relative residual rises).
+
+What it does not show: this picture is not a mathematical theorem, and no rigorous definition of the surface is given (whether the domain is continuous or discrete, and how thickness is measured, both require separate work); it does not prove that absolute R exists or does not exist; it does not prove the quantitative relation "number of layers = number of steps."
+
+## VIII. Relation to Existing Work
+
+The "thickness" picture has many close relatives: fiber bundles (fibers hung over a base space), uncertainty bands, ε-tubes, and the idea in manifold learning that "a low-dimensional embedding represents high-dimensional data." This paper does not mathematize it and treats it only as the series' unifying picture; if it is to be made rigorous later, fiber bundles and ε-tubes are ready-made language.
+
+Within the series: Paper 0 gives P/R and the domain; Paper 12 gives information non-increase; Paper 13 gives content contraction; Paper 14 gives semantic residual. This paper is the geometric counterpart to these papers.
+
+---
+
+## Appendix: Labels
+
+- **[picture]** The three directions of the surface — middle surface, thickness, time — an intuitive model.
+- **[definition]** functionizable ⇔ thickness can approach zero; residual ⇔ thickness; relative residual = thickness/scale.
+- **[speculation]** reducible residual = thickness that can be flattened; R = thickness that cannot be flattened.
+- **[conjecture]** the picture of dimensional reduction; life = the counter-current that raises dimension and flattens thickness; layer = a dimension in the thickness direction.
+- **[measurable]** the raising-dimension experiment (already done, Paper 14); the number of layers vs number of steps experiment (not done).
+
+> This paper was created by He Qi, with DeepSeek (AI) assisting in organizing it; the views and responsibility belong to the author.

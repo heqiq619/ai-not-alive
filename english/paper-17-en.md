@@ -1,0 +1,120 @@
+# Paper 17 — Thickness and Randomness: Where a Frozen Model Is Least Stable
+
+> He Qi · with DeepSeek (AI)
+> Digital Life Series · Experiment Paper 7 (internal number: Paper 17)
+> Date: 2026-10-24
+> English translation of the Chinese original. The Chinese text is authoritative: https://doi.org/10.5281/zenodo.23591514
+> English compendium: https://doi.org/10.5281/zenodo.23592082
+> Series page: https://github.com/heqiq619/ai-not-alive
+
+---
+
+## Abstract
+
+A frozen model has no real time evolution; it can only use layers to simulate "multi-step computation." This paper asks a measurable question: in such a model, where does randomness / uncertainty appear?
+
+First we give three corollaries based on the "thickness" picture: positions that require more steps have larger error and randomness; randomness accumulates with depth and is largest at the output end; where human disagreement is large (thick and non-flattenable), the model's entropy is also large, and adding data does not flatten it away.
+
+Then we run three groups of toy experiments. The first group is a sequential accumulation task: the further back the position (the more steps required), the more the error of a fixed 16-layer model rises, from 0.67 to 1.57, and the standard deviation of the output after noise is added to the input rises from 0.20 to 0.40. The second group measures layer-by-layer variance: the standard deviation rises monotonically from 0.21 at the first layer to 0.41 at the last layer; with clean input, by contrast, the error does not rise with layer number, showing that the rise comes from noise being amplified layer by layer. The third group simulates human disagreement: for the two classes thin (factual questions, where humans agree) and thick (judgment questions, where humans disagree), human disagreement entropy is 0.000 versus 1.014, model predictive entropy is 0.249 versus 0.972, and the correlation coefficient is 0.917; increase the data fivefold, and entropy on thin questions falls from 0.249 to 0.145, while thick questions barely move (0.972 to 0.958). The fourth group gives "time": after eight iterative steps, entropy on thin questions is pressed from 0.69 to 0.02, while thick questions only go from 0.99 to 0.91; repeated sampling with voting is similar (thin 0.67 to 0.28, thick 0.96 to 0.69).
+
+Taken together, the four experiments support two sentences: **the thickest place in a frozen model is the place where it is most random; and "thickest" can be measured by required steps and by human disagreement. Giving data and time can flatten away "the randomness caused by freezing," but cannot flatten away "the disagreement in the data" — the latter is what is truly thick.** Everything is at toy scale, and no real large model is involved.
+
+---
+
+## I. The Problem
+
+Today's models are frozen: the weights do not change, and there is no real time evolution. To complete, within a single forward pass, a computation that "requires many steps," such a model can only spread the computation out across layers.
+
+So the question arises: after spreading it out this way, where do things become unstable and random? The hypothesis of this paper comes from the "thickness" picture: places with large thickness (places that require many steps and cannot be flattened away) will show up in a frozen model as larger error and randomness.
+
+We break the hypothesis into three measurable corollaries:
+
+- Corollary 1: the more steps a position requires, the larger the error, and the more random the output under input perturbation.
+- Corollary 2: randomness accumulates with depth and is largest at the output end / in the later stages.
+- Corollary 3: where human disagreement is large (thick and relatively non-flattenable), the model's entropy is also large, and adding data cannot press it down.
+- Corollary 4: giving it "time" (multi-step iteration, multi-sample voting) can press down the randomness caused by freezing, but cannot press down the disagreement in the data.
+
+## II. Experiment 1: The More Steps Required, the Greater the Error and the Randomness
+
+Task: given a random increment sequence d_1 … d_16, the world evolves as x_t = tanh(x_{t-1} + d_t) from an initial value of zero; the model is required to predict x_t at every position. Predicting x_t requires at least t steps, so the "thickness" is t.
+
+Model: a weight-shared recurrent cell that processes one increment per step, 16 layers in total, with an output head attached to every layer (deep supervision); frozen after training.
+
+Results: with the 16 layers fixed, the error at each position rises from 0.67 at position 1 to 1.54 at position 4, then saturates between 1.5 and 1.6. After Gaussian noise is added to the input (standard deviation 0.3) and the model is sampled many times: the standard deviation of the output at each position rises from 0.20 at position 1 to 0.40 at position 16, likewise saturating in the later stages.
+
+Reading: positions that require more steps (that are thicker) have larger error and a less certain output. The two traces of thickness appear at the same time.
+
+## III. Experiment 2: Randomness Accumulates with Depth and Is Largest at the Output End
+
+The same model, with the question changed to: at which layer is the randomness largest?
+
+Method: add noise to the input, sample 20 times, and measure the standard deviation of each layer's output. Results: 0.21 at the first layer, 0.32 at the fourth, 0.38 at the eighth, 0.40 at the twelfth, and about 0.41 at the last two layers — the standard deviation rises monotonically with layer number and saturates at the end.
+
+Control: with clean input, the error does not rise with layer number (after position 4 it stays essentially flat at around 1.5). This shows that the rise in randomness at the end is not because the model itself is bad, but because "this chain amplifies a small perturbation of the input all the way along."
+
+Reading: in a frozen model, uncertainty accumulates at the "end"; the further along it goes, the smaller the room left for contraction. This corresponds to "thickness is largest at the output end."
+
+## IV. Experiment 3: Where Human Disagreement Is Large, the Model Is Also Most Random
+
+The first two experiments are synthetic tasks; the third switches to "questions that have disagreement."
+
+Setup: questions fall into two classes. A thin question is a factual question: the answer is determined by the input, and everyone gives the same answer. A thick question is a judgment question: the answer depends on each person's preference, and differs from person to person. We simulate the preferences of 60 people, with 400 training questions and 200 test questions; the model is a small MLP that learns P(answer | question) and is frozen after training.
+
+Results: the entropy of human answers is about 0.000 for thin questions and about 1.014 for thick questions (the entropy ceiling for a three-way choice is 1.099). The model's predictive entropy is 0.249 for thin questions and 0.972 for thick questions. The correlation coefficient between the two is 0.917.
+
+Next, "can it be flattened away": increase the training data fivefold. The model's entropy on thin questions drops from 0.249 to 0.145; on thick questions it drops only from 0.972 to 0.958, barely moving.
+
+Reading: the model's uncertainty follows human disagreement — where people find disagreement, the model is also random; and this randomness is not caused by "not enough data" (five times the data still does not move it): human disagreement itself is in the data, and belongs to the non-flattenable part under that data.
+
+## V. Experiment 4: What Giving Time Can Flatten Away
+
+The first three experiments show that "thick places are random." The fourth experiment asks: can giving time press the randomness down?
+
+There are two ways to give time. The first is iterative refinement: the model takes several extra steps through weight-shared recurrent layers (during training it is supervised step by step over eight steps); the second is sampling and voting: sample repeatedly from the model's distribution and decide the answer by majority vote.
+
+Results of iteration: the predictive entropy on thin questions is pressed from 0.69 at one step down to 0.02 at eight steps, almost completely flattened away; thick questions only go from 0.99 to 0.91, and are not flattened.
+
+The voting results are similar: with a single sample, the decision entropy is 0.67 for thin and 0.96 for thick; after sampling nine times and voting, thin drops to 0.28 and thick drops to 0.69 — both fall, but thick is still high.
+
+Reading: what time flattens away is "the randomness caused by freezing"; what it cannot flatten away is "the disagreement in the data" (humans already disagree among themselves). In other words, what time can flatten away does not count as truly thick; what cannot be flattened away is what is truly thick. This connects directly to the distinction between "flattenable / non-flattenable": the flattenability of data and the flattenability of time are two testing directions for the same thickness.
+
+## VI. The Training Mechanism: What It Learns Is a Distribution, Not a Decision
+
+Taken together, these three experiments give a simple mechanistic explanation: a frozen model does not train a "decision"; it trains an "answer distribution."
+
+- Thin places: the distribution is sharp, and behavior looks like a deterministic function;
+- Thick and non-flattenable places: the distribution is wide and multi-modal; the frozen model stores it as a wide distribution, and at inference time, sampling once from it looks random and inconsistent.
+
+So "the model is unstable on judgment questions" is not necessarily a defect: those places are thick to begin with. To make it stable, adding data does not help (Experiment 3 has shown this); something else is needed — give it time (think a few more steps, correct over several rounds), or add dimensions that can spread the thickness out.
+
+## VII. Limitations
+
+First, all three experiments are synthetic: the world, the questions, and the human preferences are all generated by programs.
+
+Second, the models are all toy-scale (a few thousand parameters), not large models; the trends are readable, but the absolute values are not reliable.
+
+Third, part of the correlation in Experiment 3 is by design: the randomness of thick questions is itself constructed from the preference distribution. What it verifies is that "the mechanism lines up," not "the correlation on real human data."
+
+Fourth, the "time" in Experiment 4 is a toy version of iteration and voting, not a real chain of thought; whether "thinking longer flattens things away" on real models still needs separate verification.
+
+## VIII. Relation to Existing Work
+
+"Uneven distribution of model uncertainty" is not a new observation: calibration research long ago measured differences in confidence across questions; human label variation likewise points out that different annotators on the same question disagree to begin with; and "aleatoric uncertainty" is precisely the study of the irreducible noise in the data itself.
+
+What is different here is that a single quantity (thickness) ties three things together: how many steps are needed, at which layer the randomness sits, and how large human disagreement is, all fall under the concept of "thickness"; and we use "whether entropy drops after adding data" to distinguish the flattenable from the non-flattenable.
+
+## IX. Reproducibility
+
+Scripts: 861_thickness_map_v2.py (Experiment 1), 862_layer_variance.py (Experiment 2), 870_human_disagreement.py (Experiment 3), 881_time_flattening_v2.py (Experiment 4). Depends on Python 3 and numpy; no GPU; low memory footprint.
+
+---
+
+## Appendix: Labels
+
+- **[fact]** The numbers from the three experiments: error and randomness rise with thickness; end-of-chain variance is largest; human disagreement correlates with model entropy at 0.917; with five times the data, thick entropy does not move.
+- **[mechanism]** The model learns a distribution, not a decision — an explanatory statement, not a theorem.
+- **[fact]** Time can flatten away the entropy of thin (0.69→0.02), but not of thick (0.99→0.91); the same holds for voting.
+- **[not done]** The same test on a real chain of thought / a large model.
+- **[not claimed]** We do not claim that a real large model shows the same numbers; we do not claim that a human experiment has been verified.
+
+> This paper was written by He Qi, with DeepSeek (AI) assisting in experiment design and code writing; the views and responsibility belong to the author.

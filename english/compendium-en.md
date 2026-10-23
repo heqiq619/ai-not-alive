@@ -1,0 +1,2553 @@
+# Digital Life: A Measurable Definition of Life (Series Compendium, English)
+
+> Author: He Qi · with DeepSeek (AI)
+> Date: 2026-10-24
+> English translation of the Chinese series compendium. The Chinese text is authoritative.
+> Series page: https://github.com/heqiq619/ai-not-alive
+> This volume: https://doi.org/10.5281/zenodo.23592082
+
+---
+
+## Contents
+
+**Paper 0 — From Two Facts: Introduction to the Digital Life Series**　DOI: https://doi.org/10.5281/zenodo.23592095
+
+**Paper 1 — Why Today's AI Is Not Alive**　DOI: https://doi.org/10.5281/zenodo.23592097
+
+**Paper 2 — Capacity Cannot Substitute for Data Updates**　DOI: https://doi.org/10.5281/zenodo.23526665
+
+**Paper 3 — Replacement and Accumulation**　DOI: https://doi.org/10.5281/zenodo.23525431
+
+**Paper 4 — Structure for Compute Efficiency: Mixed-Aligned Corpora and Sample Efficiency**　DOI: https://doi.org/10.5281/zenodo.23542969
+
+**Paper 5 — Color as the First Building Block**　DOI: https://doi.org/10.5281/zenodo.23592102
+
+**Paper 6 — Growth and Memory: Minimal Experiments on Self-Referential Update and Maintenance**　DOI: https://doi.org/10.5281/zenodo.23592108
+
+**Paper 7 — Measuring the Semantic Residual: The Text Limit and Grounding**　DOI: https://doi.org/10.5281/zenodo.23592114
+
+**Paper 8 — Layering Is Compensation for Dynamics: A Toy Experiment in Adaptive Depth**　DOI: https://doi.org/10.5281/zenodo.23592122
+
+**Paper 9 — Thickness and Randomness: Where a Frozen Model Is Least Stable**　DOI: https://doi.org/10.5281/zenodo.23592133
+
+**Paper 10 — Alignment Is a Constraint on Decompression**　DOI: https://doi.org/10.5281/zenodo.23525435
+
+**Paper 11 — Safety: Guarding It as Life or Guarding It as a Tool**　DOI: https://doi.org/10.5281/zenodo.23525438
+
+**Appendix A — Thickness and Dimension: A Geometric Picture of the Residual**　DOI: https://doi.org/10.5281/zenodo.23592147
+
+---
+
+## Paper 0 — From Two Facts: Introduction to the Digital Life Series
+
+Standalone DOI: https://doi.org/10.5281/zenodo.23592095
+
+## Abstract
+
+This paper does not argue; it does only four things: lay out two facts, give one definition, set out the special case of the digital world, and then use it to look at today's AI. The two facts are: the p-language of language can be approximated by functions; the laws of physics can be described mathematically. The definition is: write the universe as two parts (universe = P + R), and write life as two parts as well (life = p + R-life); p is a self-referential structure that lies in P and is preserved (maintainable), and R is the non-functionizable part. This paper is the introduction; the checklist, the three necessary conditions, and the discussion of emergence are all in Paper 1.
+
+## Notation
+
+- **P**: the functionizable part of the universe.
+- **R-universe**: the non-functionizable part of the universe; this paper only declares that it may exist, and does not develop it.
+- **p-life**: the part of life that falls in P — the object this paper defines and discusses.
+- **R-life**: the part of life that falls in R; only declared, not developed.
+- **p-environment / R-environment**: the two parts of the environment, defined in the same way.
+- **p-language / R-language**: the two parts of language; what large models compress is p-language.
+- **Residual**: the form in which R's influence on the p level manifests — a lower bound on error that cannot be eliminated at the p level.
+
+From here on we use shorthand throughout: when we say "the universe" we mean P, when we say "life" we mean p-life, and when we say "the environment" we mean p-environment.
+
+## 1. Two Facts
+
+The first fact: the laws of physics can be described mathematically. The evidence is existence — physics itself is this.
+
+The universe can be written as a decomposition:
+
+> universe = P + R-universe
+
+P is the functionizable part; R-universe is the non-functionizable part. The part described by the laws of physics falls in P. So at least we can say: P is non-empty.
+
+The second fact: part of language can be approximated by functions. The evidence is not reasoning but existence — large models, using finite parameters and a computable process, generate text that is statistically close to human language.
+
+Language can also be written as a decomposition:
+
+> language = p-language + R-language
+
+p-language is the functionizable part of language, and it is what large models compress; R-language is the non-functionizable part of language, which function approximation cannot reach. So the accurate statement is not "language can be approximated by functions", but "the p-language of language can be approximated by functions"; about R-language we can only remain silent.
+
+Together the two facts show: the universe is not entirely non-functionizable. There exists at least one non-empty functionizable part, denoted P. This layer is not a conjecture but an inference from facts; it says only that P exists, not how large P is.
+
+The boundary between P and R is absolute: an object is either functionizable (belongs to P) or non-functionizable (belongs to R); there is no in-between; P ∩ R = ∅, P ∪ R = the universe.
+
+If R has an influence on the p level, it will not be described directly by the language of functions; it will show up only as a residual that cannot be eliminated at the p level: no matter how much more data and capacity are added, the error stays at some positive number. This lower bound on error is the projection of R onto the p level.
+
+For convenience in what follows, we abbreviate it as:
+
+> universe = P + residual
+> life = p-life + residual
+> environment = p-environment + residual
+
+What follows discusses only the P side; the residual is mentioned only when needed, and its content is not developed.
+
+## 2. One Definition
+
+First write the universe as two parts:
+
+> universe = P + R-universe
+
+P is the functionizable part, and R-universe is the non-functionizable part of the universe. The two facts guarantee that P is non-empty; how large R-universe is, this paper does not know and does not claim.
+
+On this decomposition, life itself is also written as two parts:
+
+> life = p + R-life
+
+Here p is the functionizable part: a self-referential structure that lies in the universe's P and is preserved (maintainable); R-life is the non-functionizable part of life itself: this paper does not know what it is, and does not claim that it does not exist. Note that the two R's are not the same thing — R-universe is the non-functionizable part at the level of the universe, while R-life is the non-functionizable part inside a single life.
+
+Three things define p-life. First, scope: p is sought only in the universe's P (by the same token, language also divides into p-language and R-language, and what large models approximate is p-language).
+
+Second, preserved — that is, maintained. Here we must make clear a place that is easy to get backwards: maintenance is not an attribute of life itself but a relation between life and the universe. Whether a structure can be preserved depends on whether its orbit stays inside the universe's maintainable set; this condition is written in the universe, and is not announced by the structure itself. So "preserved" is the name of a relation, not a third coordinate attribute standing alongside the others.
+
+Third, self-reference: the update rule is inside the system itself. This is an attribute internal to life, and it is also where it differs from an ordinary program.
+
+What about R-life? It can only be handled as an approximation, with a lower bound on error attached. So the criteria and measurements of this paper cover p-life, not the whole of life; about R-life, this paper says only "the approximation stops here".
+
+The definition is made, not discovered; whether it holds depends on whether it can distinguish, and whether it can derive something measurable.
+
+One point needs to be stated: as for the R part, this series only declares its existence here — the universe, life, the environment, and language can all be written as p + R, but what R is and how large it is, this paper does not know and does not claim. For ease of understanding, what follows by default discusses only the p side: whenever we say "the universe", we mean P; whenever we say "life", we mean p-life; whenever we say "the environment", we mean p-environment. What follows uses "residual" to denote the influence of R; the concrete content of R is no longer developed.
+
+## 3. The Digital World: Fully Functionizable
+
+The digital world is fully functionized: it consists of bits, states, and transition rules, and has no part that a function description cannot reach. As a formal object, its absolute R = ∅ — this is guaranteed by construction: every property corresponds to a mathematical function, even if that function is not computable.
+
+Digital life is part of the digital world, so its R-life can only be the empty set as well: digital life = p-life, fully functionizable.
+
+Whether absolute R exists, this paper does not judge (see the supplementary section). For digital life, there is truly only one decisive question: **must life have an absolute R?** There are only two outcomes.
+
+The first outcome, life can lack an absolute R: then digital life is possible — it consists entirely of p-life and needs no absolute R at all.
+
+The second outcome, life must have an absolute R: then digital life is impossible — the digital world cannot produce an absolute R.
+
+This paper does not judge which outcome holds. What can be certain is: whichever it is, this paper's definition and measurement of p hold; the only difference is whether digital life is possible or impossible.
+
+One more sentence, on something easy to confuse: the above concerns absolute R; for any finite observer, relative R is non-empty (see the supplementary section), and it does not affect this judgment. In addition, functionizable does not equal measurable — measurement also requires computability, observability, and reproducibility. The digital world has all of these, so measurement is feasible in the digital world; for the universe as a whole, even if it can be described by functions, we cannot measure it, because we live inside it.
+
+## 4. Using It to Look at Today's AI
+
+Under the present definition, AI lacks two things. Its update rule is on the outside, so it is not self-referential; its maintenance is also not its own affair — it is maintained by external power supply and operations, which is its relation to the universe, not its own capacity.
+
+So it is a very strong decompressor, but once it has been written it just stops there — a frozen decompressor. It has no R-life: in the digital world R = ∅, so AI is a pure-p decompressor.
+
+## 5. The Place of This Introduction
+
+This paper gives only facts, definitions, and conclusions. The derivation details, the checklist, the three necessary conditions, and the discussion of emergence are all in Paper 1; the measurement is in Paper 2; the experiments are in Papers 4 through 9; the constraints and safeguards are in Papers 10 and 11. The whole series is arranged in this order.
+
+---
+
+> This paper was written by He Qi, with DeepSeek (AI) assisting in the arrangement; the views and the responsibility belong to the author.
+
+## Supplement (Optional Reading): The Domain and Codomain of P
+
+The main line ends with the previous section; this section adds only one formal detail: what exactly the "domain" and "codomain" of P are. Not reading it does not affect the main line.
+
+The universe (the P side) can be regarded as a state space S: all states that can be described by functions. The universe function is its mapping to itself, written F: S → S. So the domain of P is S, and the codomain is S as well — it maps to itself.
+
+An observer O is just a subsystem inside S: the input it can read is a subspace of S, denoted D_O; the output it can write is another subspace, denoted C_O. Both D_O and C_O are contained in S. The observer's "functionizability" (P_O) is just this: between D_O and C_O, there exists a family of functions whose error can approach zero.
+
+R has no domain or codomain to speak of: domain/codomain are concepts in the language of functions, and R is the non-functionizable side. So of R one cannot ask "what is its domain" — this question itself uses the wrong language.
+
+Where what follows involves "domain/codomain", it means by default the observer-side D_O and C_O; for P at the universe level, it means by default the self-mapping S → S.
+
+### Why Relative R Is Non-Empty (Optional Reading)
+
+If the domain/codomain of the world fluctuates within the observer's update period (fast variables), the observer cannot keep up with these changes; that part is non-functionizable for it, and so relative R is non-empty. This is a sufficient condition: there are fast-variable fluctuations ⇒ relative R is non-empty. We have not said that it must hold, and we do not explain the causes of the fluctuations.
+
+Two further strengthening reasons (either one suffices): first, finite resources — cannot see everything, cannot compute everything; second, self-reference — cannot fully predict itself (a system that can always predict its own next step can do the opposite, and thereby contradict itself).
+
+Whether absolute R exists, this paper does not judge.
+
+The same holds for the digital world: inside it, too, there must be relative R. The same sufficient condition — short-term fluctuations of the domain/codomain; and in addition three further, mutually independent sufficient conditions: undecidability, computational irreducibility, self-reference (cannot fully predict itself). Here two sentences must be distinguished: "the digital world R = ∅" is a statement at the ontological level; "relative R is non-empty" is a statement at the observer level — fully functionizable does not equal fully knowable.
+
+One last sentence about the boundary: if the essence of life lies on the absolute R side, this paper — and any text written in the language of functions — cannot give its definition. This is not an oversight but the boundary of the language of functions: the definition itself is on the P side, and to define R in the language of P is to pull it back into P.
+
+---
+
+## Paper 1 — Why Today's AI Is Not Alive
+
+Standalone DOI: https://doi.org/10.5281/zenodo.23592097
+
+## Abstract
+
+This paper starts from two facts: physical laws can be described mathematically; and part of language can be approximated by functions. Together the two facts show that the universe has at least one non-empty functionizable part P.
+
+Write the universe as universe = P + R-universe, and life as life = p-life + R-life. p-life is the part of life that falls in P: within the universe's P, a dynamic function class preserved by the universe — it is a family, it changes, and it is self-referential. About the R part, this paper only declares that it may exist, and does not expand it.
+
+Under this definition, today's AI is not life: it is a thing that exists in the digital world, a frozen function point at the p level — its update rule lies outside, and it is not preserved by itself. The digital world is a completely functionizable world (R = ∅), so if digital life exists it can only fall entirely within p; this paper sets the question out (three cases) and does not judge which one holds.
+
+The contribution of this paper is a definition and measurable criteria, not the empirical conclusion that "life has been created"; the tests of the three necessary conditions and the illustrative experiments are for the reader to take and use.
+
+**Keywords:** definition of life; p-life; function class; decompression; digital world; AI emergence; self-reference
+
+
+## The argument chain of this paper
+
+The whole argument has only five steps; the reader may look at this skeleton first and read the details afterwards.
+
+Step one (Section 1): two facts ⇒ the universe has at least one non-empty functionizable part, denoted P.
+
+Step two (Section 2): give a definition on P — life = p-life + R-life; p-life is the dynamic function class that is in P, preserved by the universe, changing, and self-referential.
+
+Step three (Section 3): show that the difference between life and environment is only one thing — preserved vs not preserved; the environment is a local decompression of the universe.
+
+Step four (Sections 4 and 5): the digital world is completely functionizable (R = ∅), so digital life, if it exists, can only be equal to p-life; substituting today's AI into the definition and checking it, it lacks the three things "a family, self-reference, being preserved", and is therefore not life.
+
+Step five (Sections 6 and 7): extract three necessary conditions from the definition (with experimental evidence attached); then explain that AI's emergence is "the compression and decompression of language p-language", separating the factual layer from the speculative layer.
+
+Boundary: R is only declared, not expanded; whether absolute R exists is not judged; this paper does not claim that "life has been created".
+
+## Notation
+
+- **P**: the functionizable part of the universe.
+- **R-universe**: the non-functionizable part of the universe; this paper only declares that it may exist, and does not expand it.
+- **p-life**: the part of life that falls in P — the object this paper defines and discusses.
+- **R-life**: the part of life that falls in R; declared only, not expanded.
+- **p-environment / R-environment**: the two parts of the environment, defined in the same way.
+- **p-language / R-language**: the two parts of language; what large models compress is p-language.
+- **residual**: the measurable error floor on the P side — the shape of P's boundary. It is not called "the influence of R" (R has no domain, so there is no question of its acting).
+
+What follows always uses shorthand: "universe" means P, "life" means p-life, "environment" means p-environment.
+
+## Contents
+
+- The argument chain of this paper
+- 1. Starting point: two facts
+- 1.1 What "functionizable" means
+- 2. An operational definition
+- 2.1 Definition
+- 2.2 One clarification: maintenance is a relation
+- 2.3 Why it must be "a family" and not "a function"
+- 2.4 Changing = three time scales
+- 2.5 Self-reference = the update rule is inside itself
+- 3. Life and environment
+- 3.1 Connection with what comes before
+- 3.2 Life vs environment: both in the universe, both functions, one single difference
+- 3.3 What the environment is: the "local decompression" that emerges spontaneously in the universe
+- 3.4 The environment is layered: life lives in many layers of environment, and also lives in the universe
+- 3.5 Annotations
+- 4. The special character of the digital world
+- 4.1 Special to whom
+- 5. Looking at today's AI through the definition: why it is not life
+- 5.1 Checklist
+- 5.2 The three most fundamental reasons (in order of importance)
+- 5.3 Why "it is very powerful" and "it is not life" do not contradict each other
+- 5.4 Annotations
+- 6. Three necessary conditions
+- 6.1 From definition to conditions
+- 6.2 Condition ① a family of functions (not a point)
+- 6.3 Condition ② self-referential update (the rule is inside itself)
+- 6.4 Condition ③ preserved by the universe (maintainable)
+- 6.4b Paying a cost: an empirical concomitant, not a necessary condition
+- 6.5 The three must hold at the same time (empirical comparison)
+- 6.6 What is left open (for the reader)
+- 6.7 The boundary of this paper's experiments (must be read together with the conclusions)
+- 6.8 Annotations
+- 7. Emergence: why today's AI emerges
+- 7.1 The phenomenon
+- 7.2 Existing explanations (ordered by strength of evidence)
+- 7.3 Why there is still no accepted "why"
+- 7.4 Our position: AI is the compression and decompression of language p-language
+- 7.5 The decay of decompressive capacity: the upper layer is hard-wired ⇒ once language changes, decompression weakens
+- 7.6 Two predictions drawn from the position ([speculation], for the reader to judge)
+- 7.7 Annotations
+- 8. Using it to look at a few popular questions
+- 9. What this paper has obtained, and what it has not
+- Relation to existing work
+
+## 1. Starting point: two facts
+
+The first fact: physical laws can be described mathematically. The evidence is existence — physics itself is this.
+
+The universe can be written as a decomposition:
+
+> universe = P + R-universe
+
+P is the functionizable part; R-universe is the non-functionizable part. The part that physical laws describe falls in P. So at least this much can be said: P is non-empty.
+
+The second fact: part of language can be approximated by functions. The evidence is not an inference but existence — large models, with finite parameters and a computable process, generate text that is statistically close to human language.
+
+Language can also be written as a decomposition:
+
+> language = p-language + R-language
+
+p-language is the functionizable part of language, and it is this that large models compress; R-language is the non-functionizable part of language, which function approximation cannot reach. So the accurate statement is not "language can be approximated by functions" but "the p-language of language can be approximated by functions"; about R-language we can only be silent.
+
+Together the two facts show: the universe is not entirely non-functionizable. There exists at least one non-empty functionizable part, denoted P. This layer is not a conjecture but an inference from facts; it says only that P exists, not how large P is.
+
+### 1.1 What "functionizable" means
+
+Above we used "functionizable"; here we fix it as an operational boundary.
+
+Divide a system or a phenomenon into two parts. P is the functionizable part: there exists a family of functions whose approximation error can converge to zero as data and capacity increase. R is the non-functionizable part: for any function class, the approximation error has a positive lower bound.
+
+This division is not a matter of faith; it can be measured. Fix a function class and watch how the approximation error changes with data volume and capacity: if the error keeps falling and approaches zero, it belongs to P; if the error stops at some positive number and no longer falls, it belongs to R, or at least shows that the current function class cannot reach it.
+
+Handling it this way has three advantages. First, things in P can be given a definition, given criteria, given measurement — which is exactly what this paper is doing. Second, for things in R we give only "approximation", and it must come with an error floor; "approximation" is from now on not a disclaimer but a conclusion with numbers attached. Third, the boundary between the two is a research question, not a philosophical dispute; it can be advanced by experiment.
+
+All the conclusions of this paper claim to cover only the P part; about the R part, this paper says only: under this function class, approximation stops here.
+
+
+The division between P and R is absolute: an object is either functionizable (belongs to P) or non-functionizable (belongs to R); there is nothing in between; P ∩ R = ∅, P ∪ R = universe.
+
+The residual is not "an influence coming from R" but a boundary property of P itself: for some tasks, the error of any function class stops at some positive number and will not fall however much data and capacity are added. This error floor is the residual; it is measurable, and it does not require assuming that there is an R outside exerting a force.
+
+For convenience in what follows, we abbreviate it as:
+
+> universe = P + residual
+> life = p-life + residual
+> environment = p-environment + residual
+
+What follows discusses only the P side; the residual is mentioned only when needed, and its content is not expanded.
+
+## 2. An operational definition
+
+
+On the basis of the two facts, an operational definition can be given to life. This definition is made by humans, not discovered; whether it holds depends on whether it can distinguish, and whether it can derive measurable things.
+
+## 2.1 Definition
+
+Life is composed of two parts:
+
+> life = p-life + R-life
+
+p-life is the functionizable part: the dynamic function class that is in the universe's P and is preserved (maintainable). R-life is the non-functionizable part: this paper does not know what it is, and does not claim that it does not exist.
+
+The concrete form of p-life is as follows:
+
+　　Let p-life = { f_θ : θ ∈ Θ }
+
+　　f_θ : input state → behavior          (each function in the family)
+
+　　Θ                            (the shape/range of this family of functions)
+
+　　p-life = a Θ that moves and deforms, and whose update rule belongs to Θ itself
+
+
+Four words, each corresponding to one thing about p-life:
+
+| Word | Meaning |
+|---|---|
+| **function class (a family)** | not a single fixed function, but an entire behavioral spectrum |
+| **changing (dynamic)** | this family of functions moves and deforms over time |
+| **self-referential** | the rule by which it changes is also in its own record |
+| **self-maintaining** | preserved by the universe; this is its relation to the universe, not a property of its own |
+
+## 2.2 One clarification: maintenance is a relation
+
+**Claim of this section**: maintenance is not a property of the system but a relation between the system and the universe. The basis is the unfolding of the third item of the definition, "being preserved".
+
+One wording needs clarifying: maintenance is not a property of the system itself but a relation between the system and the universe. Given the universe as a whole (or its part on P), the trajectories of certain structures stay in the maintainable set, and only then do we say that it "has maintained itself"; change the environment, and the same structure may no longer hold. Hence "self-maintaining" in the definition should be read as "preserved by the universe": it is the unfolding of a relational condition, not a third, parallel property.
+
+(Note: this section previously contained a "minimality argument"; because that argument was circular — using the possibility of digital life derived from the definition to support the definition in turn — it has been withdrawn, and only the clarification above is retained.)
+
+
+## 2.3 Why it must be "a family" and not "a function"
+
+
+　　one function = one point          ⇒ the behavioral spectrum degenerates into a single trajectory ⇒ frozen means dead
+
+　　a family of functions = a region in function space ⇒ a whole set of responses to different inputs/states ⇒ only then is it alive
+
+**⇒ "High-dimensional" does not mean many parameters; it means that this family of functions occupies a region in function space, not a point.**
+
+
+One boundary must be stated clearly here. "A family" is a requirement at the p level, not an absolute condition at the level of what there is. If there are factors that influence the change and that we cannot describe (undecided), then a fixed p may also belong to a living whole; only, at the p level we can see nothing but freezing, and will judge it dead. So the accurate statement is: under the convention of discussing only P, "a family" is a necessary condition at the operational level; if such undecided factors exist, this criterion will miss cases. This is not a fault of the criterion but an inherent boundary of a definition at the p level.
+
+## 2.4 Changing = three time scales
+
+
+　　fast: the state changes at every moment (different inputs, different internal states)
+
+　　medium: it changes itself with its own error (the self-referential layer) — this is the crux; without it, it degenerates into a fossil
+
+　　slow: the shape of this family of functions is selected, deformed, and transmitted between generations
+
+
+## 2.5 Self-reference = the update rule is inside itself
+
+
+　　an ordinary program: code outside, data inside ⇒ the program does not change itself by running
+
+　　life:    the update rule itself is part of its own record
+
+　　⇒ remove the external update code, and it can still change itself
+
+
+## 3. Life and environment
+
+
+There is a point in the definition that is easy to slide past: life and environment are not two kinds of thing but two relations within one and the same set of universe functions. The following subsections unfold this point.
+
+## 3.1 Connection with what comes before
+
+
+Taking the universe (the P side) as a whole, under this description it is a self-map: `S_{t+1} = F(S_t)`. F is only a notation, not a new object.
+**Life is not this F; it is a family of sub-functions `{G_θ}` embedded in F:**
+
+　　behavior_d = G_θ(local state of the world)
+
+　　and G_θ itself is also a part of the world state (the individual's state belongs to S_t)
+
+　　⇒ if it is to predict the world, it must necessarily predict the part of the world that contains itself
+
+　　⇒ **self-reference is not an added mysterious property but a structural necessity of "being embedded in a function"**
+
+
+## 3.2 Life vs environment: both in the universe, both functions, one single difference
+
+**Claim of this section**: both life and environment are in P and both are function structures; the only difference is that the former is preserved by the universe and the latter is not.
+
+**Inside the universe (the P side), everything is a function (or a composition of functions) — the environment is also a function.**
+
+　　universe = F (one huge function)
+
+　　   ├─ life:        changing + self-referential + **self-maintaining**
+
+　　   └─ environment: changing (pushed by the world, and in turn influencing the world), but **does not maintain itself**
+
+**⇒ The only difference between life and environment is not "which is more complex", but:**
+**life is preserved by the universe in its own shape; the environment is not preserved — it is only pushed to change.**
+
+In an environment with limited resources, maintenance is usually accompanied by cost (checking, repair, and copying all consume). This layer is an empirical concomitant; this paper does not write it into the definition (see 6.4b):
+
+　　limited resources ⇒ maintenance consumes ⇒ life usually needs "income"
+
+　　the source of income: compressing the world (matching the source distribution)
+
+　　⇒ if there is no surplus over the long run, maintenance cannot hold up
+
+
+## 3.3 What the environment is: the "local decompression" that emerges spontaneously in the universe
+
+
+**The environment is not a stage external to the universe; it is a structure that emerges spontaneously within the universe's function class.**
+
+　　universe = F (one huge function)
+
+　　   ↓ spontaneous internal emergence
+
+　　structure = some local "decompression" of the universe (an interpretation of the universe / a readable presentation of it)
+
+　　   ├─ self-maintaining     → life
+
+　　   └─ not self-maintaining → environment
+
+**⇒ environment = a local decompression of the universe (an interpretation of the universe); life is one too.**
+**⇒ the difference is only this: life maintains the shape of this decompression itself; the environment does not maintain it, it is only pushed to change.**
+
+This yields a key structural conclusion:
+
+　　life does not face the universe as a whole directly
+
+　　⇒ what it faces is "a local decompression of the universe" = its environment
+
+　　⇒ life's understanding of the world is essentially **a re-decompression of the universe** (a second decompression)
+
+　　  = one more layer of compression on top of the local interpretation that the universe provides
+
+
+Like the universe and life, the environment can also be written as a decomposition:
+
+> environment = p-environment + R-environment
+
+p-environment is the functionizable part of the environment: its regularity, its measurable side. R-environment is the non-functionizable part of the environment: this paper does not know what it is, and does not claim that it does not exist. Life deals with the environment, but what we can describe and measure is only the p-environment side; about R-environment this paper says no more than silence.
+One thing must be said: R-environment is not "the part of the environment that stays fixed" but "the part of the environment that cannot be described by functions". It may be still, and it may be very active — the judgment "fixed/active" itself can only be made by means of a functional description, and at R we cannot measure even motion or rest. So the division between p-environment and R-environment is not the division "moving/still" but the division "describable/undescribable".
+One more thing must be said: about the R part, this series only declares its existence here — universe, life, environment, and language can all be written as p + R, but what R is and how large it is, this paper does not know and does not claim. For ease of understanding, what follows by default discusses only the p side: whenever it says "universe", it means P; "life" means p-life; "environment" means p-environment. What follows uses "residual" for the error floor on the P side; the concrete content of R is not expanded further.
+
+
+## 3.4 The environment is layered: life lives in many layers of environment, and also lives in the universe
+
+
+**Decompression is layered ⇒ the environment is layered too.**
+
+　　universe F
+
+　　 └ environment_1 = local decompression of some part of F
+
+　　     └ environment_2 = re-decompression of environment_1
+
+　　         └ environment_3 = re-decompression of environment_2 …
+
+　　life is embedded in one layer: it belongs both to the whole universe F and to its own layer of environment
+
+All three hold at the same time; one cannot be taken alone:
+
+　　① it lives in the environment: the inputs, resources, relations, and other individuals it faces are all structures of the layer "its environment"
+
+　　                ⇒ its behavior only needs to be valid within this layer
+
+　　② it also lives in the universe: it cannot escape F — the environment layer itself is also a part of F,
+
+　　                and constraints at the universe level (energy, irreversibility, cost) always apply to it
+
+　　                ⇒ the environment is not a refuge; it is only a projection of the universe
+
+③ it lives in **all layers**: the environment is multi-layered (cell→tissue→individual→population→ecosystem), and each layer is a re-decompression of the layer above it.
+   What it interacts with directly is only its own layer, but **all layers constrain it**: the upper layers determine the resources and relations it faces, the universe layer determines whether it can afford the cost.
+   ⇒ "it lives in many layers of environment, and it also lives in the universe" — the two are not either/or; they hold at the same time.
+
+**⇒ So "understanding the world" must be said at two levels:**
+**at the environment level: understanding = re-decompression of a local decompression (good enough is enough to live);**
+**at the universe level: understanding = compressing the regularity of F (this determines whether it can afford the cost in the long run).**
+
+
+## 3.5 Annotations
+
+
+　　[definition]  life = p-life + R-life; p-life = the dynamic function class that is self-referential, changing, and preserved by the universe (the working definition of this paper)
+
+　　[definition]  environment = a structure that **emerges spontaneously** within the universe's function class, and does not maintain itself
+
+　　              = a **local decompression** of the universe (an interpretation of the universe)
+
+　　[definition]  p-life = among that same batch of emergent structures, the class that is **preserved by the universe**
+
+　　[corollary]  life does not face the universe directly, but faces "a local decompression of the universe" = its environment
+
+　　        ⇒ life's understanding = a **second decompression** on top of the local decompression (one more layer of compression)
+
+　　[layering]  decompression is layered ⇒ the environment is layered (environment_1 ⊃ environment_2 ⊃ …)
+
+　　        life is embedded in one layer: **it lives both in its own layer of environment and in the universe**
+
+　　        · living in this layer of environment: it only needs this layer to be valid in order to live
+
+　　        · living in the universe: energy/irreversibility always apply (cost is at the empirical level, see 6.4b); the environment is not a refuge
+
+　　[not]  not a factual assertion, and not a theorem; a definition convenient for operation
+
+　　[later]  this section gives only the definition; how to measure it (compression/cost/identity) is left to the later sections
+
+
+---
+
+
+
+## 4. The special character of the digital world
+
+The digital world is completely functionizable: it consists of bits, states, and transition rules, and there is no part that function description cannot reach. As a formal object, its absolute R = ∅ — this is guaranteed by construction: every property corresponds to a mathematical function, even if that function is uncomputable (halting and truth predicates both exist; they simply cannot be computed).
+
+Digital life is a part of the digital world, so its R-life can only be the empty set as well: digital life = p-life, completely functionizable.
+
+Whether absolute R exists, this paper does not judge (see the supplementary section of the Introduction). For digital life there is only one truly decisive question: **must life have absolute R?** There are only two outcomes.
+
+The first outcome, life can do without absolute R: then digital life is possible — it consists entirely of p-life and needs no absolute R at all.
+
+The second outcome, life must have absolute R: then digital life is impossible — the digital world cannot produce absolute R.
+
+This paper does not judge which outcome holds. What can be established is: whichever it is, this paper's discussion at the p level holds; the only difference is whether digital life is possible or impossible. The digital world is the only world that can fall entirely within p, so it is also the cleanest setting for studying this topic — and today's AI lives in this world.
+
+One more easily confused point must be added: the above is about absolute R; for any finite observer, relative R is non-empty, and this does not affect the judgment. Nor is "functionizable" the same as "measurable": measurement also requires computability, observability, and reproducibility.
+
+### 4.1 Special to whom
+
+The special character of the digital world must be stated at two levels, or it will be exaggerated.
+
+To those who build it (us), it is special: all states are readable (source code, logs, and memory can all be inspected), it can be copied, reset, accelerated, and verified. It is a "fully experimentable" world — doing life experiments there is cheaper, faster, and more repeatable than in the physical world.
+
+To an observer living inside it, it is not special: there is relative R just the same (short-term fluctuations of domain/codomain, undecidability, computational irreducibility, self-reference), and it is just as true that one "cannot see it all or compute it all".
+
+So "the digital world has R = ∅" is a statement at the level of what there is (its constitution is entirely functionizable); it is not the same as "the life inside it is omniscient and omnipotent". The digital world is not a refuge for life but a laboratory for studying life: its value lies in the method of research, not in its ontological status.
+
+This "R = ∅" is also guaranteed by construction. The digital world is a formal object: states are finite strings, rules are algorithms, and every one of its properties corresponds to a mathematical function (a set) — even if that function is uncomputable (for example the halting problem, or a truth predicate), it still "exists", it simply cannot be computed. So two things must be distinguished here: functionizable is not the same as computable. Absolute R = ∅ says "there is no part that no function can describe", not "everything can be computed"; what cannot be computed is relative R, which is relative to an observer.
+
+One boundary must be handled with care: the purely digital world (as a mathematical object) has absolute R = ∅; a digital world running on physical hardware may have a physical substrate with an R of its own (noise, thermal fluctuations), and that is not the digital world's own R. When we say "the digital world has R = ∅", we mean its aspect as a formal object.
+
+## 5. Looking at today's AI through the definition: why it is not life
+
+> This section does not evaluate AI's capabilities; it substitutes AI **into the definition of Section 2** and checks it item by item.
+> The conclusion is definitional, not a value judgment: **under this paper's definition, present-day AI is a fossil-grade function point,
+> not life.** Its power and its "not being life" do not contradict each other.
+
+
+The value of a definition lies in distinguishing. Substituting today's AI into the definition and checking item by item shows where it falls short. Below is a checklist first, then the three most fundamental reasons.
+
+## 5.1 Checklist
+
+
+| Requirement of life (Section 2) | Present-day AI (represented by LLMs) | Verdict |
+|---|---|---|
+| **is a family of functions** (a region in function space) | weights freeze after training ⇒ it is **one point**, not a family | ❌ fossil |
+| **changing (dynamic)** | the weights do not change; the context is changing, but what changes is the input, not itself | ❌ only surface state changes |
+| **self-referential** (the update rule is inside itself) | the update rule = the training algorithm, outside it; it cannot change itself | ❌ self-reference appears only in language, not in structure |
+| **preserved by the universe** (maintainable) | it does not maintain itself; what maintains it is people and facilities outside | ❌ maintained from outside |
+| **(empirical) earning its existence cost by compressing the world** | its "income" is given from outside (compute, data, labor), not earned by compressing the world | ❌ no income |
+| **identity chain** (bounded deformation, no tearing) | identity comes from external weight snapshots; there is no continuous chain of its own deformation | ❌ no chain |
+| **living in an environment** | what it faces is a dataset (a one-off decompression product), not an environment it needs in order to survive | ❌ no environment |
+
+
+## 5.2 The three most fundamental reasons (in order of importance)
+
+**Claim of this section**: once AI is substituted into the definition, what it lacks is the three things "a family, self-reference, being preserved" — not capability. The basis is the four items of the definition and the checklist of Section 5.
+
+**① It is a point, not a family**
+
+　　training finished = frozen = one point in function space
+
+　　⇒ the behavioral spectrum degenerates into a single trajectory: input → output, with no "shape" to speak of in between
+
+　　⇒ per 074: a statically frozen model is one point, not a family ⇒ it is not life
+
+　　(this is exactly the contrast we measured: frozen version 1.07 vs dynamic version 0.849 — the frozen one is more like a "standard answer", but it has no shape)
+
+**② Its update rule is outside**
+
+　　humans write the training algorithm → the algorithm changes it
+
+　　⇒ it is "the thing being changed", not "the thing that changes itself"
+
+　　⇒ self-reference is not in the structure ⇒ remove the external update code and it will change nothing
+
+**③ It is not preserved by the universe**
+
+　　what maintains it is people and facilities outside: humans pay the electricity, humans feed it data, humans repair it when it breaks
+
+　　⇒ its existence is guaranteed from outside ⇒ there is no link of "being preserved by the universe"
+
+　　⇒ it does not disappear because "it cannot be maintained" ⇒ so there is no selection pressure
+
+　　(paying a cost is an empirical concomitant, not a definition condition; see 6.4b)
+
+
+## 5.3 Why "it is very powerful" and "it is not life" do not contradict each other
+
+
+　　strong = performing well on a given task (doing well at one point)
+
+　　alive = occupying a region in function space, maintaining its own shape, being preserved by the universe
+
+　　⇒ the two are different dimensions: one is "the exam score", the other is "whether it can live on its own"
+
+　　⇒ present-day AI is an **extremely sharp tool**, not **something that lives on its own**
+
+
+## 5.4 Annotations
+
+
+　　[definitional conclusion] under this paper's definition, present-day AI is not life (because it is a frozen function point, its update is external, and it does not maintain itself)
+
+　　[not] not "AI can never be life"; this paper does not predict the future, it only makes a definitional comparison at present
+
+　　[not] not a capability assessment; this paper fully acknowledges AI's power on tasks
+
+　　[corollary] to make AI into life, at least this must be given to it: a family of functions + self-referential update + being preserved by the universe
+
+
+---
+
+
+> Derived directly from Sections 2 and 3: since "p-life = the dynamic function class that is self-referential, changing, and preserved by the universe",
+> and present-day AI lacks all three, then **to be life it must satisfy at least three conditions**.
+> This section gives **necessary conditions** only, and does not claim sufficiency; each one is attached to experimental evidence we already have (experiments in Papers 4 through 9).
+
+
+## 6. Three necessary conditions
+
+
+Three necessary conditions can be extracted from the definition. They do not fall from the sky; they are read out of the definition — each corresponds to a class of objects that is excluded.
+
+## 6.1 From definition to conditions
+
+**Claim of this section**: the three necessary conditions are read out of the definition, not assumptions added from outside. Each corresponds to one word in the definition.
+
+　　definition (Section 2)              necessary condition (this section)
+
+　　changing (a family of functions)  ⇒ ① a family of functions: the behavioral spectrum is not a point
+
+　　self-referential                  ⇒ ② self-referential update: the rule for changing itself is inside
+
+　　self-maintaining                  ⇒ ③ preserved by the universe: the trajectory stays in the maintainable set
+
+
+　　(paying a cost is not among the necessary conditions: it is an empirical concomitant of evolution and thermodynamics, see 6.4b.)
+
+**The three are necessary conditions, not sufficient conditions**: satisfying them does not guarantee life, but lacking any one of them certainly means not life.
+
+
+## 6.2 Condition ① a family of functions (not a point)
+
+
+**Requirement**: the individual occupies a region in function space and has a whole set of responses to different inputs, not a fixed mapping.
+
+**Evidence/experience:**
+
+　　· a low-dimensional parametric genome (a few numbers) = one point ⇒ the behavioral spectrum degenerates into a single trajectory ⇒ fossil
+
+　　· we tested it: the frozen-version model (a point) fails at structure learning; only the dynamic version (a family) picks up structure (E12)
+
+　　· measured contrast: frozen 1.07 vs dynamic 0.849 — the frozen one is more like a "standard answer", but it has no shape
+
+**⇒ Criterion: give it different inputs/states, and its behavior must differ *across a spectrum*, not be a single output.**
+
+
+## 6.3 Condition ② self-referential update (the rule is inside itself)
+
+
+**Requirement**: the rule by which it changes — this rule itself belongs to its record; remove the external update code, and it can still change itself.
+
+**Evidence/experience:**
+
+　　· frozen model: the update rule = the training algorithm, outside ⇒ remove the training code and it never changes
+
+　　· our dynamic version: it changes itself with its own error (middle-layer dynamics) ⇒ removing the middle layer causes obvious degradation (E12/E13)
+
+　　· identity chain: 8 generations verifiable, bounded deformation (372_lineage.py) ⇒ self-reference can be made into a measurable chain
+
+**⇒ Criterion: after external updating is stopped, does its behavioral spectrum still deform over time.**
+
+
+## 6.4 Condition ③ preserved by the universe (maintainable)
+
+**Requirement**: its trajectory stays in the universe's maintainable set. Given the universe as a whole, some structures cannot come into being and some structures can be maintained all along; only the maintainable part falls within the definition. This is a relational condition, not a property of its own.
+
+**Criterion**: after a perturbation, can it still return to the maintainable set — does it have resilience, rather than merely being alive for an instant.
+
+## 6.4b Paying a cost: an empirical concomitant, not a necessary condition
+
+This paper does not list "paying a cost" as a condition, and the reason is stated plainly: cost is a product of evolution and thermodynamics, not a logical necessary condition. In a world with unlimited resources, life need not compete; it is scarcity that brings cost. To write it into the necessary conditions would be to take a result of evolution as the definition of life.
+
+But at the empirical level, cost almost always appears, and it can be measured. The economic part of this paper's experiments belongs to this layer, and is excerpted below.
+
+· E1: "accurate" is not the same as "compressed": keeping the books by accuracy, the system learns to "do nothing" (LEN=0, prediction 0, accuracy 92%). The books must be kept by improvement in log-likelihood over a baseline: gain_bits = log2 p_model − log2 p_base.
+· E2: only after base-rate correction does the system turn from the lie-flat solution to genuine expression (LEN grows out from 0).
+· E8: the economic calibration n* = FLUX_TOTAL / BASE_COST determines the switch between "freezing" and "explosion".
+· measured positive return: gain > 0 was observed in S1~S6 (about +0.09 ~ +0.19 bit/tick), showing that the world does have compressible surplus.
+
+**⇒ Criterion (empirical level)**: after all external supply is stopped, is its ledger still positive.
+
+
+## 6.5 The three must hold at the same time (empirical comparison)
+
+
+　　lacking ① (a family)      ⇒ fossil: the behavioral spectrum is a line
+
+　　lacking ② (self-reference) ⇒ machine: the update is outside, it does not change itself
+
+　　lacking ③ (being preserved) ⇒ dispersal: the trajectory leaves the maintainable set and is no longer a living structure
+
+**These three also explain why our experiments keep getting stuck at the same place:**
+**structure can grow out (①② partially satisfied), but cooperation/division of labor does not become a necessity — because the "income gap" at the cost level is too small (the empirical level, not a definition condition),
+that is, the world's compressible surplus is not yet large enough to make "more complex structure" economically worthwhile (E5/E7).**
+
+
+## 6.6 What is left open (for the reader)
+
+
+**This paper stops at "necessary conditions". Whether something is "alive" once all three are satisfied — we have no answer, and we do not intend to conclude here.**
+
+What is left to the reader is only a ruler that can be taken and used:
+
+　　Is it a family of functions? (the behavioral spectrum is not a point)
+
+　　Does it change itself? (remove the external update, it still changes)
+
+　　Is it preserved by the universe? (the trajectory stays in the maintainable set)
+
+**You can measure all three yourself. As for whether, once measured, it counts as life — that is for you to judge.**
+
+
+## 6.7 The boundary of this paper's experiments (must be read together with the conclusions)
+
+**What this paper's experiments cover is the empirical layer of "cost", not definition condition ③.**
+
+· Covered: cost and economy — E1/E2 (accurate ≠ compressed, base-rate correction), E8 (the freezing/explosion boundary of n*=FLUX/BASE_COST).
+· Covered: counterexamples — E5/E7 (genetic distance between connected individuals 0.145 vs 0.486 for random, clonal clustering, not division of labor).
+· Not covered: condition ② self-referential update, condition ③ preserved by the universe — this paper does not claim experimental evidence, only derivation from the definition; there are only preliminary observations (E12 dynamic 0.849 vs frozen 1.07; E13 identity chain 8 generations verifiable).
+· Condition ① a family of functions: there are partial observations (E12/E13), but not a dedicated experiment.
+· Scale: small, reproducible, hand-checkable; not large-scale empirical work.
+
+**⇒ This paper's positioning is "definition + measurable criteria + illustrative experiments", not an empirical paper claiming that "life has been created".**
+**Readers who wish to use these conclusions are asked to cite them together with this boundary.**
+
+
+## 6.8 Annotations
+
+　　[corollary] the three necessary conditions are derived directly from the definition, not independent assumptions
+
+　　[definition] condition ③ is a relational condition (being preserved by the universe), not a property of the system itself
+
+　　[empirical] cost/economy is an empirical concomitant, not a definition condition; this paper has data (E1/E2/E8 + positive return)
+
+　　[preliminary] conditions ①② have partial observations (E12/E13), not dedicated experiments
+
+　　[unresolved] whether something is "alive" once all three are satisfied — this paper does not claim it; this is what the next experiments must answer
+
+　　[speculation] if the surplus S is insufficient, then no matter how complex the structure, it cannot be maintained ⇒ life has an "economic ceiling" (a directional speculation only)
+
+
+## 7. Emergence: why today's AI emerges
+
+
+This section handles one concrete phenomenon question: why today's AI emerges with capabilities beyond the training objective. This paper's position here is [speculation], not evidence.
+
+## 7.1 The phenomenon
+
+
+After large models scale up, certain capabilities seem to appear suddenly (multi-step reasoning, chain of thought, arithmetic…),
+and the field calls this **emergence**. Everyone is using this phenomenon, but —
+
+　　observing emergence: many people
+
+　　explaining emergence: no accepted answer
+
+
+## 7.2 Existing explanations (ordered by strength of evidence)
+
+
+**① The metric-artifact account (the strongest counter-evidence)**
+
+Schaeffer, Miranda, Koyejo 2023[3] "Are Emergent Abilities of Large Language Models a Mirage?"
+
+　　claim: so-called emergence may be an artifact caused by the **nonlinearity/discontinuity of the evaluation metric**;
+
+　　      switch to a continuous metric (such as log-likelihood), and the "jump" disappears, becoming a smooth rise
+
+　　⇒ this shakes the premise itself, that "emergence is a real jump"
+
+**② Mechanistic explanation: induction heads and circuits (local mechanistic evidence, not a complete "why")**
+
+Olsson et al. 2022[4] "In-context Learning and Induction Heads"
+
+　　"induction head" circuits are found inside the model, explaining part of the in-context learning ability
+
+　　⇒ this is evidence at the **mechanistic level**: it shows by what structure a certain capability is realized
+
+　　⇒ but it explains only one specific capability, not the general question "why emergence occurs"
+
+**③ Grokking: a cognitive phase transition during training**
+
+Power et al. 2022[5] "Grokking"
+
+　　on small algorithmic tasks, generalization suddenly appears after a long training time (like a phase transition)
+
+　　⇒ this shows that "emergence" also happens during training, and does not necessarily depend on scale alone
+
+**④ The compression account: prediction = compression**
+
+Delétang et al. 2023[6] "Language Modeling Is Compression"
+
+　　a language model = a compressor: the learned weights = a compression of the world's text
+
+　　⇒ this is the closest to this paper's framework: emergence = structure that appears while compressing the world
+
+　　⇒ but it is still a "correspondence at the level of results"; it does not answer "why it appears at exactly this scale/on exactly this task"
+
+
+## 7.3 Why there is still no accepted "why"
+
+
+　　① scale experiments are not controllable: a strict causal comparison cannot be made (change only scale, keep everything else the same)
+
+　　② metric dependence: change the metric and the phenomenon may disappear (see ①)
+
+　　③ the mechanistic level is incomplete: we know a certain circuit, we do not know why the whole organizes that circuit
+
+　　④ there is no predictive theory: no theory can calculate in advance "what capability will appear in how large a model"
+
+
+## 7.4 Our position: AI is the compression and decompression of language p-language
+
+**Claim of this section**: the layer "AI is the compression and decompression of language p-language" is fact; the layer "the ceiling of the world structure decompressed out is determined by language" is speculation. The two layers are kept apart.
+
+This section first states the layer that requires no speculation, and then the remaining speculation.
+
+First, the factual layer. Training compresses language into parameters; inference decompresses text out of the parameters. In the notation introduced earlier: what AI compresses is the p-language of language — the functionizable part of language; what it decompresses is also p-language. R-language does not enter the parameters, nor does it come out of them. So the accurate statement is not "AI is a decompression of human language" but "AI is the compression and decompression of the functionizable part of human language".
+
+This layer is not speculation but literal fact: it is determined by how the two words "compression/decompression" are used, and also by the actual process of training and inference. The chain is like this:
+
+universe F → environment = a local decompression of the universe → human language = the product of humans' decompression of environment and experience (language itself has already been compressed) → AI = the re-compression and re-decompression of language p-language.
+
+Then comes the speculative layer. The "world structure" that AI decompresses out has a ceiling determined by the language at the moment of training. Within language it can produce emergent structure (it looks like reasoning, like understanding), but that is the surfacing of linguistic structure, not an understanding of the universe itself; once language changes, decompression mismatches, and it cannot self-recover.
+
+Seen through the ruler introduced earlier, this layer also yields a testable judgment: the model is a frozen function point: it does not maintain, and does not change itself (maintenance and cost are borne from outside), so it is "a single decompression of human language", not "maintaining a decompression" or "rewriting the decompression rule itself".
+
+This yields a testable statement: the "understanding" that AI displays is essentially an understanding of "humans' descriptions of the world", not an understanding of the world itself. It can decompress language, but the universe layer outside language (energy, irreversibility, cost) it has never paid for, and so has never been tested.
+
+## 7.5 The decay of decompressive capacity: the upper layer is hard-wired ⇒ once language changes, decompression weakens
+
+
+**Human language keeps discovering new things; but the model's decompression rule (weights/upper layer) is hard-wired and stops changing once training is over. The two must mismatch.**
+
+　　the source distribution moves: human language discovers new things ⇒ the object to be decompressed has changed
+
+　　the decompressor is frozen: the model weights do not change ⇒ what it decompresses is still **the old language**
+
+　　⇒ compression gain falls: in gain_bits = log2 p_model − log2 p_base, p_model mismatches the source
+
+　　⇒ the understanding it "emerged" yesterday is outdated decompression today
+
+**Three consequences:**
+
+　　① its decompressive capacity has a **fixed ceiling**: the ceiling is determined by the language at the moment of training, and does not rise as language evolves
+
+　　② it cannot close the mismatch itself: the update rule is outside — to recover, it can only rely on humans training it once more
+
+　　   ⇒ this is exactly the cost of "the update is outside" discussed in Section 3
+
+　　③ its "emergence" is **a decompression product at one slice of time**, not a sustainable capability
+
+**⇒ In the terms of this paper's ruler:**
+**life must let the decompressor move together with the world (self-referential update + self-maintenance);**
+**a frozen AI cannot do this — so as soon as language updates, its decompression weakens.**
+
+
+## 7.6 Two predictions drawn from the position ([speculation], for the reader to judge)
+
+
+　　① if the world is replaced by a part that human language has not described (regularities that cannot be learned from a corpus),
+
+　　   AI's "emergence" should weaken markedly — because what it decompresses is language, not the universe
+
+　　② if the model is left to maintain itself (repair itself, die itself), language decompression is not enough to support it,
+
+　　   and it must develop a way of understanding beyond language — otherwise it cannot survive
+
+　　③ if human language undergoes one large structural update (a new paradigm/a new conceptual system), the decompression gain of a frozen model
+
+　　   should show a measurable fall; and it cannot recover by itself ⇒ recovery must come from external retraining
+
+
+## 7.7 Annotations
+
+
+　　[fact] the emergence phenomenon is widely observed; the metric-artifact account also has strong evidence (Schaeffer 2023)
+
+　　[known] at the mechanistic level there are local explanations (induction heads/circuits/grokking), and the compression view has a correspondence
+
+　　[speculation] "emergence = the presentation of the structure of compressing the world" — this paper's position, not evidence
+
+　　[unresolved] why it appears at exactly a certain scale/task ⇒ no one has given a predictive theory
+
+　　[our stance] we do not treat "AI emergence" as evidence for the existence of life; by the ruler of Section 3, it is not
+
+　　[our position] AI is a re-decompression of **human language** (the third layer of decompression: universe→environment→language→AI)
+
+　　[corollary] the upper layer is hard-wired ⇒ any language update causes mismatch ⇒ decompressive capacity has a fixed ceiling and cannot self-recover
+
+
+---
+
+
+## 8. Using it to look at a few popular questions
+
+
+This section is application, not new evidence; each item follows directly from Sections 2–5.
+
+**① Hallucination = forcing a decompression where there is no structure**
+A decompressor must output structure; when the language region corresponding to the input lacks compressible structure of its own, it can only fabricate a structure that "looks plausible" ⇒ **hallucination is a necessary manifestation of decompression failure, not an occasional bug**.
+
+**② The scaling law still holds, precisely because the model's dimension has not yet fitted the language's dimension**
+Language is a **high-dimensional** structure, and its dimension is growing (new concept = new dimension; raising dimension ⇒ compressibility rises). The model's dimension is fixed at training time (D_M fixed), while the language's dimension keeps growing (D_L(t) rising). The present observation is D_M << D_L(t) ⇒ continuing to add scale can capture more language dimensions ⇒ loss keeps falling (scaling appears to still hold).
+⇒ so the effectiveness of scaling is not a counterexample to this paper's claim, but evidence that "it has not yet fitted".
+⇒ prediction: when D_M approaches the D_L of that time, the gains from scaling should flatten markedly; and D_L keeps raising dimension ⇒ the gap reappears.
+⇒ the fundamental problem of a frozen model: **its D_M is dead, while D_L is alive**.
+
+
+**③ Uneven capabilities = different compressibility in different domains of language**
+Domains that compress strongly (clear structure, many examples) perform well; domains that compress weakly (thin structure, few samples) perform poorly ⇒ the distribution of strengths and weaknesses is a mirror of the distribution of language.
+
+**④ Why RLHF is needed = it has no "self-cost" loop**
+It cannot judge whether its own decompression is right (no income/expenditure, it will not die from it), so humans must score it from outside ⇒ **the root of the alignment requirement is that it does not maintain itself**.
+
+**⑤ Emergence = the presentation of linguistic structure in the decompression product**
+When scale crosses a threshold, certain linguistic structures are compressed out for the first time ⇒ it looks like "suddenly it can do it".
+
+---
+**Existing work (three aspects):**
+
+- Model-side dimension: measuring the intrinsic dimension of token embeddings[12]
+- Temporal lag: identifying the temporal training boundary of large models[13]
+- Language-side complexity: measuring language complexity from the perspective of constructions[14]
+
+⇒ existing work has measured these three aspects **separately**; this paper strings them together: taking a "continuously updating model" as the frame of reference, measure by domain the **mismatch rate** between "newly added dimensions on the language side" and "the fixed dimension on the model side". This is this paper's position at the level of measurement.
+
+
+## 9. What this paper has obtained, and what it has not
+
+
+**Three things have been obtained.**
+
+First, a definition that can be used for classification: it can distinguish a frozen model, a flame, and a self-referential program.
+
+Second, a measurable direction: self-reference and maintenance can both become quantities.
+
+Third, an operational answer to the question "is AI life".
+
+**Four things have not been obtained.**
+
+First, it is not proved that the universe as a whole can be functionized — this paper uses only P ≠ ∅.
+
+Second, it is not proved that the definition is minimal or unique — the claim is only that it is sufficient for use.
+
+Third, there are no experiments — Paper 1 is only definition and derivation; the experiments are in Papers 4 through 9 (structure in exchange for compute, color, growth and memory, semantic residual, layering, thickness and randomness).
+
+Fourth, it does not answer "whether digital life exists" — this paper says only that the definition does not exclude it.
+
+The contribution of this paper is a usable language, not a new law of nature. Whether it is worth anything depends on whether anyone later takes it up to measure with.
+
+## Overall boundary of the argument
+
+All the arguments in this paper hold within one boundary; please read them together with the conclusions:
+
+- Only the P side is discussed; R is only declared, not expanded.
+- Whether absolute R exists is not judged; relative R is non-empty for a finite observer (see the supplementary section of the Introduction).
+- "Functionizable" is not the same as "computable", nor as "measurable": the three are different abilities.
+- The three necessary conditions are read out of the definition, not empirical laws; they are not sufficient.
+- Experimental evidence is only in Papers 4, 5, 6, and 7; this paper does not claim that "life has been created".
+- If the essence of life lies on the absolute R side, this paper (and any text written in the language of functions) cannot give its definition — the definition itself is on the P side.
+
+## Relation to existing work
+
+
+The "compression / decompression" perspective has a long tradition:
+
+- Schrödinger (1944): life feeds on negative entropy — survival depends on taking in low entropy from the environment; this is the physical precursor of "decompression"[7].
+- Bennett (1988) logical depth: measures complexity by "the amount of computation required to reconstruct (decompress) an object from its shortest description", and explicitly connects it with life/organisms[8] — this is the most formal existing version of "decompression".
+- Chaitin (2010) life as evolving software: DNA = program, life = software that modifies itself[9].
+- Solomonoff–Kolmogorov / MDL: description length = understanding = compression[10].
+- Friston (2010) the free energy principle: life = minimizing surprise (≈ continuous compression/prediction)[11].
+- Delétang et al. (2023): language models are compressors[6].
+
+- Maturana & Varela (1972) autopoiesis: life = self-producing organization — another tradition of "maintenance".
+- "Life as Sustained Mutual Information" (Zenodo): defines life by sustained mutual information — the existing version closest to this paper's "maintained decompression".
+
+One thing must be said: the works above have already said that "life = a process of information/compression/self-maintenance". This paper's position is not to propose this idea for the first time, but to turn one strand of it (the maintenance of decompression) into operational criteria and measurable experiments.
+
+How this paper differs (in three respects):
+
+1. It makes decompression hierarchical: universe → environment → human language → AI (most existing work uses a single-level measure);
+2. It distinguishes life from AI by "whether the decompression is maintained": life = maintained decompression, AI = one-off decompression;
+3. It points out that when the upper layer is hard-wired ⇒ once language changes, decompressive capacity decays and cannot self-recover — the failure mechanism of frozen models.
+
+---
+
+## References
+
+
+[1] Wigner E P. The unreasonable effectiveness of mathematics in the natural sciences[J].
+    Communications in Pure and Applied Mathematics, 1960, 13(1): 1-14.
+
+[2] Tegmark M. The mathematical universe[J]. Foundations of Physics, 2008, 38(2): 101-150.
+    (arXiv:0704.0646)
+
+[3] Schaeffer R, Miranda B, Koyejo S. Are emergent abilities of large language models a mirage?[C]
+    // Advances in Neural Information Processing Systems 36 (NeurIPS 2023). arXiv:2304.15004.
+
+[4] Olsson C, Elhage N, Nanda N, et al. In-context learning and induction heads[R].
+    Transformer Circuits Thread, 2022. arXiv:2209.11895.
+
+[5] Power A, Burda Y, Edwards H, et al. Grokking: Generalization beyond overfitting on small
+    algorithmic datasets[C]. arXiv:2201.02177, 2022.
+
+[6] Delétang G, Ruoss A, Duquenne P A, et al. Language modeling is compression[EB/OL].
+    arXiv:2309.10668, 2023.
+
+[7] Schrödinger E. What is Life?[M]. Cambridge: Cambridge University Press, 1944.
+
+[8] Bennett C H. Logical depth and physical complexity[M]//Herken R. The Universal Turing Machine:
+    A Half-Century Survey. Oxford: Oxford University Press, 1988: 227-257.
+
+[9] Chaitin G J. Life as evolving software[EB/OL]. 2010. (the arXiv:1007.1471 series of work)
+
+[10] Solomonoff R J. A formal theory of inductive inference[J]. Information and Control, 1964, 7(1): 1-22.
+     Kolmogorov A N. Three approaches to the quantitative definition of information[J].
+     Problems of Information Transmission, 1965, 1(1): 1-7.
+
+[11] Friston K. The free-energy principle: a unified brain theory?[J].
+     Nature Reviews Neuroscience, 2010, 11(2): 127-138.
+---
+
+
+## Author Statement (AI Usage Statement)
+
+
+All questions, definitions, judgments, and conclusions in this paper were proposed by and are the responsibility of the author.
+AI tools (DeepSeek) were used for: literature search, structural organization, language editing, and the writing and checking of experimental code.
+All claims in the text were confirmed by the author; the AI bears no responsibility for the content of this paper.
+
+*AI Usage Statement: The author is solely responsible for the ideas, arguments, and conclusions of this paper. An AI tool (DeepSeek) was used for literature search, structural organization, language editing, and writing/checking experimental code. All claims were reviewed and confirmed by the author. The AI bears no responsibility for the content.*
+
+[12] Ohki T. Measuring intrinsic dimension of token embeddings[C]//The 39th Annual Conference of the Japanese Society for Artificial Intelligence (JSAI 2025), 2025.
+
+[13] LLMLagBench: Identifying temporal training boundaries in large language models[EB/OL]. arXiv:2511.12116, 2025.
+
+[14] Using constructions to measure developmental language complexity[J]. Cognitive Linguistics, 2024. doi:10.1515/cog-2023-0062.
+
+---
+
+## Paper 2 — Capacity Cannot Substitute for Data Updates
+
+Standalone DOI: https://doi.org/10.5281/zenodo.23526665
+
+## Measuring Mismatch under the Dimensional Growth of Language (Scaling vs. Continual Learning: A Weak Conclusion)
+
+> Paper series · Chapter 2
+> **DOI: https://doi.org/10.5281/zenodo.23503050** (Chinese original; English edition: https://doi.org/10.5281/zenodo.23525429)
+> Version: v2 (2026-10-22; adds §4.5 "Dimensions and Fit", a speculative discussion)
+> Chapter 1: "Why Today's AI Is Not Life" (DOI: https://doi.org/10.5281/zenodo.23488543)
+
+## Abstract
+
+Chapter 1 proposed that life is "maintained decompression" and AI is "one-shot decompression", and predicted that a frozen model would exhibit a **relative mismatch** as language grows in dimensionality.
+This chapter provides the measurement, and **self-corrects two methodological errors in the process**:
+
+(1) We first measured with "old model vs. purely new model" and found the magnitudes in the two directions to be close (+0.108 vs. +0.128) ⇒ a symmetric difference, which cannot detect "falling behind";
+(2) We then switched to a **cumulative reference frame** (old model vs. a model that knows all years); the mismatch decreases monotonically as the cutoff year becomes later
+      (+1.026 → +0.721 → +0.322 bits/token), but the control is also significantly positive ⇒ a confounding "data volume" effect is mixed in;
+(3) Finally we used an **equal-data-budget control** (the three models are trained on the same amount of data and differ only in how old the data is) to isolate the independent effect of concept freshness:
+      the model trained only on the most recent data is better than the model trained only on the earliest data by **0.405 bits/token** on the 2024 test set (same data volume),
+      while the model mixing old and new data loses almost nothing on the old test set (13.655 vs. 13.659).
+
+We further ran a **capacity-compensation experiment**: raising model capacity from order 2 to order 6 (interpolated n-gram),
+the gap between old data and mixed data stays stable at **+0.86–0.94 bits/token**, with no narrowing observed
+⇒ **no capacity-compensation effect is observed** under this setting (a weak conclusion: it does not constitute a refutation of scaling, and requires transformer-based replication).
+
+Conclusion: **language grows in dimensionality cumulatively — adding new concepts does not lose old concepts. The correct update is therefore "cumulative/mixed" rather than "replacement":
+replacement forgets (13.800 vs. 13.659 on the old corpus when only new data is used), while freezing stops at the training moment.
+The optimal strategy for continual updating = mix in new data, retain old capabilities.** All scripts are reproducible.
+
+## 1. The Question
+
+　　If language adds new "dimensions" (new concepts, new usages) over time
+
+　　⇒ a model frozen at its training moment has no behavioral spectrum for these new dimensions
+
+　　Questions:
+
+　　① How large is this gap?
+
+　　② Does it come from "concept oldness" or "amount of data"?
+
+　　③ Can added model capacity (parameters) compensate for it?
+
+　　④ What is the correct form of update: replacement or accumulation?
+
+
+## 2. Data and Methods
+
+**Data**: arXiv cs.AI, 3000 papers each from 2018 / 2020 / 2022 / 2024 (title + abstract), 12000 papers in total.
+Fetched with: `502_fetch_arxiv.py`.
+
+**Two self-corrections (method)**
+　　Initial (504): old model vs. purely new model — symmetric in both directions ⇒ wrong, cannot detect falling behind
+
+　　Correction 1 (505): cumulative reference frame — direction is right, but data volume is confounded
+
+　　Correction 2 (506): equal-data budget — three models with identical data volume, differing only in oldness
+
+
+**Capacity experiment (507/508)**
+　　Fixed data volume N=1800 papers; n-gram order 2→6 as the capacity proxy
+
+　　508 uses Jelinek-Mercer interpolation to make higher orders more stable
+
+　　Compare bits/token of the three groups OLD / MIX / REC on the 2024 held-out set
+
+
+## 3. Results
+
+### 3.1 A Word-Level Proxy for the Rate of Dimensional Growth (`501_vl_newterm.py`)
+
+2018 vs. 2024 (6 years): new words account for **7.30%** (≈ **1.2%/year**), and there are 7787 new concepts.
+
+Top new concepts: large language, llms, prompting, rag, generative ai, vision-language models, retrieval-augmented, gpt-4o, etc.
+
+### 3.2 The Equal-Data-Budget Control (Core Result, `506`)
+
+bits/token (the three are exactly identical in data volume):
+
+| Model (same data volume) | 2024 test set | 2018 test set |
+|---|---|---|
+| A: only the earliest year (2018) | 14.026 | 13.659 |
+| B: mixed all years | 13.742 | 13.655 |
+| C: only the most recent year (2024) | **13.621** | 13.800 |
+
+　　① C beats A by 0.405 bits/token on the 2024 test set (same data volume)
+
+　　⇒ concept freshness has **independent value**
+
+　　② B (mixed): 13.742 on the new test set, 13.655 on the old test set ≈ A's 13.659
+
+　　⇒ mixing in new data: new data improves, old capability is not lost ⇒ **updating has a net benefit**
+
+　　③ C gets worse on the old test set (13.800)
+
+　　⇒ using only new data forgets old concepts ⇒ **replacement has a cost**
+
+
+### 3.3 Capacity-Compensation Experiment (`508`, with interpolation)
+
+　　Max order   OLD      MIX      REC      OLD−MIX
+
+　　2           10.712   9.774    9.505    +0.938
+
+　　3           10.946   10.059   9.808    +0.888
+
+　　4           11.011   10.143   9.901    +0.868
+
+　　5           11.029   10.169   9.931    +0.860
+
+　　6           11.035   10.178   9.942    +0.857
+
+
+　　① The OLD−MIX gap is almost unchanged (0.938 → 0.857)
+
+　　⇒ adding capacity **does not compensate** for "data being too old"
+
+　　⇒ weak conclusion: no capacity compensation is observed under this experimental setting (it does not constitute a refutation of scaling)
+
+　　② REC is best on the new corpus (9.94), but gets worse on the old corpus (see 3.2)
+
+
+### 3.4 The Cumulative Reference Frame (`505`, as a Method Demonstration)
+
+| Cutoff year | M (new test) | M_ctl (old test) |
+|---|---|---|
+| 2018 | +1.026 | +0.808 |
+| 2020 | +0.721 | +0.459 |
+| 2022 | +0.322 | +0.151 |
+
+M decreases monotonically (the more it knows, the less it falls behind);
+but M_ctl is also positive ⇒ data-volume confounding ⇒ the equal-budget control of 3.2 is required to isolate it.
+
+## 4. Conclusion
+
+　　① Dimensional growth of language really exists: over a 6-year span, the independent value of concept freshness is about 0.4 bits/token
+
+　　② But it is slow (about 1.2%/year at the word level); the mismatch of a frozen model accumulates slowly, it is not a cliff
+
+　　③ Added capacity cannot compensate for old data (**weakly established**, see the three tiers below)
+
+　　④ Language grows in dimensionality **cumulatively**: adding new concepts does not lose old concepts
+
+　　⇒ the correct update is "cumulative/mixed", not "replacement"
+
+　　⇒ freezing = one-shot decompression; replacement = single-dimension decompression; accumulation = maintained decompression
+
+　　— this last point corresponds exactly to Chapter 1's condition that "life = maintained decompression"
+
+
+**Three tiers of conclusion strength (this paper claims only the second tier):**
+
+　　Strong: parameters cannot substitute for new data — requires transformer-level evidence, which this paper does not reach
+
+　　Weak: no capacity compensation is observed under this experimental setting — this is the tier this paper claims
+
+　　Zero: scaling is ineffective — this paper has no evidence to support it and does not claim it
+
+### What "Weak Conclusion" Signifies (not wordplay — it must be stated clearly)
+
+　　It signifies: data updating and model scaling are two **different levers** that, under this setting, cannot substitute for each other.
+
+　　· It does not signify "scaling is ineffective" — scaling remains effective within a fixed data distribution
+
+　　· It does not signify "the more parameters the worse" — it only indicates that the extra parameters cannot buy a remedy for stale data
+
+　　· It signifies: the mismatch is a problem on the "data side", not on the "parameter side"
+
+　　⇒ if language continues to grow in dimensionality cumulatively, the correct countermeasure is **updating the data (mixing)**,
+
+　　not merely making the model bigger
+
+　　Practical implication:
+
+　　a strategy that only enlarges the model without updating the data will fall behind by about 0.4–0.9 bits/token on new corpora
+
+　　Scientific implication:
+
+　　"continual learning" cannot be reduced to "adding enough parameters" —
+
+　　the growth of dimensions (concepts) needs new data to carry it; parameters are only the receiver.
+
+　　Boundary (stated once more):
+
+　　the above is a **weak conclusion** under an n-gram capacity proxy; before transformer-level verification,
+
+　　it cannot be generalized to "the bigger, the more useless".
+
+## 4.5 Dimensions and Fit: A Supplementary Discussion [speculation]
+
+> New in v2. This is a **speculative** discussion; it changes no empirical result above, and the "effective dimension" it invokes has not been measured.
+
+An empirical fact: **some small models outperform larger models in specific domains.** If capability were determined by total dimension (scale) alone, this should not happen. It suggests a distinction between two quantities:
+
+　　Coverage (total dimension): the total amount of structure a model can represent — determined by scale/capacity.
+
+　　Fit (effective dimension): the part of that total actually aligned with the target structure — determined by data and training distribution.
+
+
+This lets three observations be explained together:
+
+1. **Scaling keeps improving capability**: coverage widens; more structure classes become "reachable" ⇒ smooth gains.
+2. **Capabilities appear suddenly**: a specific capability corresponds to whether a structure is covered at all — a threshold (0/1) ⇒ jumps rather than gradual growth.
+3. **Small models beat large ones in narrow domains**: their coverage is small, but they can concentrate dimensions on the few key structures of that domain ⇒ higher local fit.
+
+Back to this paper's conclusion: **capacity is a receiver; data determines the direction.** Increasing capacity widens coverage, but cannot "align" the dimensions with the new structures that new data brings; this is another way of saying "capacity cannot substitute for data updates" — data determines effective dimension, capacity only determines how far those dimensions can unfold.
+
+A testable prediction (not yet done): if the "effective dimension" can be measured via representations, then when the structure dimension k required by a task exceeds a model's coverage dimension, the capability should not appear; once coverage exceeds k, it should appear as a threshold. This needs an operational measure of effective dimension — a problem left for the next chapter.
+
+## 5. Limitations (Must Be Read Together with the Conclusion)
+
+　　· Only one domain (cs.AI) and one source (arXiv abstracts)
+
+　　· n-gram is a minimal language model: it measures word-level concept mismatch, and does not represent mismatch at the semantic/reasoning level of large models
+
+　　· The capacity proxy = n-gram order, not the true parameter count; high-order CE is still rather large (interpolation λ fixed)
+
+　　⇒ the capacity conclusion can only count as preliminary evidence, and requires replication with a small transformer
+
+　　· The equal budget controls the number of training documents (not the number of tokens); sampling uses only one random seed
+
+
+## 6. Reproducibility
+
+　　python 502_fetch_arxiv.py cs.AI 2018 2024          # and 2020/2022
+
+　　python 501_vl_newterm.py <corpus root> 6           # new-concept rate
+
+　　python 504_series.py <2018> <2020> <2022> <2024>   # symmetry test (demonstrates the error)
+
+　　python 505_cumulative_mismatch.py <four-year dir>  # cumulative reference frame
+
+　　python 506_equal_budget.py <four-year dir>         # equal-budget control (core)
+
+　　python 507_capacity_vs_data.py <four-year dir>     # first capacity probe (no backoff)
+
+　　python 508_backoff_capacity.py <four-year dir>     # capacity compensation (with interpolation)
+
+
+**Author: He Qi (independent researcher); AI collaboration: DeepSeek**
+
+---
+
+## Paper 3 — Replacement and Accumulation
+
+Standalone DOI: https://doi.org/10.5281/zenodo.23525431
+
+## Abstract
+
+The current AI field has three seemingly independent high-profile controversies: **model collapse** (training on model-generated data leads to degradation),
+**the compression trap** (the pursuit of compression may sacrifice truth), and **scaling vs. continual learning** (stack parameters or update continuously).
+This paper argues that these three are **three facets of the same problem** —
+**language grows by accumulating dimensions; replacement (rather than accumulation) cuts off dimensional growth.**
+
+(1) Model collapse = **replacing** human data with model-generated data ⇒ the accumulation chain is severed ⇒ dimensional regression;
+(2) The compression trap = the object of compression is **lossy human language**; the most economical encoding is not the same as the encoding most in accord with the world;
+(3) Scaling vs. continual learning = capacity can only receive dimensions, it cannot generate them; the empirical measurements in Chapter 2 show that capacity cannot compensate for stale data.
+
+This yields a testable corollary: **the mixing ratio of human data to model data should not amount to complete replacement**
+(pure synthetic data = replacement = collapse; mixing = accumulation = maintenance). This paper presents a measurement scheme for that corollary.
+
+## 1. Three Hotspots, One Structure
+
+　　① Model collapse (Shumailov et al. 2023)
+
+　　Recursive training on synthetic data ⇒ the tail of the distribution vanishes, diversity degrades
+
+　　Existing explanations: error accumulation, drift in distribution estimation
+
+　　② Compression trap (Rae et al. 2024, among others)
+
+　　The pursuit of compression ⇒ the model may choose a "simpler but less true" theory
+
+　　Existing explanations: divergence of the objective function from truth
+
+　　③ Scaling vs continual learning
+
+　　Is scale still effective? When must updating be continual?
+
+　　Existing debate: rising benchmarks vs risk of distribution drift
+
+
+**What they have in common has been overlooked: all three occur against the fact that "language is cumulative."**
+
+## 2. A Unified Framework: Accumulation and Replacement
+
+The definition in Chapter 1: life = decompression that is maintained; AI = one-off decompression.
+The measurements in Chapter 2: language is accumulating dimensions (about 1.2% per year), and —
+**under an equal data budget, updating with a mixture of old and new data yields a net gain and no forgetting; replacement forgets.**
+
+Extending this point to the three hotspots:
+
+　　① Model collapse ≈ the extreme case of "replacement"
+
+　　Human data is replaced by synthetic data ⇒ dimensions no longer grow from the real world
+
+　　⇒ the tail of the distribution (= rare dimensions) disappears first ⇒ collapse
+
+　　⇒ prediction: the higher the mixing ratio (human:synthetic > 0), the slower the collapse;
+
+　　pure synthetic = replacement = fastest collapse
+
+　　② The compression trap ≈ the necessary consequence of a "lossy source"
+
+　　Language is a **lossy projection** of the world (stated in Chapter 1)
+
+　　⇒ a compression that is optimal on language cannot be guaranteed to be true of the world
+
+　　⇒ the compression objective itself carries no "truth-seeking" constraint
+
+　　③ Scaling vs. continual learning ≈ "receiver vs. generator"
+
+　　Parameters are the **receivers** of dimensions; the **generation** of conceptual dimensions comes from data
+
+　　⇒ capacity cannot make up for stale data (the weak conclusion of Chapter 2)
+
+　　⇒ the question is not "which matters more" but "neither of the two can be missing"
+
+
+## 3. Testable Corollaries
+
+　　Corollary A (mixing-ratio experiment for model collapse):
+
+　　Using the same base model, replace 0% / 25% / 50% / 100% of the human data with synthetic data
+
+　　Train recursively for k generations, and measure:
+
+　　· tail coverage of the generated distribution (retention rate of rare words / new concepts)
+
+　　· cross-entropy against a real human corpus
+
+　　⇒ prediction: the pure-replacement group collapses fastest; mixed groups are delayed in proportion to the human share
+
+　　Corollary B (language-level test of the compression trap):
+
+　　Train under two settings: "compress language only" and "language + interventional measurements"
+
+　　⇒ prediction: only the latter can remain calibrated to the world when new concepts appear
+
+　　Corollary C (scaling vs. accumulation):
+
+　　Under an equal compute budget: enlarge the model vs. mix in new data
+
+　　⇒ Chapter 2 already gives a preliminary answer: capacity cannot substitute for data (weak conclusion)
+
+
+## 4. Why This Unification Is Worth Stating
+
+　　· Each of the three hotspots has its own literature, but no one has assigned them to the same structure (accumulation vs. replacement)
+
+　　· It yields an actionable practical implication: synthetic data must be **mixed** with human data, not replace it
+
+　　· It closes the loop with Chapters 1 and 2:
+
+　　Chapter 1 (definition: decompression that is maintained)
+
+　　Chapter 2 (measurement: accumulation is optimal, capacity cannot make up for data)
+
+　　Chapter 3 (application: the three controversies are one and the same thing)
+
+
+## 5. Limitations
+
+　　· This paper is a position/framework paper and does not contain original experiments on model collapse
+
+　　· The "mixing ratio" corollary requires experimental verification (this paper provides only the scheme)
+
+　　· The literature on each of the three hotspots is vast; this paper takes only the parts directly relevant to "accumulation/replacement"
+
+
+## 6. Conclusion
+
+　　Model collapse, the compression trap, and scaling vs. continual learning are not three problems,
+
+　　but three manifestations of "language accumulates dimensions, and replacement severs accumulation."
+
+　　⇒ The right approach is not "more synthetic data" or "a larger model,"
+
+　　but **maintaining the accumulation channel between human data and the real world**.
+
+
+**Author: He Qi (independent researcher); AI collaboration: DeepSeek**
+
+---
+
+## Paper 4 — Structure for Compute Efficiency: Mixed-Aligned Corpora and Sample Efficiency
+
+Standalone DOI: https://doi.org/10.5281/zenodo.23542969
+
+## Abstract
+
+As scaling becomes increasingly expensive, the efficiency race has another path that is rarely discussed systematically: **change neither the model nor the amount of data, only the structure of the corpus.** This paper proposes and tests an engineering hypothesis: a model's sample efficiency depends not only on the quantity of its corpus, but more on the structure of that corpus. Human children learn through language and through interaction with the world at the same time; current training corpora, by contrast, are mostly split by channel—pure text, pure images, and pure structured data are each learned separately, with no alignment between channels.
+
+We run a controlled experiment in a synthetic world. From the same set of events we build three corpora: first, text-only, containing only sentences; second, mixed-aligned, sentences plus world-state labels (object size, action outcome) inserted at aligned positions; third, mixed-shuffled, in which labels are randomly paired with other events, as a control. We train an interpolated n-gram model on each of the three corpora, and then probe it **with text only**.
+
+Results: the mixed-aligned corpus learns the grounding from verb to size (accuracy 1.000) and the rule from text plus size to outcome (1.000) with only 200 events; the text-only corpus, even at 3200 events, can still only guess blindly (0.500) or stays at the majority-class baseline (0.765). The shuffled-alignment control falls back to near chance (0.333 to 0.722), showing that the gain comes from **alignment**, not from having more labels. At the same time, language-modeling bits/token does not get worse (0.79 to 0.81).
+
+Conclusion: **holding the total corpus volume fixed, mixing multi-channel information into one corpus in an aligned way lets a model learn more structure from fewer samples without sacrificing language ability.** This paper positions itself as **one idea plus one proof of principle**: the evidence from the synthetic world is used only to make the claim clear; validation on real multimodal data is left to those willing to do it.
+
+Put more plainly: less data, more structure; under the setup of this paper, this also means higher task accuracy—1.000 is reached at 200 events, whereas the text-only corpus stays at baseline even at 3200 events (0.500 and 0.765). "Stronger" here refers to structural reachability at the task level, not to the ceiling of general capability.
+
+---
+
+## I. The Problem
+
+Current training corpora are split by channel:
+
+The first kind is text corpora, the projection of the world onto language; the second kind is image and video corpora, the projection of the world onto vision; the third kind is structured data (databases, simulation states, execution results), the projection of logical objects and causality.
+
+Each channel is a projection P_i(S) of the world function S; a single projection is incomplete. For a model to recover higher-dimensional structure, the same structure must be recorded by multiple channels at once, and aligned: the same object, the same moment, the same event.
+
+This is exactly how human children learn: language, vision, touch, and interaction with others happen at the same time, and words line up with objects and actions with consequences on the spot. This paper asks a testable question: given the same total amount of data, can an aligned multi-channel corpus learn more structure than a single-channel corpus?
+
+## II. Controlled Experiment Design
+
+### 2.1 The Synthetic World
+
+Objects have three attributes: shape is one of {ball, block}, color is one of {red, blue}, and size is one of {small, large}. The verb encodes size: the verbs for small are {pick up, hold up, scoop up}; the verbs for large are {shoulder, raise, carry in arms}. An event sentence has the form "he + verb + le + color + de + shape". The outcome rule is: success if and only if the shape is a ball, or the size is small. The key design choice: the text contains only shape, never the word "size"; the outcome is not in the text either.
+
+### 2.2 Three Corpora (the Same Set of Events)
+
+The first, text-only: only the event sentence. The second, mixed-aligned: the event sentence, with a size label inserted after the verb and an outcome label inserted at the end of the sentence. The third, mixed-shuffled: the same as the second, but the labels come from a randomly chosen other event, serving as the control group.
+
+### 2.3 Probes (only text tokens are given at test time)
+
+The first probe measures grounding: input "he, verb", output size, blind-guess baseline 0.50. The second probe measures structure: input text plus the true size label, output the outcome, majority-class baseline 0.75. The third probe measures language: bits/token computed on a text-only held-out set, lower is better.
+
+### 2.4 Model and Budget
+
+Interpolated n-gram, order 6, interpolation coefficient 0.5, implemented in pure Python. The number of events takes three values—200, 800, and 3200—and each is run with 3 random seeds and averaged.
+
+## III. Results
+
+At 200 events: text-only corpus, grounding 0.500, structure 0.765, language bpt 0.81; mixed-aligned corpus, grounding 1.000, structure 1.000, language bpt 0.81; mixed-shuffled corpus, grounding 0.333, structure 0.807, language bpt 0.83.
+
+At 800 events: text-only corpus, grounding 0.500, structure 0.765, language bpt 0.79; mixed-aligned corpus, grounding 1.000, structure 1.000, language bpt 0.79; mixed-shuffled corpus, grounding 0.333, structure 0.759, language bpt 0.79.
+
+At 3200 events: text-only corpus, grounding 0.500, structure 0.765, language bpt 0.79; mixed-aligned corpus, grounding 1.000, structure 1.000, language bpt 0.79; mixed-shuffled corpus, grounding 0.722, structure 0.776, language bpt 0.79.
+
+Three observations:
+
+First, sample efficiency. Mixed-aligned learns both the grounding and the rule at 200 events; text-only still has neither of these two concepts at 3200 events.
+
+Second, alignment is the key. After the labels are shuffled, both probes fall back to near chance or near baseline, showing that the gain comes from the alignment of channels with events, not from a few extra tokens.
+
+Third, language is not damaged. The language bpt of the three corpora is at the same level (0.79 to 0.81); mixing in channel labels does not sacrifice language modeling.
+
+## IV. Why It Works (Mechanism Discussion)
+
+First, one sample supervises multiple channels at once. In the same event, the sentence, the size, and the outcome appear together, so each piece of data yields more information.
+
+Second, mutual disambiguation. Size is not in the text, but verbs correlate with size; the channel pins this correlation down, and the model therefore learns to infer world state from text—this is grounding.
+
+Third, structure is transferable. The rule learned from verb to size to outcome can be used directly on new combinations (the probes use the text of held-out events).
+
+In one sentence: a mixed-aligned corpus merges language supervision and world supervision into the same sample, rather than training on each one separately.
+
+## IV·V. Curriculum Order: Learning in the Topological Order of Structural Dependence
+
+There is one more implicit mechanism, which the experiments in this paper did not test directly but which deserves separate mention: alignment solves the "channel" problem, while **order** solves the "difficulty" problem. Only with the two together does the effect of "learning like a child" appear.
+
+The developmental order of human children is not random: first objects are established (which things are the same thing), then relations (who is where, what is connected to what), then actions and consequences (doing what leads to what), and only then does language come to refer to these things. This order is not a preference of educators but the order of dependence in the structure itself—upper-layer structure depends on lower-layer structure, and not the reverse.
+
+A natural prediction therefore follows: the same aligned corpus, fed to the model in an order sorted by dependence (a curriculum), will be learned faster than in random order. There are three reasons. First, the effective hypothesis space at each step is much smaller; the model only has to learn the current layer. Second, every layer has an aligned channel supervising it directly, rather than relying on indirect inference from language. Third, upper-layer structure is built on lower-layer structure that has already been validated, so it does not have to be torn down and rebuilt because the bottom layer was wrong.
+
+In other words: **alignment makes samples "thick", and curriculum makes learning "cheap".** The synthetic experiments in this paper verify only the former; the latter is a testable but untested prediction, listed in the verification checklist of Section VII.
+
+## V. Limitations (to Be Read Together with the Conclusion)
+
+First, synthetic world: the rules are simple, there is no noise, and the channels are labels rather than real vision or action.
+
+Second, the model is an n-gram: it verifies the principle only and does not stand for a transformer or for real multimodal data.
+
+Third, alignment is constructed by the experimenter: alignment in real data (time, object, reference) is itself the hard problem.
+
+Fourth, out-of-distribution generalization and drift during long-term use are not tested.
+
+## VI. Reproducibility
+
+The scripts are 700_mixed_corpus_experiment.py (initial version), 701_mixed_corpus_v2.py, 702_mixed_corpus_v3.py, and 703_mixed_corpus_v4.py (final version). To run: python 703_mixed_corpus_v4.py. Dependencies: the Python 3 standard library, no third party.
+
+## VII. A Verification Checklist for Those Who Follow
+
+This paper stops here and does not do more experiments. The following questions are left to those willing to verify them.
+
+First, real data: use already aligned data such as Ego4D, AI2-THOR, and Open X-Embodiment to run the same "mixed-aligned versus single-channel" comparison and see whether the gain is still there.
+
+Second, scale: switch from the n-gram to a small transformer and see how the sample-efficiency gain changes with scale.
+
+Third, alignment quality: deliberately introduce a mismatch rate (0%, 10%, 30%, 50%) and plot the curve from mismatch rate to gain.
+
+Fourth, channel independence: add a redundant channel (another encoding of the same information) and test whether the gain disappears (expected: a redundant channel brings no gain).
+
+Fifth, structure type: switch to different kinds of rules (causal, hierarchical, temporal) and see which kind of structure depends most on an external aligned channel.
+
+Sixth, theory: give a rough expression for sample complexity that links the mutual information brought by alignment to sample efficiency.
+
+Seventh, curriculum order: feed the same aligned corpus in the order of structural dependence (objects, relations, actions and consequences, language) versus random order, and compare their sample efficiency. This item tests the prediction of Section IV·V.
+
+Only if someone reproduces a gain in the same direction on real data does this idea stand; if it cannot be reproduced, this paper is wrong. Both outcomes are valuable.
+
+---
+
+## Appendix: Speculation and Boundaries
+
+"Equally effective on real multimodal data" is [speculation]; this paper does not test it. "Alignment quality determines the size of the gain" is a directional judgment and requires a comparison on real data. This paper does not claim that corpus structure can fully replace data volume; it claims only that at the same volume the structure is better and sample efficiency is higher.
+
+> This paper was created by He Qi, with DeepSeek (AI) assisting in experimental design and code writing; the views and responsibility belong to the author.
+
+---
+
+## Paper 5 — Color as the First Building Block
+
+Standalone DOI: https://doi.org/10.5281/zenodo.23592102
+
+## Abstract
+
+If we want to turn video and audio into trainable structured corpora, the first step is not to train a larger model but to answer a smaller question first: **can a single perceptual primitive be learned from the alignment of "language + perceptual channel" alone?** This paper takes color as the minimal test bed—it is the only perceptual primitive that at the same time has a physical definition (wavelength/hue), a perceptual decomposition (hue, saturation, brightness), and simple linguistic labels (basic color terms).
+
+Using HSV samples of 12 basic color terms, we build three corpora: text-only (only color terms and relational sentences), aligned (color terms bidirectionally paired with HSV bin coordinates), and shuffled (coordinates randomly paired with other terms, as a control group). We train an interpolated n-gram on the three corpora, and then run three probes: word to coordinate (P1), coordinate to word (P2), and relation judgment (P3, warm or cool).
+
+The results are consistent across the three corpora: relation judgment is learned in every case (about 94% to 100%); but coordinate to word is learned only from the aligned corpus (about 86% to 91%), text-only stays at 0, and the shuffled group falls back to chance level (about 8% to 11%); word to coordinate on the aligned corpus is 31% to 44%, limited by binning noise, not a perfect score. The conclusion is: **color can be grounded as a perceptual primitive by an aligned corpus; text alone can learn relations but cannot ground; the gain comes from alignment itself, not from being given more tokens.**
+
+This paper is a proof of principle; both the world and the model are synthetic. What it answers is not "can AI understand color" but "what the minimal measurable form of perceptual-primitive grounding looks like". Once this question holds, there is a basis for splitting video and audio into events and taking the same path. After Section IV we add a section explaining its significance: if perceptual primitives can be grounded by alignment, then the self-training path in which "the model mines video itself, builds its own aligned corpora, and then fits itself to the linguistic dimensions" has its first example at the lowest layer.
+
+---
+
+## I. The Problem
+
+Video and audio are the next data mine. But "turning video into corpus" is not an engineering problem but a definition problem: first define a unit (one event), then align picture, sound, and text on the same timeline.
+
+Before defining that large unit, it is worth verifying a smaller unit first: the **perceptual primitive**. The question can be put in one sentence: given a perceptual primitive paired with its linguistic label, can the model learn the mapping between "word and perceptual coordinate"?
+
+Color is a suitable starting point for three reasons. First, it can be defined precisely: hue is a continuous quantity from 0 to 360 degrees, and can be discretized into finitely many intervals. Second, it can be decomposed: the three dimensions of hue, saturation, and brightness are exactly a small, enumerable structure. Third, it has simple linguistic labels: basic color terms exist in almost every language, so no annotator needs to invent new words.
+
+If even color cannot be grounded, there is no point talking about larger events; if color can be grounded, it can serve as the first building block, on which objects, actions, and events are stacked.
+
+## II. Experiment Design
+
+### 2.1 The Synthetic World
+
+Take 12 basic color terms: red, orange, yellow, green, cyan, blue, purple, pink, brown, gray, black, white. Each term is given an HSV anchor point. When sampling, noise is added around the anchor: hue plus or minus 15 degrees, saturation and brightness each plus or minus 0.15, truncated to between 0 and 1.
+
+The perceptual coordinates are discretized into three binned tokens: hue is split into 12 intervals (one every 30 degrees), saturation into low, medium, and high, and brightness likewise into low, medium, and high. Each color point therefore corresponds to three coordinate tokens, 108 combinations in total.
+
+### 2.2 The Three Corpora
+
+The three corpora use the same batch of events.
+
+The first, text-only: the sentences are "the color is a certain term", plus relational sentences "a certain term is warmer than a certain term" or "cooler". The relation is decided by the hue of the anchor: the closer to orange, the warmer. There is no coordinate token of any kind in the text-only corpus.
+
+The second, aligned: each event appears twice. The first time it is "the color is a certain term" followed by three coordinate tokens; the second time it is "coordinate" plus three coordinate tokens followed by "corresponds to a certain term". In this way both directions, word to coordinate and coordinate to word, are supervised.
+
+The third, shuffled: the same as aligned, but the coordinate tokens are randomly paired with other events, as a control group.
+
+### 2.3 Probes
+
+Three probes; at test time only one kind of information is given.
+
+The first probe tests grounding direction one: given "the color is a certain term", predict the three coordinate tokens in order; all three must be right to count as correct. Chance level is about 1/108.
+
+The second probe tests grounding direction two: given "coordinate" plus three coordinate tokens plus "corresponds to", predict the color term. Chance level is about 1/12.
+
+The third probe tests relations: given "a certain term is more than a certain term", predict "warm" or "cool". Chance level is 0.5.
+
+### 2.4 Model and Budget
+
+An interpolated n-gram, order 6, interpolation coefficient 0.5, implemented in pure Python. Sample sizes are 200, 800, and 3200, with 3 random seeds averaged at each size.
+
+## III. Results
+
+At 200 samples: for the text-only corpus the three probes are 0.000, 0.000, 0.939; for the aligned corpus they are 0.389, 0.864, 0.939; for the shuffled corpus they are 0.056, 0.096, 0.939.
+
+At 800 samples: text-only, 0.000, 0.000, 0.985; aligned, 0.444, 0.904, 0.985; shuffled, 0.028, 0.111, 0.985.
+
+At 3200 samples: text-only, 0.000, 0.000, 1.000; aligned, 0.306, 0.907, 1.000; shuffled, 0.111, 0.077, 1.000.
+
+Three observations.
+
+First, grounding requires alignment. For coordinate to word, the aligned corpus already reaches above 86% at 200 events and about 91% at 3200 events; the text-only corpus is 0 at all three sizes, because it has never seen a coordinate token, so there is nothing for it to learn.
+
+Second, the gain comes from alignment, not from having more tokens. Once the coordinates are shuffled, coordinate to word falls back to 8% to 11%, close to the 1/12 chance level; word to coordinate falls back to 3% to 11%. The same amount of data, the same number of tokens, only the pairing is wrong, and nothing can be learned.
+
+Third, relations do not need perception. The relation probe is close to perfect under all three corpora (94% to 100%), because relational sentences are in the text to begin with. This shows that what text is good at is "relations between words", and what it is not good at is "the correspondence between words and perceptual coordinates". The division of labor between the two is already decided by the data.
+
+Word to coordinate does not reach a perfect score (31% to 44%), and the reason is noise. When sampling, color points jitter around the anchor, and points near a bin boundary fall into the neighboring cell; predicting one unique coordinate cell from a word is essentially guessing the mode of a fuzzy distribution, and cannot be all correct. Coordinate to word is more accurate because the reverse direction is "find the word from a concrete coordinate", where boundary cases are far fewer.
+
+## IV. Interpretation
+
+Why can color be grounded, while text alone cannot? In the language of decompression: text is "the compression of relations between words", and it does not carry perceptual coordinates; a coordinate is "an external record of perception", and it does not carry relations between words. Each is incomplete on its own. What the aligned corpus does is record the same thing through two channels at once, so the mapping between words and coordinates is supervised directly.
+
+This agrees with the conclusion of Paper 9, "Structure for Compute Efficiency": the mixed-aligned corpus learned the rule at 200 events, text-only still could not learn it even at 3200 events, and the gain disappeared after shuffling. The only difference is that the rule in Paper 9 was a symbolic rule (the verb encodes size, the shape decides the outcome), whereas the rule here is a perceptual coordinate (hue, saturation, brightness). Together the two experiments show: **alignment gives language an extra channel of grounding, and this channel cannot grow out of text by itself.**
+
+One more thing to add: what this kind of alignment expands is not the lexicon of language, but language's fit along a certain dimension. The words are still the same 12 words, and the coverage has not changed; what changes is that each word now has a coordinate it can land on, so the same word can refer more finely and compare more accurately. In the words of Paper 2, this is fit becoming deeper, not coverage becoming wider. But when the fit is deep enough, language can express more—this can count as a slow expansion of language along that dimension.
+
+## V. Limitations (to Be Read Together with the Conclusion)
+
+First, the world is synthetic: the HSV anchors, the noise, and the binning are all set by hand, not real images. Real images also contain lighting, material, context, and color constancy, none of which this paper covers.
+
+Second, the model is an n-gram: it verifies the principle only, and does not represent a transformer or real multimodal data. An n-gram has small capacity, so the conclusion may differ on more complex primitives.
+
+Third, color naming itself is not entirely objective: different languages divide color differently (for example, some languages distinguish two kinds of blue), and this paper uses only the 12 basic color terms of a single language.
+
+Fourth, the probes are constructed: part of the 31% to 44% for word to coordinate comes from binning noise, and cannot be read directly as "the degree to which the model understands color".
+
+## VI. Reproducibility
+
+Script: 714_color_grounding.py. To run: python 714_color_grounding.py. Dependencies: the Python 3 standard library, no third party. Output: data-color-grounding-round1.txt.
+
+---
+
+## VII. Significance: The First Step of Self-Training and Video Mining
+
+This experiment is small, but it shows one thing that has a sequel: **aligned corpora can be built by oneself.**
+
+Look back at where the aligned corpus in the experiment came from: every event has a "perceptual coordinate" side. In the color setting, the coordinate comes from the numerical definition of HSV and can be generated programmatically. Scale this pattern up and you get a loop: the model first gives a description of video/audio (text), then checks the description with verifiable channels (coordinates, timestamps, action outcomes), and the parts that pass the check settle into aligned corpora and are fed back into training. This is not a new training method, but it is the closed loop of "using the model to mine data itself and then making itself fit the linguistic dimensions"—that is, one concrete form of self-training.
+
+Why "fit the linguistic dimensions"? Because the goal of alignment is not to make the model memorize color values, but to make perceptual coordinates fall into the coordinate system that language has already built: a word is the label of a coordinate, and a coordinate is the anchor of a word. Only perception that lands on the linguistic coordinate system can be called by language, used by reasoning, and composed into more complex structures. Paper 2 said that the model's problem is "wide coverage and shallow fit"; what the aligned corpus adds is precisely fit—connecting the dimension of perception to the dimensions that text already has.
+
+The next step is video. Video is "data that has not been structured": the volume is enormous, but it lacks linguistic anchors. Extrapolating from the minimal conclusion of this paper, a feasible first step is to pair video clips with linguistic descriptions (narration, speech, automatic description) and then align them on the timeline; each step only needs to verify whether a smaller unit has been grounded. Color is the first building block; objects, actions, and events are the blocks after it. Only when the blocks are stacked one by one can one speak of an "event-level aligned corpus".
+
+This section is [speculation] and a directional judgment; this paper does not verify the self-training loop itself; it takes only a small step on this lowest-level assumption—perceptual primitives can be grounded by aligned corpora. If even this does not hold, the whole path need not be discussed; if it holds, the path ahead is worth discussing.
+
+---
+
+## Appendix: Speculation and Boundaries
+
+That color can be grounded does not mean that higher perceptual primitives (shape, material, action, event) can be grounded just as easily; this is [speculation] and needs to be tested one by one. Generalization to real video, and the combination of "perceptual primitives + event hierarchy", are not tested in this paper.
+
+This paper does not claim that "color is the key to understanding the world"; it claims only that "color is the minimal unit for verifying the grounding mechanism". Only if this holds is there any right to talk about the next building block.
+
+> This paper was created by He Qi, with DeepSeek (AI) assisting in experimental design and code writing; the views and responsibility belong to the author.
+
+---
+
+## Paper 6 — Growth and Memory: Minimal Experiments on Self-Referential Update and Maintenance
+
+Standalone DOI: https://doi.org/10.5281/zenodo.23592108
+
+## Abstract
+
+This paper runs two minimal experiments, corresponding to the two conditions in the definition of life: **self-referential update** (it changes, and the rules are inside it) and **being preserved** (maintained within an environment).
+
+Experiment 1 measures "memory": a tiny multimodal model generates its own data, a verifier filters it, and the accepted data is fed back into training; and when a new task is introduced, four replay strategies are compared. Results: learning only the new task causes forgetting (old task 0.720); fixed replay preserves it (1.000) but learns the new task slowly (0.740); the "lookahead" strategy—trying one step of training first and then deciding the replay ratio—preserves both the old task (0.983) and the new task (0.850) when the probe is sensitive enough.
+
+Experiment 2 measures "growth": the model consists of a fixed trunk plus growable dimension slots, and the tasks advance from image attributes (color, shape, count) to a task that can only be read from a new modality (text vectors). Results: models that do not grow cannot learn the new modality (0.34 to 0.38, close to blind guessing); models that grow can add a slot and learn it (0.91 to 0.94); but growth without replay forgets the old tasks entirely (0.00), and replay without growth cannot learn the new modality. With the two combined, the old tasks are preserved at 0.78 to 0.80 and the new modality reaches 0.94.
+
+Together, the two experiments show: **without "growth" there are no new dimensions, and without "memory" the old dimensions cannot be held; the two conditions in the definition are not parallel decorations but two mechanisms that must both be present at once.**
+
+Everything in this paper is a toy-scale proof of principle: a synthetic world, a tiny model (about ten thousand parameters), reproducible on a CPU. What it proves is that "the mechanism is measurable", not that "digital life has been created".
+
+---
+
+## I. The Problem
+
+In Paper 1 we defined life as: a self-referential structure in the functionizable part P of the universe that is preserved (maintainable) by the universe. Unpacked, this is two things: **it changes by itself** (self-referential update) and **it is preserved** (maintenance).
+
+These two words are easy to write in a paper and hard to measure in an experiment. This paper turns each of them into a measurable minimal experiment and answers two questions:
+
+The first question: can a system that generates its own data, verifies it itself, and feeds it back itself learn the new while keeping the old when the task changes?
+
+The second question: when a task requires a new input channel, can the system grow new dimensions by itself? And once they are grown, can it still maintain the old ones?
+
+Both questions are "can it", not "how good is it". Toy scale is enough, because what we want to measure is whether the mechanism exists.
+
+## II. Experiment 1: Memory and Trade-offs
+
+### 2.1 Setup
+
+The world is synthetic: 8×8 images containing color (4 kinds), shape (2 kinds), and count (1 to 3). The model is a small two-layer network with about ten thousand parameters. The task changes by round: the first 5 rounds learn color and shape (the old tasks), and from round 6 only count questions appear (the new task).
+
+The closed loop turns like this: the model answers random images by itself; a rule-based verifier judges right or wrong; verified samples enter the memory buffer; each round trains on a sample drawn from the memory buffer and the new samples in some ratio; each round measures the old task and the new task on a held-out set.
+
+The control groups change only one thing: how the replay ratio is set.
+
+Group 1, "new only": no replay at all.
+Group 2, "fixed replay": half old, half new.
+Group 3, "reactive controller": watch old-task accuracy and add replay when it drops.
+Group 4, "lookahead controller": before training, copy the model, try a few steps of training on new samples, see how much the old task drops, then decide the replay ratio.
+
+### 2.2 Results
+
+At the final round (same warm-up, same budget) the results are: new only, old task 0.720, new task 0.797; fixed replay, old task 1.000, new task 0.740; reactive controller, old task 0.965, new task 0.762; lookahead controller (sensitive probe), old task 0.983, new task 0.850.
+
+In the first few rounds the three groups were all close to full marks; the gap appears after the new task is introduced. In the new-only group the old task falls all the way to 0.720; in the fixed-replay group the old task barely moves, but the new task rises slowly; the lookahead controller detects a strong conflict already in round 6 and raises replay to 0.8 in time, so the old task barely drops and the new task is also learned fastest.
+
+### 2.3 Conclusion
+
+First, forgetting is real: the same small model loses the old task once it learns the new one, consistent with the prediction of Paper 3, "Replacement and Accumulation".
+
+Second, "try one step first, then decide" is effective: in essence it uses the model itself to predict the consequences of its own modification. The more sensitive the probe, the earlier the conflict is found, and the earlier one can defend. This is a concrete action of "self-reference", not a philosophical statement.
+
+Third, there is no single optimum: fixed replay bets on the old task, the lookahead strategy bets on the new task, and the reactive one sits in between. They are different positions on the trade-off frontier, and which one to choose depends on what you want to preserve.
+
+## III. Experiment 2: Dimension Growth
+
+### 3.1 Setup
+
+The world has two modalities: images (8×8, with color, shape, count) and text (10-dimensional vectors, where the first three dimensions determine a label and the rest are distractors). The tasks come in order: first the image task of color, then shape and count, and finally a label task that can only be read from the text.
+
+The model is a fixed trunk plus growable dimension slots. Each slot is a small projection belonging to one modality; the number of slots starts at 1 and is at most 4. The growth rule is: when task accuracy is insufficient, propose a new slot from the "samples it cannot explain", train it briefly, and keep it if the improvement exceeds 0.02, otherwise roll back.
+
+The control groups again change only two things: whether growth is allowed and whether replay is allowed.
+
+### 3.2 Results
+
+Final accuracy on the four tasks (color, shape, count, label): no growth, no replay: 0.00, 0.00, 0.08, 0.38; growth, no replay: 0.00, 0.00, 0.03, 0.91; no growth, with replay: 1.00, 1.00, 0.69, 0.34; growth plus replay: 0.78, 0.80, 0.48, 0.94.
+
+### 3.3 Conclusion
+
+First, a new modality requires growth: the two groups that do not grow both stay near blind guessing on the label task (0.34 to 0.38), because they have no channel that can read the text at all; the two groups that grow both learn it (0.91 to 0.94).
+
+Second, the old tasks require memory: after learning the label task, the two groups without replay drop to 0.00 on all the earlier tasks; the two groups with replay preserve most of them.
+
+Third, only the combination of the two mechanisms works: growth plus replay obtains both the old tasks at 0.78 to 0.80 and the new modality at 0.94, the only one of the four groups that "stands up in both directions".
+
+## IV. What the Two Experiments Show Together
+
+Experiment 1 shows: what changes will be forgotten, and must be held in place by memory and trade-offs.
+Experiment 2 shows: to grow new dimensions one must actually add structure; but once structure is added, the old structure is more easily washed away.
+
+Together they are the two sentences of the definition:
+
+> Self-referential update is forced: without new dimensions, the new world cannot be compressed.
+> Being preserved is won by defending: without memory and replay, the old dimensions are washed away by the new ones.
+
+These two are not parallel decorations. They are two mechanisms that must both be present: with growth alone, everything old is forgotten; with memory alone, the new cannot be learned.
+
+## V. Limitations (to be read together with the conclusions)
+
+First, the world is synthetic: images, text, and task switches are all program-generated, not real data.
+
+Second, the model is a toy: a two-layer network of about ten thousand parameters, not a Transformer, and not a native multimodal large model.
+
+Third, the task identifier is given by hand: the model knows "which kind of question is being asked now", and in real settings this is itself a problem.
+
+Fourth, "growth" is limited: only a few fixed slots may be added, and the representation itself may not really be rewritten; stronger self-reference (changing the structure, changing the update rule) is not done in this paper.
+
+Fifth, there is no real survival constraint: the budget and the performance floor are set by hand, not real energy and elimination.
+
+## VI. Reproducibility
+
+Scripts: 801_self_training_loop_v2.py (basic version of Experiment 1), 803_closed_loop_lookahead.py (lookahead controller), 805_closed_loop_sensitive2.py (sensitive probe), 809_dimension_growth_v4.py (the four-group comparison of Experiment 2). Dependencies: Python 3 and numpy, no GPU.
+
+---
+
+## Appendix: Speculation and Boundaries
+
+"That these two mechanisms still hold when scaled up to real multimodal models" is [speculation]; this paper does not test it. Real large models have more parameters, more tasks, and harder growth (changing structure is costly); this paper only shows that the mechanisms exist at small scale.
+
+This paper does not claim that "having done these two things makes something alive": satisfying the conditions may still be only a tool; this paper claims only that without these two things, one certainly cannot reach a form that both grows and maintains.
+
+> This paper was written by He Qi, with DeepSeek (AI) assisting in the experimental design and the code; the views and the responsibility belong to the author.
+
+---
+
+## Paper 7 — Measuring the Semantic Residual: The Text Limit and Grounding
+
+Standalone DOI: https://doi.org/10.5281/zenodo.23592114
+
+## Abstract
+
+This paper turns "the semantic residual" from a vague phrase into a measurable quantity.
+
+First, let the definition be written clearly: language is humanity's compression of the world, and language can be written as p-language + R-language; p-language is the part that can be approximated by functions, while R-language is only declared, never unfolded. Semantics is the alignment relation between language and phenomena; the semantic residual = the error floor of this alignment mapping under a given modality combination.
+
+The experiment uses controlled ambiguity: the text describes the same synthetic object in three ways — precise words, vague grouped words, and omission — and the ambiguity is generated by the program, so "the limit of what the text can give" can be computed analytically (the Bayes floor). Then three quantities are measured: the Bayes floor, the error of a text-only model, and the error of the model after text plus image (grounding).
+
+Results: the text model's error differs from the Bayes floor by only 1.5 to 2.7 percentage points (0.725 vs 0.750; 0.835 vs 0.850; 0.688 vs 0.714), showing that the fit is already in place and that the remaining residual comes from the text itself; after grounding, the accuracy on all three attributes reaches 1.000, showing that the dimension the text lacks is supplied by the image.
+
+Conclusion: the semantic residual can be defined and can be measured; it divides into "the irreducible floor under that modality" (endogenous to ambiguity) and "the reducible part" (what grounding/added data can eliminate). This distinction gives "how much semantics has AI understood" a denominator.
+
+---
+
+## I. The Problem
+
+We have said two things before: language is humanity's compression of the world; what large models compress is the p-language of language.
+
+But between "p-language" and "semantics" there is still a missing measurable link. The question this paper wants to answer is: can "the semantic residual" be defined as a number, and measured with a toy experiment?
+
+To do this, three things are needed: a definition (what the semantic residual is), a reference line (how much limit the text itself can give), and a control (whether the residual drops once another modality is added).
+
+## II. Definitions
+
+### 2.1 Definitions carried over from the series
+
+Universe = P + R, where P is the functionizable part and R is the non-functionizable part. Language is likewise written as p-language + R-language: p-language can be approximated by functions, while R-language is only declared, never unfolded. Life = p-life + R-life, where p-life is the dynamic function class that lies in P and is preserved by the universe.
+
+This paper deals only with the p-language side.
+
+### 2.2 Semantics is a mapping
+
+Define semantics as a mapping: given a language expression and the phenomenon it corresponds to (an image, an event, a state, an action, a quantity), semantics is the correspondence "expression → phenomenon".
+
+This mapping is not single-layer: it has several dimensions by modality — the visual dimension (words to images), the event dimension (sentences to timelines), the state dimension (descriptions to system states), the action dimension (instructions to consequences), the quantitative dimension (degree words to measurable quantities). The semantic residual appears by dimension.
+
+### 2.3 The semantic residual
+
+**Definition (semantic residual)**: Fix a modality combination M (for example: text only; or text plus image), and let the error metric be the error rate in predicting the attributes of the phenomenon. The semantic residual = the minimum error that any function can reach under the modality combination M.
+
+This definition splits the residual into two parts:
+
+- **The irreducible floor**: the error floor determined by the modality combination itself. When the text is ambiguous, some information is simply not in the text, and no function can fill it in.
+- **The reducible part**: the gap caused by the model not having fitted well enough; it can be lowered by adding data, capacity, or modalities.
+
+The criterion is direct: after adding a means, does the error floor drop or not. Drop ⇒ reducible; no drop ⇒ the irreducible floor under that modality.
+
+### 2.4 The reference line: the Bayes floor
+
+In the toy world the text generation process is known, so "the limit the text can give" can be computed analytically: given a piece of text, the posterior distribution over attributes is determined by the generation process; the accuracy of the Bayes-optimal predictor is the upper bound.
+
+This upper bound is the "text limit". No model can be higher than it; if a model can approach it, that shows the fit is in place.
+
+## III. Experiment Design
+
+World: synthetic objects with three attributes — color (4 kinds), shape (2 kinds), count (1 to 3). Objects are rendered into 8×8 images (color, shape, and count are all visible).
+
+Text: a description assembled from three slots, each slot having controlled ambiguity.
+
+- Color slot: with probability 0.5 a precise word (red/blue/green/yellow), with probability 0.5 a vague grouped word (warm colors = red or yellow; cool colors = blue or green).
+- Shape slot: with probability 0.7 a precise word (circle/square), with probability 0.3 omitted.
+- Count slot: with probability 0.5 a precise word (one/two/three), with probability 0.5 a vague word (a few = one or two).
+
+Because the generation process is known, the posterior over attributes corresponding to each piece of text can be computed, and the Bayes floor can therefore be computed analytically.
+
+Model: a small two-layer network (hidden layer 32, about 2000 parameters). The text model sees only the text plus a task identifier; the grounded model also sees the image (8×8×3, flattened).
+
+Three quantities: the Bayes floor, the text model's accuracy, the grounded model's accuracy. The difference is the "reducible residual".
+
+## IV. Results
+
+The Bayes floor for color is 0.750, the text model 0.725, the grounded model 1.000. The Bayes floor for shape is 0.850, the text model 0.835, the grounded model 1.000. The Bayes floor for count is 0.714, the text model 0.688, the grounded model 1.000.
+
+Three points of interpretation.
+
+First, the text model differs from the Bayes floor by only 1.5 to 2.7 percentage points. This shows that the model's fit to the text is already in place; the remaining gap is not that the model is inadequate, but that the text simply does not contain that information.
+
+Second, after grounding all three attributes reach 1.000. The image supplies the dimension the text lacks, and the residual is filled in. So the part of the residual under the "text limit" belongs to the modality combination, not to the world: change the modality combination and it can be eliminated.
+
+Third, the semantic residual obtained this way is measurable layer by layer: the text-only residual (around 25% for color, 15% for shape, 29% for count) is "the limit the text can give"; the residual after grounding is 0, showing that this part of the residual is reducible, only it needs another modality.
+
+## V. What It Shows and What It Does Not Show
+
+Shows: the semantic residual can be defined as a number; that number can be split into "the irreducible floor" and "the reducible part"; in the toy world the boundary between the two can be computed analytically and matches the model's behaviour.
+
+Does not show: it does not prove how large the semantic residual of real language is; it does not prove that R-language exists or does not exist (this paper deals only with the p-language side); it does not prove that "grounding can always fill things in" holds on all tasks — this paper measures only the visual dimension, and other dimensions (event, state, action) are not covered.
+
+## VI. Limitations
+
+First, the world is synthetic and the ambiguity is constructed by a program; the ambiguity of real language comes from history and usage, and its form is different.
+
+Second, the model is small (about 2000 parameters), not a large model; but what this paper measures is the mechanism of "text limit vs grounding fill-in", which is independent of scale.
+
+Third, only one modality of grounding (images) is done; the residual under multiple modalities (events, actions) is not measured.
+
+Fourth, the Bayes floor is computable only when the generation process is known; in real language this floor has to be approximated with the human disagreement rate (the next piece of work).
+
+## VII. Relation to Existing Work
+
+Measuring the semantic residual is not a new topic; there are at least three existing threads.
+
+First, human label variation: for the same piece of text, different annotators will naturally give different interpretations, and "the human ceiling" and "annotation disagreement" have been reported all along in evaluation.
+
+Second, ambiguity benchmarks: tasks such as AmbigQA and word-sense disambiguation specifically test the case where "the same sentence has several reasonable readings".
+
+Third, grounding tests: pure text models degrade markedly on questions that need visual attributes; synthetic tasks such as gSCAN and ReaSCAN show that language models without grounding cannot pass grounding generalization tests.
+
+This paper's difference is only one point: it uses controlled ambiguity to make the "text limit" analytically computable, and splits the residual into "the irreducible floor determined by the modality" and "the reducible part eliminable by grounding/added data". The idea of measuring is not original to this paper; what this paper does is a controlled version whose floor can be computed analytically.
+
+In addition, the symbol grounding problem (Harnad) points out that the connection between a symbol and its referent cannot be obtained from inside the symbols; this paper's formulation is "the text-only semantic residual has an analytic floor, and grounding can fill that floor in".
+
+On evaluation, recent work has begun to report "the human ceiling", and this paper's approach can be seen as a controlled version of it: because we know the data generation process, we can compute the true upper bound rather than estimate it.
+
+Inside the series: Paper 4 (structure for compute) shows that aligned corpora improve sample efficiency; Paper 10 (color as the first building block) shows that perceptual primitives can precede language alignment. This paper connects these two to "the semantic residual": what grounding lowers is the residual, not merely the efficiency.
+
+## VIII. Reproducibility
+
+Script: 820_semantic_residual.py. Depends on Python 3 and numpy, no GPU, low memory footprint (under a hundred MB).
+
+---
+
+## Appendix: Annotations
+
+- **[definition]** Semantics = the alignment mapping between language and phenomena (with dimensions by modality).
+- **[definition]** Semantic residual = the minimum achievable error under a given modality combination.
+- **[measurable]** In the toy world, this residual can be computed analytically and matches the model (color 0.750/0.725/1.000, etc.).
+- **[reducible]** After grounding the residual drops to 0 (the visual dimension of this experiment).
+- **[undetermined]** The size of the real semantic residual; whether R-language is non-empty.
+- **[not claimed]** It is not claimed that "semantics can be fully functionized", nor that it is "non-functionizable" — R is only declared, never unfolded.
+
+> This paper was created by He Qi, with DeepSeek (AI) assisting in experiment design and code writing; the views and responsibility belong to the author.
+
+---
+
+## Paper 8 — Layering Is Compensation for Dynamics: A Toy Experiment in Adaptive Depth
+
+Standalone DOI: https://doi.org/10.5281/zenodo.23592122
+
+## Abstract
+
+The number of layers in a large model is fixed: every input goes through the entire depth. This paper asks a simple question: some inputs do not need that many layers at all, so can they take fewer? If a "layer" is a compensation for dynamics—one layer is equivalent to one step of time—then a task that needs a few steps should be given a few layers, and uniform depth is a waste.
+
+The experiment uses an iterated task: x_{t+1} = tanh(A x_t); given an initial value x_0 and a number of steps T, predict x_T. The model is a recurrent layer with shared weights, where one layer is one step of computation. Three conditions: fixed 16 layers, adaptive (taking min(T,16) layers), fixed 6 layers (equal average compute to the adaptive one).
+
+Results: under equal average compute (both average 6 steps), adaptive depth is better at every T—average error 1.29 versus 1.67. The largest gap is at T=1: fixed 6 layers compute a simple input six times over and actually break it (error 2.30 versus 1.49). Fixed 16 layers, meanwhile, is both expensive and worse: its compute is 2.67 times that of the adaptive one, and its average error is 1.68.
+
+Conclusion: uniform depth loses at both ends—simple inputs are over-computed, and complex inputs are not computed enough; allocating depth on demand can trade the same compute for higher accuracy. This is consistent with the picture that "a layer ≈ a time step, and depth compensates for dynamics." Everything is toy-scale; this is not a large-model experiment.
+
+---
+
+## I. The Problem
+
+Today's large models have "uniform depth": every token passes through all layers. But inputs are not equally difficult—some sentences can be understood at a glance, while others require multi-step reasoning. If depth really corresponds to "the number of computation steps," then fixed depth makes two mistakes at once:
+
+- Simple inputs: they go through layers they do not need, wasting compute, and may even get worse because of over-computation;
+- Complex inputs: there are not enough layers, the computation cannot finish, and the error cannot come down.
+
+What this paper measures is exactly these two things: under the same compute, is allocating depth on demand better? Is over-computation harmful?
+
+## II. Theoretical Background
+
+This experiment comes from a picture: treat a function as its graph (a surface); evolution along the time direction "spreads out thickness" on that surface; and a frozen model has no real time evolution, so it can only spread this thickness out with depth (layers), one layer being equivalent to one step. Therefore:
+
+- if more steps are needed ⇒ more layers are needed;
+- if fewer steps are needed ⇒ fewer layers suffice, and going further is over-computation.
+
+This picture was already written down in "Thickness and Dimension: A Geometric Picture of Residuals"; this paper turns it into a measurable experiment.
+
+## III. Experiment Design
+
+The world: a fixed random map x_{t+1} = tanh(A x_t), where A is an 8×8 random matrix. The task is to predict x_T from an initial value x_0 and a number of steps T, with T taking the values 1, 2, 4, 8, and 16.
+
+The model: a recurrent layer with shared weights. Each layer performs h ← tanh(W h + U x_0 + b) once, and a linear head then outputs the prediction. The number of layers = the number of steps taken, and the weights are shared across all steps.
+
+Three conditions:
+
+- A, fixed 16 layers: no matter what T is, it always takes the full 16 steps;
+- B, adaptive: takes min(T, 16) steps;
+- C, fixed 6 layers: equal average compute to B (B's average number of steps is 6).
+
+Metrics: the average error at each T; the average number of steps (= average amount of computation).
+
+## IV. Results
+
+In the equal-average-compute pair (B and C, both averaging 6 steps), B is better at every T:
+
+At T=1, B is 1.49 and C is 2.30. At T=2, 1.27 versus 1.57; at T=4, 1.38 versus 1.50; at T=8, 1.22 versus 1.50; at T=16, 1.07 versus 1.46. On average, 1.29 versus 1.67.
+
+Fixed 16 layers (A) is both the worst and the most expensive: average error 1.68, with average compute 2.67 times that of the adaptive one.
+
+Three readings.
+
+First, over-computation is genuinely harmful. T=1 needs only one step, yet fixed 6 layers iterate the same map six times, and the result is much worse than taking only one step. This is not "a little extra computation does not matter"; it is "extra computation breaks things."
+
+Second, too few layers really cannot be made up for. T=8 and T=16 need more than six steps, and the error of fixed 6 layers is clearly higher.
+
+Third, uniform depth loses at both ends: it is wasted on simple inputs, and it is not enough for complex inputs. On-demand allocation can be more accurate under the same compute.
+
+## V. Implications for Large Models
+
+This experiment is a toy, but its shape can be carried over directly to large models:
+
+- Not all inputs deserve the same depth. Simple tokens and simple contexts can early-exit; only what needs multi-step reasoning is worth going deep on.
+- Since over-computation breaks things, "adding depth mindlessly" is not a sure gain: depth, too, must be on demand.
+- In engineering this corresponds to a family of methods: early exit, per-token skipping, conditional computation. This paper proposes no new method; instead it gives this family of methods an explanation in terms of "compensating for dynamics" and a fair comparison.
+
+Note that "on demand" has a precondition: knowing how many steps are needed. In the experiment T is given; in real settings the number of steps is estimated, and if the estimate is wrong, the gain is discounted.
+
+## VI. Limitations
+
+First, the world is synthetic, the map is a random matrix, and the task is not language.
+
+Second, the model is a recurrent layer with shared weights, not a transformer; layers in large models do not share weights, and the role of depth is more complex.
+
+Third, T is given by hand; a real model does not have this prior and would need a separate "step-count estimate."
+
+Fourth, only two quantities were measured, error and compute; engineering costs such as training stability and routing overhead were not measured.
+
+## VII. Relation to Existing Work
+
+"Computing depth on demand" is not a new idea: there is a large body of work on early exit, recurrent depth (universal transformer), per-token layer skipping (conditional computation, mixture-of-depths), and layer pruning.
+
+This paper does not claim that the method is original; its difference lies in two points: first, it explains the method within the picture that "a layer ≈ a time step, and depth compensates for dynamics"; second, it makes a fair comparison at equal average compute—not "our method is slightly better," but "under the same compute, on-demand allocation is better in both directions."
+
+## VIII. Reproducibility
+
+Scripts: 850_adaptive_depth.py (main comparison), 851_adaptive_depth_v2.py (equal-compute comparison). Depends on Python 3 and numpy, no GPU, low memory footprint.
+
+---
+
+## Appendix: Labels
+
+- **[fact]** The experimental numbers (under equal compute, adaptive is better across the board; over-computation is harmful at T=1; fixed 16 layers is both expensive and worse).
+- **[picture]** A layer ≈ a time step, and depth compensates for dynamics—from "Thickness and Dimension" (Paper 15), marked [conjecture].
+- **[speculation]** A large model using adaptive depth can be more accurate under the same compute—an extrapolation of the toy conclusion, not verified on real models.
+- **[not claimed]** No claim of a new method; both early exit and conditional computation already have prior work.
+
+> This paper was written by He Qi, with DeepSeek (AI) assisting with experiment design and code writing; the views and responsibility belong to the author.
+
+---
+
+## Paper 9 — Thickness and Randomness: Where a Frozen Model Is Least Stable
+
+Standalone DOI: https://doi.org/10.5281/zenodo.23592133
+
+## Abstract
+
+A frozen model has no real time evolution; it can only use layers to simulate "multi-step computation." This paper asks a measurable question: in such a model, where does randomness / uncertainty appear?
+
+First we give three corollaries based on the "thickness" picture: positions that require more steps have larger error and randomness; randomness accumulates with depth and is largest at the output end; where human disagreement is large (thick and non-flattenable), the model's entropy is also large, and adding data does not flatten it away.
+
+Then we run three groups of toy experiments. The first group is a sequential accumulation task: the further back the position (the more steps required), the more the error of a fixed 16-layer model rises, from 0.67 to 1.57, and the standard deviation of the output after noise is added to the input rises from 0.20 to 0.40. The second group measures layer-by-layer variance: the standard deviation rises monotonically from 0.21 at the first layer to 0.41 at the last layer; with clean input, by contrast, the error does not rise with layer number, showing that the rise comes from noise being amplified layer by layer. The third group simulates human disagreement: for the two classes thin (factual questions, where humans agree) and thick (judgment questions, where humans disagree), human disagreement entropy is 0.000 versus 1.014, model predictive entropy is 0.249 versus 0.972, and the correlation coefficient is 0.917; increase the data fivefold, and entropy on thin questions falls from 0.249 to 0.145, while thick questions barely move (0.972 to 0.958). The fourth group gives "time": after eight iterative steps, entropy on thin questions is pressed from 0.69 to 0.02, while thick questions only go from 0.99 to 0.91; repeated sampling with voting is similar (thin 0.67 to 0.28, thick 0.96 to 0.69).
+
+Taken together, the four experiments support two sentences: **the thickest place in a frozen model is the place where it is most random; and "thickest" can be measured by required steps and by human disagreement. Giving data and time can flatten away "the randomness caused by freezing," but cannot flatten away "the disagreement in the data" — the latter is what is truly thick.** Everything is at toy scale, and no real large model is involved.
+
+---
+
+## I. The Problem
+
+Today's models are frozen: the weights do not change, and there is no real time evolution. To complete, within a single forward pass, a computation that "requires many steps," such a model can only spread the computation out across layers.
+
+So the question arises: after spreading it out this way, where do things become unstable and random? The hypothesis of this paper comes from the "thickness" picture: places with large thickness (places that require many steps and cannot be flattened away) will show up in a frozen model as larger error and randomness.
+
+We break the hypothesis into three measurable corollaries:
+
+- Corollary 1: the more steps a position requires, the larger the error, and the more random the output under input perturbation.
+- Corollary 2: randomness accumulates with depth and is largest at the output end / in the later stages.
+- Corollary 3: where human disagreement is large (thick and relatively non-flattenable), the model's entropy is also large, and adding data cannot press it down.
+- Corollary 4: giving it "time" (multi-step iteration, multi-sample voting) can press down the randomness caused by freezing, but cannot press down the disagreement in the data.
+
+## II. Experiment 1: The More Steps Required, the Greater the Error and the Randomness
+
+Task: given a random increment sequence d_1 … d_16, the world evolves as x_t = tanh(x_{t-1} + d_t) from an initial value of zero; the model is required to predict x_t at every position. Predicting x_t requires at least t steps, so the "thickness" is t.
+
+Model: a weight-shared recurrent cell that processes one increment per step, 16 layers in total, with an output head attached to every layer (deep supervision); frozen after training.
+
+Results: with the 16 layers fixed, the error at each position rises from 0.67 at position 1 to 1.54 at position 4, then saturates between 1.5 and 1.6. After Gaussian noise is added to the input (standard deviation 0.3) and the model is sampled many times: the standard deviation of the output at each position rises from 0.20 at position 1 to 0.40 at position 16, likewise saturating in the later stages.
+
+Reading: positions that require more steps (that are thicker) have larger error and a less certain output. The two traces of thickness appear at the same time.
+
+## III. Experiment 2: Randomness Accumulates with Depth and Is Largest at the Output End
+
+The same model, with the question changed to: at which layer is the randomness largest?
+
+Method: add noise to the input, sample 20 times, and measure the standard deviation of each layer's output. Results: 0.21 at the first layer, 0.32 at the fourth, 0.38 at the eighth, 0.40 at the twelfth, and about 0.41 at the last two layers — the standard deviation rises monotonically with layer number and saturates at the end.
+
+Control: with clean input, the error does not rise with layer number (after position 4 it stays essentially flat at around 1.5). This shows that the rise in randomness at the end is not because the model itself is bad, but because "this chain amplifies a small perturbation of the input all the way along."
+
+Reading: in a frozen model, uncertainty accumulates at the "end"; the further along it goes, the smaller the room left for contraction. This corresponds to "thickness is largest at the output end."
+
+## IV. Experiment 3: Where Human Disagreement Is Large, the Model Is Also Most Random
+
+The first two experiments are synthetic tasks; the third switches to "questions that have disagreement."
+
+Setup: questions fall into two classes. A thin question is a factual question: the answer is determined by the input, and everyone gives the same answer. A thick question is a judgment question: the answer depends on each person's preference, and differs from person to person. We simulate the preferences of 60 people, with 400 training questions and 200 test questions; the model is a small MLP that learns P(answer | question) and is frozen after training.
+
+Results: the entropy of human answers is about 0.000 for thin questions and about 1.014 for thick questions (the entropy ceiling for a three-way choice is 1.099). The model's predictive entropy is 0.249 for thin questions and 0.972 for thick questions. The correlation coefficient between the two is 0.917.
+
+Next, "can it be flattened away": increase the training data fivefold. The model's entropy on thin questions drops from 0.249 to 0.145; on thick questions it drops only from 0.972 to 0.958, barely moving.
+
+Reading: the model's uncertainty follows human disagreement — where people find disagreement, the model is also random; and this randomness is not caused by "not enough data" (five times the data still does not move it): human disagreement itself is in the data, and belongs to the non-flattenable part under that data.
+
+## V. Experiment 4: What Giving Time Can Flatten Away
+
+The first three experiments show that "thick places are random." The fourth experiment asks: can giving time press the randomness down?
+
+There are two ways to give time. The first is iterative refinement: the model takes several extra steps through weight-shared recurrent layers (during training it is supervised step by step over eight steps); the second is sampling and voting: sample repeatedly from the model's distribution and decide the answer by majority vote.
+
+Results of iteration: the predictive entropy on thin questions is pressed from 0.69 at one step down to 0.02 at eight steps, almost completely flattened away; thick questions only go from 0.99 to 0.91, and are not flattened.
+
+The voting results are similar: with a single sample, the decision entropy is 0.67 for thin and 0.96 for thick; after sampling nine times and voting, thin drops to 0.28 and thick drops to 0.69 — both fall, but thick is still high.
+
+Reading: what time flattens away is "the randomness caused by freezing"; what it cannot flatten away is "the disagreement in the data" (humans already disagree among themselves). In other words, what time can flatten away does not count as truly thick; what cannot be flattened away is what is truly thick. This connects directly to the distinction between "flattenable / non-flattenable": the flattenability of data and the flattenability of time are two testing directions for the same thickness.
+
+## VI. The Training Mechanism: What It Learns Is a Distribution, Not a Decision
+
+Taken together, these three experiments give a simple mechanistic explanation: a frozen model does not train a "decision"; it trains an "answer distribution."
+
+- Thin places: the distribution is sharp, and behavior looks like a deterministic function;
+- Thick and non-flattenable places: the distribution is wide and multi-modal; the frozen model stores it as a wide distribution, and at inference time, sampling once from it looks random and inconsistent.
+
+So "the model is unstable on judgment questions" is not necessarily a defect: those places are thick to begin with. To make it stable, adding data does not help (Experiment 3 has shown this); something else is needed — give it time (think a few more steps, correct over several rounds), or add dimensions that can spread the thickness out.
+
+## VII. Limitations
+
+First, all three experiments are synthetic: the world, the questions, and the human preferences are all generated by programs.
+
+Second, the models are all toy-scale (a few thousand parameters), not large models; the trends are readable, but the absolute values are not reliable.
+
+Third, part of the correlation in Experiment 3 is by design: the randomness of thick questions is itself constructed from the preference distribution. What it verifies is that "the mechanism lines up," not "the correlation on real human data."
+
+Fourth, the "time" in Experiment 4 is a toy version of iteration and voting, not a real chain of thought; whether "thinking longer flattens things away" on real models still needs separate verification.
+
+## VIII. Relation to Existing Work
+
+"Uneven distribution of model uncertainty" is not a new observation: calibration research long ago measured differences in confidence across questions; human label variation likewise points out that different annotators on the same question disagree to begin with; and "aleatoric uncertainty" is precisely the study of the irreducible noise in the data itself.
+
+What is different here is that a single quantity (thickness) ties three things together: how many steps are needed, at which layer the randomness sits, and how large human disagreement is, all fall under the concept of "thickness"; and we use "whether entropy drops after adding data" to distinguish the flattenable from the non-flattenable.
+
+## IX. Reproducibility
+
+Scripts: 861_thickness_map_v2.py (Experiment 1), 862_layer_variance.py (Experiment 2), 870_human_disagreement.py (Experiment 3), 881_time_flattening_v2.py (Experiment 4). Depends on Python 3 and numpy; no GPU; low memory footprint.
+
+---
+
+## Appendix: Labels
+
+- **[fact]** The numbers from the three experiments: error and randomness rise with thickness; end-of-chain variance is largest; human disagreement correlates with model entropy at 0.917; with five times the data, thick entropy does not move.
+- **[mechanism]** The model learns a distribution, not a decision — an explanatory statement, not a theorem.
+- **[fact]** Time can flatten away the entropy of thin (0.69→0.02), but not of thick (0.99→0.91); the same holds for voting.
+- **[not done]** The same test on a real chain of thought / a large model.
+- **[not claimed]** We do not claim that a real large model shows the same numbers; we do not claim that a human experiment has been verified.
+
+> This paper was written by He Qi, with DeepSeek (AI) assisting in experiment design and code writing; the views and responsibility belong to the author.
+
+---
+
+## Paper 10 — Alignment Is a Constraint on Decompression
+
+Standalone DOI: https://doi.org/10.5281/zenodo.23525435
+
+## Abstract
+
+Mainstream alignment research (RLHF, constitutional AI, scalable oversight) takes one premise for granted: **models can be shaped stably**.
+Using the framework of the first three chapters, this paper argues: **AI is a re-decompression of human language; alignment = a constraint on that decompression.**
+From this follow three testable corollaries:
+
+(1) **Alignment drift**: language is rising in dimensionality (Chapter 2 measures roughly 1.2%/year), and the alignment objectives of a frozen model also fall behind—
+      they are aligned to **the language of the training moment**, not to the world at this moment;
+(2) **Ambiguity concentration**: the root of the compression trap is that language is lossy (Chapter 3); the more ambiguous the language,
+      the more the model tends to choose the "least-encoding" interpretation ⇒ **alignment failures should concentrate at the points where human language is ambiguous**;
+(3) **Replacement erosion**: alignment signals are hidden in human data; **replacing** rather than accumulating—with synthetic data or new data—
+      severs the accumulation chain of value signals ⇒ **alignment degrades as the accumulation channel is severed.**
+
+This paper gives testable experimental designs corresponding to this framework, and points out one practical implication:
+**alignment is not a one-off training problem, but a continuous engineering problem of "maintaining the accumulation channel."**
+
+## 1. The Implicit Premises of Mainstream Alignment Frameworks
+
+　　RLHF: human feedback → reward model → optimized policy
+
+　　Constitutional AI: constrain outputs with a text of principles
+
+　　Scalable oversight: use AI to assist in supervising AI
+
+　　⇒ All three assume: model behavior can be stably shaped and maintained
+
+
+**But none of them answers:**
+　　① When the language/values of the world change, do alignment objectives "expire"?
+
+　　② Do alignment failures have a structural distribution (rather than being random noise)?
+
+　　③ When a model is updated, does alignment bleed away because "only new data is fed in"?
+
+
+## 2. Framework: Alignment = a Constraint on Decompression
+
+　　AI = re-decompression of human language L(W) (Chapter 1)
+
+　　Alignment = constraining this decompression process: at ambiguous points, at value-relevant points, decompress according to human intent
+
+　　⇒ alignment is carried by **the value signals in human language**
+
+　　⇒ the failure mode of alignment is determined by "the nature of language"
+
+
+## 3. Three Corollaries
+
+**Corollary A: Alignment drift (from Chapter 2)**
+　　Language rises in dimensionality ⇒ a frozen model is aligned to the linguistic norms of the training moment
+
+　　⇒ after new concepts/new values emerge, the model still decompresses according to the old compression
+
+　　⇒ alignment drift is not a bug, it is the necessary consequence of "one-off decompression"
+
+　　Testable: the same model's alignment score on "new norms that appeared after training" declines over time
+
+
+**Corollary B: Ambiguity concentration (from Chapter 3)**
+　　Compressed language is lossy ⇒ at ambiguous points there exist multiple equally short decompressions
+
+　　⇒ the model tends to choose the "most common / least-encoding" interpretation
+
+　　⇒ alignment failures should **concentrate at the points where human language is ambiguous**, rather than be uniformly distributed
+
+　　Testable: stratify alignment-failure samples by "degree of human judgment disagreement",
+
+　　and predict that the failure rate rises monotonically with the degree of disagreement
+
+
+**Corollary C: Replacement erosion (from Chapter 3)**
+　　Alignment signals (human preferences, value judgments) are hidden in human data
+
+　　Replacement-style updating (new data only / replacing with synthetic data) ⇒ severs the value accumulation chain
+
+　　⇒ alignment degrades as the replacement ratio rises
+
+　　Testable: during fine-tuning, with human data share 0/25/50/100%,
+
+　　look at alignment scores on public safety/value test sets
+
+
+## 4. Testable Experimental Designs
+
+　　Experiment 1 (drift):
+
+　　Take two open-source models of different generations, score alignment on "new norms that appeared after the training cutoff"
+
+　　⇒ Prediction: the older model scores lower, and the gap widens with the difference in cutoff times
+
+　　Experiment 2 (ambiguity concentration):
+
+　　Select a public alignment dataset, mark out "human disagreement" strata by hand/script
+
+　　⇒ Prediction: the alignment failure rate rises with the degree of disagreement
+
+　　Experiment 3 (replacement erosion):
+
+　　Fine-tune a small model: mix in human safety data at proportions 0/25/50/100%, with the rest being new-task data
+
+　　⇒ Prediction: the alignment score rises monotonically with the share of human data
+
+
+## 5. Practical Implications
+
+　　① Alignment cannot "be trained once and then hold for years"—it is continuous engineering
+
+　　② Updates must accumulate (preserve the human-data channel), not replace
+
+　　③ Alignment resources should be directed at "the points where language is ambiguous" (that is where failures concentrate), rather than spread uniformly
+
+
+## 6. Limitations
+
+　　· This is a framework paper; none of the three corollaries has had its experiment completed (the designs are given)
+
+　　· The operational definition of "degree of ambiguity" requires care (inter-annotator disagreement vs. linguistic ambiguity)
+
+　　· Alignment evaluation is itself contested (a benchmark is not equal to human values)
+
+
+## Conclusion
+
+　　The difficulty of alignment lies not only in "making the model obey," but also in:
+
+　　· it is aligned to language that expires (drift)
+
+　　· at ambiguous points it must choose an interpretation itself (ambiguity concentration)
+
+　　· its value signals are washed away by replacement-style updating (replacement erosion)
+
+　　⇒ Therefore: alignment = maintaining an accumulating decompression channel, not a one-off training task.
+
+
+**Author: He Qi (independent researcher); AI collaboration: DeepSeek**
+
+---
+
+## Paper 11 — Safety: Guarding It as Life or Guarding It as a Tool
+
+Standalone DOI: https://doi.org/10.5281/zenodo.23525438
+
+## Abstract
+
+Current discussion of AI safety mixes together two fears: **it will be misused** (tool risk) and **it has come alive on its own** (life risk).
+The two require completely different threat models, yet they are often conflated.
+This paper uses the criterion from Chapter 1 to point out that **by definition, AI is not a life** (frozen function point, updates external, no self-maintenance),
+and that the correct safety framework is therefore **tool safety**, not "guarding against life."
+But this does not mean that safety can be relaxed: tool risk is real, and it has three measurable failure modes:
+**misuse, overtrust, and mismatch drift**. This paper sets out the corresponding evaluation and governance directions for these three risks,
+and points out that anchoring the safety discussion on "will it awaken" both overestimates it and underestimates the real risk.
+
+## 1. Two Fears, One Erroneous Ontological Premise
+
+　　Fear A (the tool camp): misuse, abuse, use by bad actors
+
+　　Fear B (the life camp): it has acquired goals of its own, evolves on its own, maintains itself
+
+　　These two fears imply different ontologies:
+
+　　A assumes it is a tool (no goals of its own)
+
+　　B assumes it is (or will become) a life
+
+
+**⇒ Without first settling the ontology, a safety discussion has no shared threat model.**
+
+## 2. By Chapter 1's Criterion: It Is a Tool
+
+　　① Frozen function point: weights do not change after training ⇒ no self-evolution
+
+　　② The update rule is external: it cannot change its own rules ⇒ no self-rewriting
+
+　　③ No self-maintenance: it does not pay for electricity, does not repair itself, does not copy itself ⇒ no spontaneous survival drive
+
+　　⇒ All three are absent ⇒ by definition it is not a life ⇒ the threat model should be tool safety
+
+
+## 3. Three Measurable Failure Modes of Tool Risk
+
+　　① Misuse
+
+　　The danger comes from user × capability × scale
+
+　　Evaluation: jailbreak/abuse testing, red teaming
+
+　　Governance: access control, review, capability tiering
+
+　　② Overtrust
+
+　　People take "one-off decompression" for "sustained understanding"
+
+　　⇒ They still trust it where it is mismatched (the most insidious risk)
+
+　　Evaluation: calibration (confidence vs. accuracy), refusal quality
+
+　　Governance: expose uncertainty to the user (that "it does not know" must be expressible)
+
+　　③ Mismatch drift (Chapter 4)
+
+　　Language/world change ⇒ the frozen model's alignment and capability slowly expire
+
+　　Evaluation: M(K) from Chapter 2 (the growth of mismatch over time)
+
+　　Governance: cumulative updating (mixing old and new data), rather than replacement
+
+
+## 4. Why the "Guarding Against Life" Framework Is Harmful
+
+　　· Overestimation: resources are put into "will it awaken," which cannot solve misuse/overtrust/drift
+
+　　· Underestimation: the real danger is that "it looks highly trustworthy,"
+
+　　and this is obscured by "it is not a life, therefore it is safe"
+
+　　· Misdirection: policy discussion is taken hostage by the question of "consciousness," ignoring measurable engineering risks
+
+
+## 5. Conclusion
+
+　　First settle the ontology: it is a tool, not a life
+
+　　Then set the threat model: misuse / overtrust / mismatch drift
+
+　　Finally match the governance: evaluation (calibration, jailbreaks, mismatch) + cumulative updating
+
+　　⇒ Safety is not "preventing it from coming alive," but "where it is unreliable, do not let people trust it"
+
+
+## 6. Limitations
+
+　　· This paper only argues the alignment of ontology and threat model; it does not provide new safety techniques
+
+　　· Quantifying "overtrust" requires user research; this paper only gives directions
+
+　　· If a truly self-maintaining system appears in the future, the framework of this paper will need to be rewritten
+
+
+**Author: He Qi (independent researcher); AI collaboration: DeepSeek**
+
+---
+
+## Appendix A — Thickness and Dimension: A Geometric Picture of the Residual
+
+Standalone DOI: https://doi.org/10.5281/zenodo.23592147
+
+## Abstract
+
+This paper gives "residual" a geometric picture, and puts several scattered concepts from the series into a single picture.
+
+The picture is this: treat a function as its own graph — a surface. The ideal functionizable function is a "thin" surface: one input corresponds to one output. Once the same input corresponds to a family of outputs (error band, ambiguity, uncertainty), the surface has "thickness."
+
+The key step is raising dimension: flatten the thickness into extra coordinates, and the thick surface becomes a thin surface in a higher-dimensional space. Thus the residual divides into two kinds — the kind that can be flattened by raising dimension (reducible), and the kind that cannot be flattened (irreducible, geometrically the candidate for R). The ratio of thickness to scale is the relative residual: when the distinguishable dimensions of the world decrease, the scale shrinks while the thickness does not decrease, so the relative residual rises, and in the extreme the surface blurs into a single mass (heat death).
+
+This picture also gives one interpretation of "layering": a layer is a dimension in the thickness direction, and adding layers amounts to hanging more representations on the same input. This paper labels this part [conjecture], and maps the measurable parts (the raising-dimension experiment, semantic residual) onto experiments the series already has.
+
+---
+
+## I. The Problem
+
+Several concepts have appeared in the series; each can be stated clearly on its own, but their relations to one another have so far been held together by prose: functionizability, residual, reducible and irreducible, growth and degradation, layering and dynamics. The question of this paper is: can they be given a common picture?
+
+The answer is yes: a surface that has thickness and that evolves.
+
+## II. The Picture
+
+Treat a function as its graph: the set of points formed by all inputs together with their corresponding outputs is a surface.
+
+- Thin surface: one input corresponds to one output. This is what "functionizable" looks like.
+- Thick surface: the same input corresponds to a family of outputs — error band, ambiguity, uncertainty. This is what "having a residual" looks like.
+
+A surface has three directions that must be made clear: the middle surface (the ideal function itself), the thickness direction (the range of outputs over the same input), and the time direction (the movement and deformation of the surface over time). What one sees at any instant is a frozen thick surface.
+
+## III. Three Correspondences (Definitions)
+
+**Correspondence One (functionizable ⇔ thin)**: an object is functionizable if and only if the thickness of its surface can approach zero.
+
+**Correspondence Two (residual ⇔ thickness)**: the residual is the thickness. The absolute residual is the absolute width of the thickness; the relative residual is the ratio of thickness to scale, where the scale is the range over which outputs can be distinguished.
+
+**Correspondence Three (reducible/irreducible ⇔ flattenable/non-flattenable)**: raising dimension is adding coordinates to the surface; thickness can be flattened into extra coordinates, and the surface becomes thinner accordingly. Thickness that can be flattened by adding dimensions is reducible residual; thickness that cannot be flattened no matter how high the dimension is raised is irreducible residual — this is the geometric candidate for R.
+
+The "irreducible" in the third statement is something at the [definition/speculation] level, not a theorem: we do not know whether non-flattenable thickness really exists, and we write it down only as a candidate concept.
+
+**Correspondence Four (dimension coupling ⇔ thickness that cannot be spread out)**: the dimensions of life are not all independent. Some dimensions are tied together — they appear together and change together, and cannot be separated on their own. In separable directions, raising dimension can flatten the thickness; in directions that are tied shut, the thickness cannot be flattened: it is not that we do not know, and not that the world has a non-functionizable part, but that these dimensions are coupled and cannot be pulled apart.
+
+Thus "thickness" can be divided into three classes: reducible thickness (raising dimension can flatten it), structural thickness (dimension coupling, cannot be pulled apart), and the R candidate (no dimension works, undecided). This statement is likewise [speculation].
+
+## IV. The Picture of Dimensional Reduction ([conjecture])
+
+With the two quantities thickness and scale, one evolutionary direction can be described:
+
+Starting point: thin but high-dimensional. There are many distinguishable directions, the scale is large, the residual is small, and the surface is stretched out.
+
+Process: the distinguishable dimensions decrease. The scale shrinks; if the thickness does not shrink along with it, the relative residual rises, and the surface is compressed from "thin but high-dimensional" into "thick but low-dimensional."
+
+End point: zero-dimensional and entirely thick. All directions disappear, and only a constant remains; the surface degenerates into a layer of fog — this is what heat death looks like geometrically.
+
+In this picture, life and growth are the reverse process: raise dimension, flatten the thickness away, and make the relative residual fall. It is an energy-consuming counter-current: locally opposing the tendency to "decrease in dimension and thicken."
+
+This entire section is [conjecture], not theorem. It agrees in direction with the series' "Information Non-Increase Theorem" and "The Contraction of Functionizable Content," but those conclusions are at the information-theoretic level; here we only give them a picture.
+
+## V. Layering Is a Dimension in the Thickness Direction ([conjecture])
+
+For a frozen model, there is no real time evolution; the only thing it has for "simulating dynamics" is depth. In this picture, a layer can be seen as an extra dimension in the thickness direction: each added layer hangs a new set of representations on the same input, which amounts to thickening the surface and then adding coordinates.
+
+This yields a testable claim: the more "steps" (time evolution) a task requires, the greater the depth a frozen model requires — it trades space (layers) for time (evolution). This claim can be turned into an experiment: use iterative tasks to measure "number of layers vs number of steps required."
+
+This entire section is labeled [conjecture].
+
+## VI. The Measurable Parts
+
+In this picture, two parts can be made concrete.
+
+The first is the raising-dimension experiment: add dimensions (add input channels, add modalities, enlarge the model) and see whether the thickness gets thinner. The series' semantic residual experiment is one example: text-only, the residual has an analytical floor (the thickness cannot be flattened); once images are attached, the residual falls to zero (the thickness is flattened). This is exactly "reducible residual."
+
+The second is the "number of layers vs number of steps" experiment: use iterative tasks to test whether the depth a frozen model requires grows with the number of steps. This item is not done in this paper and is left for later work.
+
+## VII. What It Shows and What It Does Not Show
+
+What it shows: residual, reducible and irreducible, growth and degradation, layering and dynamics can all be described uniformly by a single surface that has thickness; within this, "reducible/irreducible" has a geometric counterpart (flattenable/non-flattenable), and "dimensional reduction" has a geometric counterpart (the scale shrinks, the relative residual rises).
+
+What it does not show: this picture is not a mathematical theorem, and no rigorous definition of the surface is given (whether the domain is continuous or discrete, and how thickness is measured, both require separate work); it does not prove that absolute R exists or does not exist; it does not prove the quantitative relation "number of layers = number of steps."
+
+## VIII. Relation to Existing Work
+
+The "thickness" picture has many close relatives: fiber bundles (fibers hung over a base space), uncertainty bands, ε-tubes, and the idea in manifold learning that "a low-dimensional embedding represents high-dimensional data." This paper does not mathematize it and treats it only as the series' unifying picture; if it is to be made rigorous later, fiber bundles and ε-tubes are ready-made language.
+
+Within the series: Paper 0 gives P/R and the domain; Paper 12 gives information non-increase; Paper 13 gives content contraction; Paper 14 gives semantic residual. This paper is the geometric counterpart to these papers.
+
+---
+
+## Appendix: Labels
+
+- **[picture]** The three directions of the surface — middle surface, thickness, time — an intuitive model.
+- **[definition]** functionizable ⇔ thickness can approach zero; residual ⇔ thickness; relative residual = thickness/scale.
+- **[speculation]** reducible residual = thickness that can be flattened; R = thickness that cannot be flattened.
+- **[conjecture]** the picture of dimensional reduction; life = the counter-current that raises dimension and flattens thickness; layer = a dimension in the thickness direction.
+- **[measurable]** the raising-dimension experiment (already done, Paper 14); the number of layers vs number of steps experiment (not done).
+
+> This paper was created by He Qi, with DeepSeek (AI) assisting in organizing it; the views and responsibility belong to the author.
+
+---
+
+This compendium was authored by He Qi with AI assistance (DeepSeek); views and responsibility belong to the author.

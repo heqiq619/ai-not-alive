@@ -1,0 +1,125 @@
+# Paper 11 · Growth and Memory: A Minimal Experiment on Self-Referential Update and Maintenance
+
+> He Qi · with DeepSeek (AI)
+> Digital Life Series · Experiment Paper 4 (internal number: Paper 11)
+> Date: 2026-10-23
+> English translation of the Chinese original. The Chinese text is authoritative: https://doi.org/10.5281/zenodo.23569774
+> English compendium: https://doi.org/10.5281/zenodo.23592082
+> Series page: https://github.com/heqiq619/ai-not-alive
+
+---
+
+## Abstract
+
+This paper runs two minimal experiments, corresponding to the two conditions in the definition of life: self-referential update (it changes, and the rules are inside it) and being preserved (maintained within an environment).
+
+Experiment 1 measures "memory": a tiny multimodal model generates its own data, a verifier filters it, and the accepted data is fed back into training; and when a new task is introduced, four replay strategies are compared. Results: learning only the new task causes forgetting (old task 0.720); fixed replay preserves it (1.000) but learns the new task slowly (0.740); the "lookahead" strategy—trying one step of training first and then deciding the replay ratio—preserves both the old task (0.983) and the new task (0.850) when the probe is sensitive enough.
+
+Experiment 2 measures "growth": the model consists of a fixed trunk plus growable dimension slots, and the tasks advance from image attributes (color, shape, count) to a task that can only be read from a new modality (text vectors). Results: models that do not grow cannot learn the new modality (0.34 to 0.38, close to blind guessing); models that grow can add a slot and learn it (0.91 to 0.94); but growth without replay forgets the old tasks entirely (0.00), and replay without growth cannot learn the new modality. With the two combined, the old tasks are preserved at 0.78 to 0.80 and the new modality reaches 0.94.
+
+Together, the two experiments show: without "growth" there are no new dimensions, and without "memory" the old dimensions cannot be held; the two conditions in the definition are not parallel decorations but two mechanisms that must both be present at once.
+
+Everything in this paper is a toy-scale proof of principle: a synthetic world, a tiny model (about ten thousand parameters), reproducible on a CPU. What it proves is that "the mechanism is measurable", not that "digital life has been created".
+
+---
+
+## I. The Problem
+
+In Paper 1 we defined life as: a self-referential structure in the functionizable part P of the universe that is preserved (maintainable) by the universe. Unpacked, this is two things: it changes by itself (self-referential update) and it is preserved (maintenance).
+
+These two words are easy to write in a paper and hard to measure in an experiment. This paper turns each of them into a measurable minimal experiment and answers two questions:
+
+The first question: can a system that generates its own data, verifies it itself, and feeds it back itself learn the new while keeping the old when the task changes?
+
+The second question: when a task requires a new input channel, can the system grow new dimensions by itself? And once they are grown, can it still maintain the old ones?
+
+Both questions are "can it", not "how good is it". Toy scale is enough, because what we want to measure is whether the mechanism exists.
+
+## II. Experiment 1: Memory and Trade-offs
+
+### 2.1 Setup
+
+The world is synthetic: 8×8 images containing color (4 kinds), shape (2 kinds), and count (1 to 3). The model is a small two-layer network with about ten thousand parameters. The task changes by round: the first 5 rounds learn color and shape (the old tasks), and from round 6 only count questions appear (the new task).
+
+The closed loop turns like this: the model answers random images by itself; a rule-based verifier judges right or wrong; verified samples enter the memory buffer; each round trains on a sample drawn from the memory buffer and the new samples in some ratio; each round measures the old task and the new task on a held-out set.
+
+The control groups change only one thing: how the replay ratio is set.
+
+Group 1, "new only": no replay at all.
+Group 2, "fixed replay": half old, half new.
+Group 3, "reactive controller": watch old-task accuracy and add replay when it drops.
+Group 4, "lookahead controller": before training, copy the model, try a few steps of training on new samples, see how much the old task drops, then decide the replay ratio.
+
+### 2.2 Results
+
+At the final round (same warm-up, same budget) the results are: new only, old task 0.720, new task 0.797; fixed replay, old task 1.000, new task 0.740; reactive controller, old task 0.965, new task 0.762; lookahead controller (sensitive probe), old task 0.983, new task 0.850.
+
+In the first few rounds the three groups were all close to full marks; the gap appears after the new task is introduced. In the new-only group the old task falls all the way to 0.720; in the fixed-replay group the old task barely moves, but the new task rises slowly; the lookahead controller detects a strong conflict already in round 6 and raises replay to 0.8 in time, so the old task barely drops and the new task is also learned fastest.
+
+### 2.3 Conclusion
+
+First, forgetting is real: the same small model loses the old task once it learns the new one, consistent with the prediction of Paper 3, "Replacement and Accumulation".
+
+Second, "try one step first, then decide" is effective: in essence it uses the model itself to predict the consequences of its own modification. The more sensitive the probe, the earlier the conflict is found, and the earlier one can defend. This is a concrete action of "self-reference", not a philosophical statement.
+
+Third, there is no single optimum: fixed replay bets on the old task, the lookahead strategy bets on the new task, and the reactive one sits in between. They are different positions on the trade-off frontier, and which one to choose depends on what you want to preserve.
+
+## III. Experiment 2: Dimension Growth
+
+### 3.1 Setup
+
+The world has two modalities: images (8×8, with color, shape, count) and text (10-dimensional vectors, where the first three dimensions determine a label and the rest are distractors). The tasks come in order: first the image task of color, then shape and count, and finally a label task that can only be read from the text.
+
+The model is a fixed trunk plus growable dimension slots. Each slot is a small projection belonging to one modality; the number of slots starts at 1 and is at most 4. The growth rule is: when task accuracy is insufficient, propose a new slot from the "samples it cannot explain", train it briefly, and keep it if the improvement exceeds 0.02, otherwise roll back.
+
+The control groups again change only two things: whether growth is allowed and whether replay is allowed.
+
+### 3.2 Results
+
+Final accuracy on the four tasks (color, shape, count, label): no growth, no replay: 0.00, 0.00, 0.08, 0.38; growth, no replay: 0.00, 0.00, 0.03, 0.91; no growth, with replay: 1.00, 1.00, 0.69, 0.34; growth plus replay: 0.78, 0.80, 0.48, 0.94.
+
+### 3.3 Conclusion
+
+First, a new modality requires growth: the two groups that do not grow both stay near blind guessing on the label task (0.34 to 0.38), because they have no channel that can read the text at all; the two groups that grow both learn it (0.91 to 0.94).
+
+Second, the old tasks require memory: after learning the label task, the two groups without replay drop to 0.00 on all the earlier tasks; the two groups with replay preserve most of them.
+
+Third, only the combination of the two mechanisms works: growth plus replay obtains both the old tasks at 0.78 to 0.80 and the new modality at 0.94, the only one of the four groups that "stands up in both directions".
+
+## IV. What the Two Experiments Show Together
+
+Experiment 1 shows: what changes will be forgotten, and must be held in place by memory and trade-offs.
+Experiment 2 shows: to grow new dimensions one must actually add structure; but once structure is added, the old structure is more easily washed away.
+
+Together they are the two sentences of the definition:
+
+> Self-referential update is forced: without new dimensions, the new world cannot be compressed.
+> Being preserved is won by defending: without memory and replay, the old dimensions are washed away by the new ones.
+
+These two are not parallel decorations. They are two mechanisms that must both be present: with growth alone, everything old is forgotten; with memory alone, the new cannot be learned.
+
+## V. Limitations (to be read together with the conclusions)
+
+First, the world is synthetic: images, text, and task switches are all program-generated, not real data.
+
+Second, the model is a toy: a two-layer network of about ten thousand parameters, not a Transformer, and not a native multimodal large model.
+
+Third, the task identifier is given by hand: the model knows "which kind of question is being asked now", and in real settings this is itself a problem.
+
+Fourth, "growth" is limited: only a few fixed slots may be added, and the representation itself may not really be rewritten; stronger self-reference (changing the structure, changing the update rule) is not done in this paper.
+
+Fifth, there is no real survival constraint: the budget and the performance floor are set by hand, not real energy and elimination.
+
+## VI. Reproducibility
+
+Scripts: 801_self_training_loop_v2.py (basic version of Experiment 1), 803_closed_loop_lookahead.py (lookahead controller), 805_closed_loop_sensitive2.py (sensitive probe), 809_dimension_growth_v4.py (the four-group comparison of Experiment 2). Dependencies: Python 3 and numpy, no GPU.
+
+---
+
+## Appendix: Speculation and Boundaries
+
+"That these two mechanisms still hold when scaled up to real multimodal models" is [speculation]; this paper does not test it. Real large models have more parameters, more tasks, and harder growth (changing structure is costly); this paper only shows that the mechanisms exist at small scale.
+
+This paper does not claim that "having done these two things makes something alive": satisfying the conditions may still be only a tool; this paper claims only that without these two things, one certainly cannot reach a form that both grows and maintains.
+
+> This paper was written by He Qi, with DeepSeek (AI) assisting in the experimental design and the code; the views and the responsibility belong to the author.

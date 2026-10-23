@@ -1,0 +1,139 @@
+# Paper 00 · Starting from Two Facts: An Introduction to the Digital Life Series
+
+> He Qi · with DeepSeek (AI)
+> Digital Life Series · Paper 0
+> Date: 2026-10-23
+> Note: This paper is the introduction to the series: it lays out two facts, gives one definition, and explains the structure of the series. The full derivation is in Paper 1.
+> English translation of the Chinese original. The Chinese text is authoritative: https://doi.org/10.5281/zenodo.23591398
+> English compendium: https://doi.org/10.5281/zenodo.23592082
+> Series page: https://github.com/heqiq619/ai-not-alive
+
+---
+
+## Abstract
+
+This paper does not argue; it does only four things: lay out two facts, give one definition, set out the special case of the digital world, and then use it to look at today's AI. The two facts are: the p-language of language can be approximated by functions; the laws of physics can be described mathematically. The definition is: write the universe as two parts (universe = P + R), and write life as two parts as well (life = p + R-life); p is a self-referential structure that lies in P and is preserved (maintainable), and R is the non-functionizable part. This paper is the introduction; the checklist, the three necessary conditions, and the discussion of emergence are all in Paper 1.
+
+## Notation
+
+- **P**: the functionizable part of the universe.
+- **R-universe**: the non-functionizable part of the universe; this paper only declares that it may exist, and does not develop it.
+- **p-life**: the part of life that falls in P — the object this paper defines and discusses.
+- **R-life**: the part of life that falls in R; only declared, not developed.
+- **p-environment / R-environment**: the two parts of the environment, defined in the same way.
+- **p-language / R-language**: the two parts of language; what large models compress is p-language.
+- **Residual**: the form in which R's influence on the p level manifests — a lower bound on error that cannot be eliminated at the p level.
+
+From here on we use shorthand throughout: when we say "the universe" we mean P, when we say "life" we mean p-life, and when we say "the environment" we mean p-environment.
+
+## 1. Two Facts
+
+The first fact: the laws of physics can be described mathematically. The evidence is existence — physics itself is this.
+
+The universe can be written as a decomposition:
+
+> universe = P + R-universe
+
+P is the functionizable part; R-universe is the non-functionizable part. The part described by the laws of physics falls in P. So at least we can say: P is non-empty.
+
+The second fact: part of language can be approximated by functions. The evidence is not reasoning but existence — large models, using finite parameters and a computable process, generate text that is statistically close to human language.
+
+Language can also be written as a decomposition:
+
+> language = p-language + R-language
+
+p-language is the functionizable part of language, and it is what large models compress; R-language is the non-functionizable part of language, which function approximation cannot reach. So the accurate statement is not "language can be approximated by functions", but "the p-language of language can be approximated by functions"; about R-language we can only remain silent.
+
+Together the two facts show: the universe is not entirely non-functionizable. There exists at least one non-empty functionizable part, denoted P. This layer is not a conjecture but an inference from facts; it says only that P exists, not how large P is.
+
+The boundary between P and R is absolute: an object is either functionizable (belongs to P) or non-functionizable (belongs to R); there is no in-between; P ∩ R = ∅, P ∪ R = the universe.
+
+If R has an influence on the p level, it will not be described directly by the language of functions; it will show up only as a residual that cannot be eliminated at the p level: no matter how much more data and capacity are added, the error stays at some positive number. This lower bound on error is the projection of R onto the p level.
+
+For convenience in what follows, we abbreviate it as:
+
+> universe = P + residual
+> life = p-life + residual
+> environment = p-environment + residual
+
+What follows discusses only the P side; the residual is mentioned only when needed, and its content is not developed.
+
+## 2. One Definition
+
+First write the universe as two parts:
+
+> universe = P + R-universe
+
+P is the functionizable part, and R-universe is the non-functionizable part of the universe. The two facts guarantee that P is non-empty; how large R-universe is, this paper does not know and does not claim.
+
+On this decomposition, life itself is also written as two parts:
+
+> life = p + R-life
+
+Here p is the functionizable part: a self-referential structure that lies in the universe's P and is preserved (maintainable); R-life is the non-functionizable part of life itself: this paper does not know what it is, and does not claim that it does not exist. Note that the two R's are not the same thing — R-universe is the non-functionizable part at the level of the universe, while R-life is the non-functionizable part inside a single life.
+
+Three things define p-life. First, scope: p is sought only in the universe's P (by the same token, language also divides into p-language and R-language, and what large models approximate is p-language).
+
+Second, preserved — that is, maintained. Here we must make clear a place that is easy to get backwards: maintenance is not an attribute of life itself but a relation between life and the universe. Whether a structure can be preserved depends on whether its orbit stays inside the universe's maintainable set; this condition is written in the universe, and is not announced by the structure itself. So "preserved" is the name of a relation, not a third coordinate attribute standing alongside the others.
+
+Third, self-reference: the update rule is inside the system itself. This is an attribute internal to life, and it is also where it differs from an ordinary program.
+
+What about R-life? It can only be handled as an approximation, with a lower bound on error attached. So the criteria and measurements of this paper cover p-life, not the whole of life; about R-life, this paper says only "the approximation stops here".
+
+The definition is made, not discovered; whether it holds depends on whether it can distinguish, and whether it can derive something measurable.
+
+One point needs to be stated: as for the R part, this series only declares its existence here — the universe, life, the environment, and language can all be written as p + R, but what R is and how large it is, this paper does not know and does not claim. For ease of understanding, what follows by default discusses only the p side: whenever we say "the universe", we mean P; whenever we say "life", we mean p-life; whenever we say "the environment", we mean p-environment. What follows uses "residual" to denote the influence of R; the concrete content of R is no longer developed.
+
+## 3. The Digital World: Fully Functionizable
+
+The digital world is fully functionized: it consists of bits, states, and transition rules, and has no part that a function description cannot reach. As a formal object, its absolute R = ∅ — this is guaranteed by construction: every property corresponds to a mathematical function, even if that function is not computable.
+
+Digital life is part of the digital world, so its R-life can only be the empty set as well: digital life = p-life, fully functionizable.
+
+Whether absolute R exists, this paper does not judge (see the supplementary section). For digital life, there is truly only one decisive question: **must life have an absolute R?** There are only two outcomes.
+
+The first outcome, life can lack an absolute R: then digital life is possible — it consists entirely of p-life and needs no absolute R at all.
+
+The second outcome, life must have an absolute R: then digital life is impossible — the digital world cannot produce an absolute R.
+
+This paper does not judge which outcome holds. What can be certain is: whichever it is, this paper's definition and measurement of p hold; the only difference is whether digital life is possible or impossible.
+
+One more sentence, on something easy to confuse: the above concerns absolute R; for any finite observer, relative R is non-empty (see the supplementary section), and it does not affect this judgment. In addition, functionizable does not equal measurable — measurement also requires computability, observability, and reproducibility. The digital world has all of these, so measurement is feasible in the digital world; for the universe as a whole, even if it can be described by functions, we cannot measure it, because we live inside it.
+
+## 4. Using It to Look at Today's AI
+
+Under the present definition, AI lacks two things. Its update rule is on the outside, so it is not self-referential; its maintenance is also not its own affair — it is maintained by external power supply and operations, which is its relation to the universe, not its own capacity.
+
+So it is a very strong decompressor, but once it has been written it just stops there — a frozen decompressor. It has no R-life: in the digital world R = ∅, so AI is a pure-p decompressor.
+
+## 5. The Place of This Introduction
+
+This paper gives only facts, definitions, and conclusions. The derivation details, the checklist, the three necessary conditions, and the discussion of emergence are all in Paper 1; the measurement is in Paper 2; the experiments are in Papers 4 through 9; the constraints and safeguards are in Papers 10 and 11. The whole series is arranged in this order.
+
+---
+
+> This paper was written by He Qi, with DeepSeek (AI) assisting in the arrangement; the views and the responsibility belong to the author.
+
+## Supplement (Optional Reading): The Domain and Codomain of P
+
+The main line ends with the previous section; this section adds only one formal detail: what exactly the "domain" and "codomain" of P are. Not reading it does not affect the main line.
+
+The universe (the P side) can be regarded as a state space S: all states that can be described by functions. The universe function is its mapping to itself, written F: S → S. So the domain of P is S, and the codomain is S as well — it maps to itself.
+
+An observer O is just a subsystem inside S: the input it can read is a subspace of S, denoted D_O; the output it can write is another subspace, denoted C_O. Both D_O and C_O are contained in S. The observer's "functionizability" (P_O) is just this: between D_O and C_O, there exists a family of functions whose error can approach zero.
+
+R has no domain or codomain to speak of: domain/codomain are concepts in the language of functions, and R is the non-functionizable side. So of R one cannot ask "what is its domain" — this question itself uses the wrong language.
+
+Where what follows involves "domain/codomain", it means by default the observer-side D_O and C_O; for P at the universe level, it means by default the self-mapping S → S.
+
+### Why Relative R Is Non-Empty (Optional Reading)
+
+If the domain/codomain of the world fluctuates within the observer's update period (fast variables), the observer cannot keep up with these changes; that part is non-functionizable for it, and so relative R is non-empty. This is a sufficient condition: there are fast-variable fluctuations ⇒ relative R is non-empty. We have not said that it must hold, and we do not explain the causes of the fluctuations.
+
+Two further strengthening reasons (either one suffices): first, finite resources — cannot see everything, cannot compute everything; second, self-reference — cannot fully predict itself (a system that can always predict its own next step can do the opposite, and thereby contradict itself).
+
+Whether absolute R exists, this paper does not judge.
+
+The same holds for the digital world: inside it, too, there must be relative R. The same sufficient condition — short-term fluctuations of the domain/codomain; and in addition three further, mutually independent sufficient conditions: undecidability, computational irreducibility, self-reference (cannot fully predict itself). Here two sentences must be distinguished: "the digital world R = ∅" is a statement at the ontological level; "relative R is non-empty" is a statement at the observer level — fully functionizable does not equal fully knowable.
+
+One last sentence about the boundary: if the essence of life lies on the absolute R side, this paper — and any text written in the language of functions — cannot give its definition. This is not an oversight but the boundary of the language of functions: the definition itself is on the P side, and to define R in the language of P is to pull it back into P.

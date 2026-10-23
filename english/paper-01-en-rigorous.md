@@ -1,0 +1,918 @@
+# Paper 01 · Why Today's AI Is Not Alive
+
+> English translation of the Chinese original. The Chinese text is authoritative: see the rigorous Chinese version in the Series Compendium https://doi.org/10.5281/zenodo.23591520 (readable Chinese version: https://doi.org/10.5281/zenodo.23588781)
+> English compendium: https://doi.org/10.5281/zenodo.23592082
+> Series page: https://github.com/heqiq619/ai-not-alive
+> He Qi · with DeepSeek (AI)
+> Digital Life Series · Paper 1 (full version)
+> Date: 2026-10-23
+> Series Introduction (Paper 0, recommended to read first): https://doi.org/10.5281/zenodo.23556056
+
+---
+
+## Abstract
+
+This paper starts from two facts: physical laws can be described mathematically; and part of language can be approximated by functions. Together the two facts show that the universe has at least one non-empty functionizable part P.
+
+Write the universe as universe = P + R-universe, and life as life = p-life + R-life. p-life is the part of life that falls in P: within the universe's P, a dynamic function class preserved by the universe — it is a family, it changes, and it is self-referential. About the R part, this paper only declares that it may exist, and does not expand it.
+
+Under this definition, today's AI is not life: it is a thing that exists in the digital world, a frozen function point at the p level — its update rule lies outside, and it is not preserved by itself. The digital world is a completely functionizable world (R = ∅), so if digital life exists it can only fall entirely within p; this paper sets the question out (three cases) and does not judge which one holds.
+
+The contribution of this paper is a definition and measurable criteria, not the empirical conclusion that "life has been created"; the tests of the three necessary conditions and the illustrative experiments are for the reader to take and use.
+
+**Keywords:** definition of life; p-life; function class; decompression; digital world; AI emergence; self-reference
+
+
+## The argument chain of this paper
+
+The whole argument has only five steps; the reader may look at this skeleton first and read the details afterwards.
+
+Step one (Section 1): two facts ⇒ the universe has at least one non-empty functionizable part, denoted P.
+
+Step two (Section 2): give a definition on P — life = p-life + R-life; p-life is the dynamic function class that is in P, preserved by the universe, changing, and self-referential.
+
+Step three (Section 3): show that the difference between life and environment is only one thing — preserved vs not preserved; the environment is a local decompression of the universe.
+
+Step four (Sections 4 and 5): the digital world is completely functionizable (R = ∅), so digital life, if it exists, can only be equal to p-life; substituting today's AI into the definition and checking it, it lacks the three things "a family, self-reference, being preserved", and is therefore not life.
+
+Step five (Sections 6 and 7): extract three necessary conditions from the definition (with experimental evidence attached); then explain that AI's emergence is "the compression and decompression of language p-language", separating the factual layer from the speculative layer.
+
+Boundary: R is only declared, not expanded; whether absolute R exists is not judged; this paper does not claim that "life has been created".
+
+## Notation
+
+- **P**: the functionizable part of the universe.
+- **R-universe**: the non-functionizable part of the universe; this paper only declares that it may exist, and does not expand it.
+- **p-life**: the part of life that falls in P — the object this paper defines and discusses.
+- **R-life**: the part of life that falls in R; declared only, not expanded.
+- **p-environment / R-environment**: the two parts of the environment, defined in the same way.
+- **p-language / R-language**: the two parts of language; what large models compress is p-language.
+- **residual**: the measurable error floor on the P side — the shape of P's boundary. It is not called "the influence of R" (R has no domain, so there is no question of its acting).
+
+What follows always uses shorthand: "universe" means P, "life" means p-life, "environment" means p-environment.
+
+## Contents
+
+- The argument chain of this paper
+- 1. Starting point: two facts
+- 1.1 What "functionizable" means
+- 2. An operational definition
+- 2.1 Definition
+- 2.2 One clarification: maintenance is a relation
+- 2.3 Why it must be "a family" and not "a function"
+- 2.4 Changing = three time scales
+- 2.5 Self-reference = the update rule is inside itself
+- 3. Life and environment
+- 3.1 Connection with what comes before
+- 3.2 Life vs environment: both in the universe, both functions, one single difference
+- 3.3 What the environment is: the "local decompression" that emerges spontaneously in the universe
+- 3.4 The environment is layered: life lives in many layers of environment, and also lives in the universe
+- 3.5 Annotations
+- 4. The special character of the digital world
+- 4.1 Special to whom
+- 5. Looking at today's AI through the definition: why it is not life
+- 5.1 Checklist
+- 5.2 The three most fundamental reasons (in order of importance)
+- 5.3 Why "it is very powerful" and "it is not life" do not contradict each other
+- 5.4 Annotations
+- 6. Three necessary conditions
+- 6.1 From definition to conditions
+- 6.2 Condition ① a family of functions (not a point)
+- 6.3 Condition ② self-referential update (the rule is inside itself)
+- 6.4 Condition ③ preserved by the universe (maintainable)
+- 6.4b Paying a cost: an empirical concomitant, not a necessary condition
+- 6.5 The three must hold at the same time (empirical comparison)
+- 6.6 What is left open (for the reader)
+- 6.7 The boundary of this paper's experiments (must be read together with the conclusions)
+- 6.8 Annotations
+- 7. Emergence: why today's AI emerges
+- 7.1 The phenomenon
+- 7.2 Existing explanations (ordered by strength of evidence)
+- 7.3 Why there is still no accepted "why"
+- 7.4 Our position: AI is the compression and decompression of language p-language
+- 7.5 The decay of decompressive capacity: the upper layer is hard-wired ⇒ once language changes, decompression weakens
+- 7.6 Two predictions drawn from the position ([speculation], for the reader to judge)
+- 7.7 Annotations
+- 8. Using it to look at a few popular questions
+- 9. What this paper has obtained, and what it has not
+- Relation to existing work
+
+## 1. Starting point: two facts
+
+The first fact: physical laws can be described mathematically. The evidence is existence — physics itself is this.
+
+The universe can be written as a decomposition:
+
+> universe = P + R-universe
+
+P is the functionizable part; R-universe is the non-functionizable part. The part that physical laws describe falls in P. So at least this much can be said: P is non-empty.
+
+The second fact: part of language can be approximated by functions. The evidence is not an inference but existence — large models, with finite parameters and a computable process, generate text that is statistically close to human language.
+
+Language can also be written as a decomposition:
+
+> language = p-language + R-language
+
+p-language is the functionizable part of language, and it is this that large models compress; R-language is the non-functionizable part of language, which function approximation cannot reach. So the accurate statement is not "language can be approximated by functions" but "the p-language of language can be approximated by functions"; about R-language we can only be silent.
+
+Together the two facts show: the universe is not entirely non-functionizable. There exists at least one non-empty functionizable part, denoted P. This layer is not a conjecture but an inference from facts; it says only that P exists, not how large P is.
+
+### 1.1 What "functionizable" means
+
+Above we used "functionizable"; here we fix it as an operational boundary.
+
+Divide a system or a phenomenon into two parts. P is the functionizable part: there exists a family of functions whose approximation error can converge to zero as data and capacity increase. R is the non-functionizable part: for any function class, the approximation error has a positive lower bound.
+
+This division is not a matter of faith; it can be measured. Fix a function class and watch how the approximation error changes with data volume and capacity: if the error keeps falling and approaches zero, it belongs to P; if the error stops at some positive number and no longer falls, it belongs to R, or at least shows that the current function class cannot reach it.
+
+Handling it this way has three advantages. First, things in P can be given a definition, given criteria, given measurement — which is exactly what this paper is doing. Second, for things in R we give only "approximation", and it must come with an error floor; "approximation" is from now on not a disclaimer but a conclusion with numbers attached. Third, the boundary between the two is a research question, not a philosophical dispute; it can be advanced by experiment.
+
+All the conclusions of this paper claim to cover only the P part; about the R part, this paper says only: under this function class, approximation stops here.
+
+
+The division between P and R is absolute: an object is either functionizable (belongs to P) or non-functionizable (belongs to R); there is nothing in between; P ∩ R = ∅, P ∪ R = universe.
+
+The residual is not "an influence coming from R" but a boundary property of P itself: for some tasks, the error of any function class stops at some positive number and will not fall however much data and capacity are added. This error floor is the residual; it is measurable, and it does not require assuming that there is an R outside exerting a force.
+
+For convenience in what follows, we abbreviate it as:
+
+> universe = P + residual
+> life = p-life + residual
+> environment = p-environment + residual
+
+What follows discusses only the P side; the residual is mentioned only when needed, and its content is not expanded.
+
+## 2. An operational definition
+
+
+On the basis of the two facts, an operational definition can be given to life. This definition is made by humans, not discovered; whether it holds depends on whether it can distinguish, and whether it can derive measurable things.
+
+## 2.1 Definition
+
+Life is composed of two parts:
+
+> life = p-life + R-life
+
+p-life is the functionizable part: the dynamic function class that is in the universe's P and is preserved (maintainable). R-life is the non-functionizable part: this paper does not know what it is, and does not claim that it does not exist.
+
+The concrete form of p-life is as follows:
+
+　　Let p-life = { f_θ : θ ∈ Θ }
+
+　　f_θ : input state → behavior          (each function in the family)
+
+　　Θ                            (the shape/range of this family of functions)
+
+　　p-life = a Θ that moves and deforms, and whose update rule belongs to Θ itself
+
+
+Four words, each corresponding to one thing about p-life:
+
+| Word | Meaning |
+|---|---|
+| **function class (a family)** | not a single fixed function, but an entire behavioral spectrum |
+| **changing (dynamic)** | this family of functions moves and deforms over time |
+| **self-referential** | the rule by which it changes is also in its own record |
+| **self-maintaining** | preserved by the universe; this is its relation to the universe, not a property of its own |
+
+## 2.2 One clarification: maintenance is a relation
+
+**Claim of this section**: maintenance is not a property of the system but a relation between the system and the universe. The basis is the unfolding of the third item of the definition, "being preserved".
+
+One wording needs clarifying: maintenance is not a property of the system itself but a relation between the system and the universe. Given the universe as a whole (or its part on P), the trajectories of certain structures stay in the maintainable set, and only then do we say that it "has maintained itself"; change the environment, and the same structure may no longer hold. Hence "self-maintaining" in the definition should be read as "preserved by the universe": it is the unfolding of a relational condition, not a third, parallel property.
+
+(Note: this section previously contained a "minimality argument"; because that argument was circular — using the possibility of digital life derived from the definition to support the definition in turn — it has been withdrawn, and only the clarification above is retained.)
+
+
+## 2.3 Why it must be "a family" and not "a function"
+
+
+　　one function = one point          ⇒ the behavioral spectrum degenerates into a single trajectory ⇒ frozen means dead
+
+　　a family of functions = a region in function space ⇒ a whole set of responses to different inputs/states ⇒ only then is it alive
+
+**⇒ "High-dimensional" does not mean many parameters; it means that this family of functions occupies a region in function space, not a point.**
+
+
+One boundary must be stated clearly here. "A family" is a requirement at the p level, not an absolute condition at the level of what there is. If there are factors that influence the change and that we cannot describe (undecided), then a fixed p may also belong to a living whole; only, at the p level we can see nothing but freezing, and will judge it dead. So the accurate statement is: under the convention of discussing only P, "a family" is a necessary condition at the operational level; if such undecided factors exist, this criterion will miss cases. This is not a fault of the criterion but an inherent boundary of a definition at the p level.
+
+## 2.4 Changing = three time scales
+
+
+　　fast: the state changes at every moment (different inputs, different internal states)
+
+　　medium: it changes itself with its own error (the self-referential layer) — this is the crux; without it, it degenerates into a fossil
+
+　　slow: the shape of this family of functions is selected, deformed, and transmitted between generations
+
+
+## 2.5 Self-reference = the update rule is inside itself
+
+
+　　an ordinary program: code outside, data inside ⇒ the program does not change itself by running
+
+　　life:    the update rule itself is part of its own record
+
+　　⇒ remove the external update code, and it can still change itself
+
+
+## 3. Life and environment
+
+
+There is a point in the definition that is easy to slide past: life and environment are not two kinds of thing but two relations within one and the same set of universe functions. The following subsections unfold this point.
+
+## 3.1 Connection with what comes before
+
+
+Taking the universe (the P side) as a whole, under this description it is a self-map: `S_{t+1} = F(S_t)`. F is only a notation, not a new object.
+**Life is not this F; it is a family of sub-functions `{G_θ}` embedded in F:**
+
+　　behavior_d = G_θ(local state of the world)
+
+　　and G_θ itself is also a part of the world state (the individual's state belongs to S_t)
+
+　　⇒ if it is to predict the world, it must necessarily predict the part of the world that contains itself
+
+　　⇒ **self-reference is not an added mysterious property but a structural necessity of "being embedded in a function"**
+
+
+## 3.2 Life vs environment: both in the universe, both functions, one single difference
+
+**Claim of this section**: both life and environment are in P and both are function structures; the only difference is that the former is preserved by the universe and the latter is not.
+
+**Inside the universe (the P side), everything is a function (or a composition of functions) — the environment is also a function.**
+
+　　universe = F (one huge function)
+
+　　   ├─ life:        changing + self-referential + **self-maintaining**
+
+　　   └─ environment: changing (pushed by the world, and in turn influencing the world), but **does not maintain itself**
+
+**⇒ The only difference between life and environment is not "which is more complex", but:**
+**life is preserved by the universe in its own shape; the environment is not preserved — it is only pushed to change.**
+
+In an environment with limited resources, maintenance is usually accompanied by cost (checking, repair, and copying all consume). This layer is an empirical concomitant; this paper does not write it into the definition (see 6.4b):
+
+　　limited resources ⇒ maintenance consumes ⇒ life usually needs "income"
+
+　　the source of income: compressing the world (matching the source distribution)
+
+　　⇒ if there is no surplus over the long run, maintenance cannot hold up
+
+
+## 3.3 What the environment is: the "local decompression" that emerges spontaneously in the universe
+
+
+**The environment is not a stage external to the universe; it is a structure that emerges spontaneously within the universe's function class.**
+
+　　universe = F (one huge function)
+
+　　   ↓ spontaneous internal emergence
+
+　　structure = some local "decompression" of the universe (an interpretation of the universe / a readable presentation of it)
+
+　　   ├─ self-maintaining     → life
+
+　　   └─ not self-maintaining → environment
+
+**⇒ environment = a local decompression of the universe (an interpretation of the universe); life is one too.**
+**⇒ the difference is only this: life maintains the shape of this decompression itself; the environment does not maintain it, it is only pushed to change.**
+
+This yields a key structural conclusion:
+
+　　life does not face the universe as a whole directly
+
+　　⇒ what it faces is "a local decompression of the universe" = its environment
+
+　　⇒ life's understanding of the world is essentially **a re-decompression of the universe** (a second decompression)
+
+　　  = one more layer of compression on top of the local interpretation that the universe provides
+
+
+Like the universe and life, the environment can also be written as a decomposition:
+
+> environment = p-environment + R-environment
+
+p-environment is the functionizable part of the environment: its regularity, its measurable side. R-environment is the non-functionizable part of the environment: this paper does not know what it is, and does not claim that it does not exist. Life deals with the environment, but what we can describe and measure is only the p-environment side; about R-environment this paper says no more than silence.
+One thing must be said: R-environment is not "the part of the environment that stays fixed" but "the part of the environment that cannot be described by functions". It may be still, and it may be very active — the judgment "fixed/active" itself can only be made by means of a functional description, and at R we cannot measure even motion or rest. So the division between p-environment and R-environment is not the division "moving/still" but the division "describable/undescribable".
+One more thing must be said: about the R part, this series only declares its existence here — universe, life, environment, and language can all be written as p + R, but what R is and how large it is, this paper does not know and does not claim. For ease of understanding, what follows by default discusses only the p side: whenever it says "universe", it means P; "life" means p-life; "environment" means p-environment. What follows uses "residual" for the error floor on the P side; the concrete content of R is not expanded further.
+
+
+## 3.4 The environment is layered: life lives in many layers of environment, and also lives in the universe
+
+
+**Decompression is layered ⇒ the environment is layered too.**
+
+　　universe F
+
+　　 └ environment_1 = local decompression of some part of F
+
+　　     └ environment_2 = re-decompression of environment_1
+
+　　         └ environment_3 = re-decompression of environment_2 …
+
+　　life is embedded in one layer: it belongs both to the whole universe F and to its own layer of environment
+
+All three hold at the same time; one cannot be taken alone:
+
+　　① it lives in the environment: the inputs, resources, relations, and other individuals it faces are all structures of the layer "its environment"
+
+　　                ⇒ its behavior only needs to be valid within this layer
+
+　　② it also lives in the universe: it cannot escape F — the environment layer itself is also a part of F,
+
+　　                and constraints at the universe level (energy, irreversibility, cost) always apply to it
+
+　　                ⇒ the environment is not a refuge; it is only a projection of the universe
+
+③ it lives in **all layers**: the environment is multi-layered (cell→tissue→individual→population→ecosystem), and each layer is a re-decompression of the layer above it.
+   What it interacts with directly is only its own layer, but **all layers constrain it**: the upper layers determine the resources and relations it faces, the universe layer determines whether it can afford the cost.
+   ⇒ "it lives in many layers of environment, and it also lives in the universe" — the two are not either/or; they hold at the same time.
+
+**⇒ So "understanding the world" must be said at two levels:**
+**at the environment level: understanding = re-decompression of a local decompression (good enough is enough to live);**
+**at the universe level: understanding = compressing the regularity of F (this determines whether it can afford the cost in the long run).**
+
+
+## 3.5 Annotations
+
+
+　　[definition]  life = p-life + R-life; p-life = the dynamic function class that is self-referential, changing, and preserved by the universe (the working definition of this paper)
+
+　　[definition]  environment = a structure that **emerges spontaneously** within the universe's function class, and does not maintain itself
+
+　　              = a **local decompression** of the universe (an interpretation of the universe)
+
+　　[definition]  p-life = among that same batch of emergent structures, the class that is **preserved by the universe**
+
+　　[corollary]  life does not face the universe directly, but faces "a local decompression of the universe" = its environment
+
+　　        ⇒ life's understanding = a **second decompression** on top of the local decompression (one more layer of compression)
+
+　　[layering]  decompression is layered ⇒ the environment is layered (environment_1 ⊃ environment_2 ⊃ …)
+
+　　        life is embedded in one layer: **it lives both in its own layer of environment and in the universe**
+
+　　        · living in this layer of environment: it only needs this layer to be valid in order to live
+
+　　        · living in the universe: energy/irreversibility always apply (cost is at the empirical level, see 6.4b); the environment is not a refuge
+
+　　[not]  not a factual assertion, and not a theorem; a definition convenient for operation
+
+　　[later]  this section gives only the definition; how to measure it (compression/cost/identity) is left to the later sections
+
+
+---
+
+
+
+## 4. The special character of the digital world
+
+The digital world is completely functionizable: it consists of bits, states, and transition rules, and there is no part that function description cannot reach. As a formal object, its absolute R = ∅ — this is guaranteed by construction: every property corresponds to a mathematical function, even if that function is uncomputable (halting and truth predicates both exist; they simply cannot be computed).
+
+Digital life is a part of the digital world, so its R-life can only be the empty set as well: digital life = p-life, completely functionizable.
+
+Whether absolute R exists, this paper does not judge (see the supplementary section of the Introduction). For digital life there is only one truly decisive question: **must life have absolute R?** There are only two outcomes.
+
+The first outcome, life can do without absolute R: then digital life is possible — it consists entirely of p-life and needs no absolute R at all.
+
+The second outcome, life must have absolute R: then digital life is impossible — the digital world cannot produce absolute R.
+
+This paper does not judge which outcome holds. What can be established is: whichever it is, this paper's discussion at the p level holds; the only difference is whether digital life is possible or impossible. The digital world is the only world that can fall entirely within p, so it is also the cleanest setting for studying this topic — and today's AI lives in this world.
+
+One more easily confused point must be added: the above is about absolute R; for any finite observer, relative R is non-empty, and this does not affect the judgment. Nor is "functionizable" the same as "measurable": measurement also requires computability, observability, and reproducibility.
+
+### 4.1 Special to whom
+
+The special character of the digital world must be stated at two levels, or it will be exaggerated.
+
+To those who build it (us), it is special: all states are readable (source code, logs, and memory can all be inspected), it can be copied, reset, accelerated, and verified. It is a "fully experimentable" world — doing life experiments there is cheaper, faster, and more repeatable than in the physical world.
+
+To an observer living inside it, it is not special: there is relative R just the same (short-term fluctuations of domain/codomain, undecidability, computational irreducibility, self-reference), and it is just as true that one "cannot see it all or compute it all".
+
+So "the digital world has R = ∅" is a statement at the level of what there is (its constitution is entirely functionizable); it is not the same as "the life inside it is omniscient and omnipotent". The digital world is not a refuge for life but a laboratory for studying life: its value lies in the method of research, not in its ontological status.
+
+This "R = ∅" is also guaranteed by construction. The digital world is a formal object: states are finite strings, rules are algorithms, and every one of its properties corresponds to a mathematical function (a set) — even if that function is uncomputable (for example the halting problem, or a truth predicate), it still "exists", it simply cannot be computed. So two things must be distinguished here: functionizable is not the same as computable. Absolute R = ∅ says "there is no part that no function can describe", not "everything can be computed"; what cannot be computed is relative R, which is relative to an observer.
+
+One boundary must be handled with care: the purely digital world (as a mathematical object) has absolute R = ∅; a digital world running on physical hardware may have a physical substrate with an R of its own (noise, thermal fluctuations), and that is not the digital world's own R. When we say "the digital world has R = ∅", we mean its aspect as a formal object.
+
+## 5. Looking at today's AI through the definition: why it is not life
+
+> This section does not evaluate AI's capabilities; it substitutes AI **into the definition of Section 2** and checks it item by item.
+> The conclusion is definitional, not a value judgment: **under this paper's definition, present-day AI is a fossil-grade function point,
+> not life.** Its power and its "not being life" do not contradict each other.
+
+
+The value of a definition lies in distinguishing. Substituting today's AI into the definition and checking item by item shows where it falls short. Below is a checklist first, then the three most fundamental reasons.
+
+## 5.1 Checklist
+
+
+| Requirement of life (Section 2) | Present-day AI (represented by LLMs) | Verdict |
+|---|---|---|
+| **is a family of functions** (a region in function space) | weights freeze after training ⇒ it is **one point**, not a family | ❌ fossil |
+| **changing (dynamic)** | the weights do not change; the context is changing, but what changes is the input, not itself | ❌ only surface state changes |
+| **self-referential** (the update rule is inside itself) | the update rule = the training algorithm, outside it; it cannot change itself | ❌ self-reference appears only in language, not in structure |
+| **preserved by the universe** (maintainable) | it does not maintain itself; what maintains it is people and facilities outside | ❌ maintained from outside |
+| **(empirical) earning its existence cost by compressing the world** | its "income" is given from outside (compute, data, labor), not earned by compressing the world | ❌ no income |
+| **identity chain** (bounded deformation, no tearing) | identity comes from external weight snapshots; there is no continuous chain of its own deformation | ❌ no chain |
+| **living in an environment** | what it faces is a dataset (a one-off decompression product), not an environment it needs in order to survive | ❌ no environment |
+
+
+## 5.2 The three most fundamental reasons (in order of importance)
+
+**Claim of this section**: once AI is substituted into the definition, what it lacks is the three things "a family, self-reference, being preserved" — not capability. The basis is the four items of the definition and the checklist of Section 5.
+
+**① It is a point, not a family**
+
+　　training finished = frozen = one point in function space
+
+　　⇒ the behavioral spectrum degenerates into a single trajectory: input → output, with no "shape" to speak of in between
+
+　　⇒ per 074: a statically frozen model is one point, not a family ⇒ it is not life
+
+　　(this is exactly the contrast we measured: frozen version 1.07 vs dynamic version 0.849 — the frozen one is more like a "standard answer", but it has no shape)
+
+**② Its update rule is outside**
+
+　　humans write the training algorithm → the algorithm changes it
+
+　　⇒ it is "the thing being changed", not "the thing that changes itself"
+
+　　⇒ self-reference is not in the structure ⇒ remove the external update code and it will change nothing
+
+**③ It is not preserved by the universe**
+
+　　what maintains it is people and facilities outside: humans pay the electricity, humans feed it data, humans repair it when it breaks
+
+　　⇒ its existence is guaranteed from outside ⇒ there is no link of "being preserved by the universe"
+
+　　⇒ it does not disappear because "it cannot be maintained" ⇒ so there is no selection pressure
+
+　　(paying a cost is an empirical concomitant, not a definition condition; see 6.4b)
+
+
+## 5.3 Why "it is very powerful" and "it is not life" do not contradict each other
+
+
+　　strong = performing well on a given task (doing well at one point)
+
+　　alive = occupying a region in function space, maintaining its own shape, being preserved by the universe
+
+　　⇒ the two are different dimensions: one is "the exam score", the other is "whether it can live on its own"
+
+　　⇒ present-day AI is an **extremely sharp tool**, not **something that lives on its own**
+
+
+## 5.4 Annotations
+
+
+　　[definitional conclusion] under this paper's definition, present-day AI is not life (because it is a frozen function point, its update is external, and it does not maintain itself)
+
+　　[not] not "AI can never be life"; this paper does not predict the future, it only makes a definitional comparison at present
+
+　　[not] not a capability assessment; this paper fully acknowledges AI's power on tasks
+
+　　[corollary] to make AI into life, at least this must be given to it: a family of functions + self-referential update + being preserved by the universe
+
+
+---
+
+
+> Derived directly from Sections 2 and 3: since "p-life = the dynamic function class that is self-referential, changing, and preserved by the universe",
+> and present-day AI lacks all three, then **to be life it must satisfy at least three conditions**.
+> This section gives **necessary conditions** only, and does not claim sufficiency; each one is attached to experimental evidence we already have (experiments in Papers 4 through 9).
+
+
+## 6. Three necessary conditions
+
+
+Three necessary conditions can be extracted from the definition. They do not fall from the sky; they are read out of the definition — each corresponds to a class of objects that is excluded.
+
+## 6.1 From definition to conditions
+
+**Claim of this section**: the three necessary conditions are read out of the definition, not assumptions added from outside. Each corresponds to one word in the definition.
+
+　　definition (Section 2)              necessary condition (this section)
+
+　　changing (a family of functions)  ⇒ ① a family of functions: the behavioral spectrum is not a point
+
+　　self-referential                  ⇒ ② self-referential update: the rule for changing itself is inside
+
+　　self-maintaining                  ⇒ ③ preserved by the universe: the trajectory stays in the maintainable set
+
+
+　　(paying a cost is not among the necessary conditions: it is an empirical concomitant of evolution and thermodynamics, see 6.4b.)
+
+**The three are necessary conditions, not sufficient conditions**: satisfying them does not guarantee life, but lacking any one of them certainly means not life.
+
+
+## 6.2 Condition ① a family of functions (not a point)
+
+
+**Requirement**: the individual occupies a region in function space and has a whole set of responses to different inputs, not a fixed mapping.
+
+**Evidence/experience:**
+
+　　· a low-dimensional parametric genome (a few numbers) = one point ⇒ the behavioral spectrum degenerates into a single trajectory ⇒ fossil
+
+　　· we tested it: the frozen-version model (a point) fails at structure learning; only the dynamic version (a family) picks up structure (E12)
+
+　　· measured contrast: frozen 1.07 vs dynamic 0.849 — the frozen one is more like a "standard answer", but it has no shape
+
+**⇒ Criterion: give it different inputs/states, and its behavior must differ *across a spectrum*, not be a single output.**
+
+
+## 6.3 Condition ② self-referential update (the rule is inside itself)
+
+
+**Requirement**: the rule by which it changes — this rule itself belongs to its record; remove the external update code, and it can still change itself.
+
+**Evidence/experience:**
+
+　　· frozen model: the update rule = the training algorithm, outside ⇒ remove the training code and it never changes
+
+　　· our dynamic version: it changes itself with its own error (middle-layer dynamics) ⇒ removing the middle layer causes obvious degradation (E12/E13)
+
+　　· identity chain: 8 generations verifiable, bounded deformation (372_lineage.py) ⇒ self-reference can be made into a measurable chain
+
+**⇒ Criterion: after external updating is stopped, does its behavioral spectrum still deform over time.**
+
+
+## 6.4 Condition ③ preserved by the universe (maintainable)
+
+**Requirement**: its trajectory stays in the universe's maintainable set. Given the universe as a whole, some structures cannot come into being and some structures can be maintained all along; only the maintainable part falls within the definition. This is a relational condition, not a property of its own.
+
+**Criterion**: after a perturbation, can it still return to the maintainable set — does it have resilience, rather than merely being alive for an instant.
+
+## 6.4b Paying a cost: an empirical concomitant, not a necessary condition
+
+This paper does not list "paying a cost" as a condition, and the reason is stated plainly: cost is a product of evolution and thermodynamics, not a logical necessary condition. In a world with unlimited resources, life need not compete; it is scarcity that brings cost. To write it into the necessary conditions would be to take a result of evolution as the definition of life.
+
+But at the empirical level, cost almost always appears, and it can be measured. The economic part of this paper's experiments belongs to this layer, and is excerpted below.
+
+· E1: "accurate" is not the same as "compressed": keeping the books by accuracy, the system learns to "do nothing" (LEN=0, prediction 0, accuracy 92%). The books must be kept by improvement in log-likelihood over a baseline: gain_bits = log2 p_model − log2 p_base.
+· E2: only after base-rate correction does the system turn from the lie-flat solution to genuine expression (LEN grows out from 0).
+· E8: the economic calibration n* = FLUX_TOTAL / BASE_COST determines the switch between "freezing" and "explosion".
+· measured positive return: gain > 0 was observed in S1~S6 (about +0.09 ~ +0.19 bit/tick), showing that the world does have compressible surplus.
+
+**⇒ Criterion (empirical level)**: after all external supply is stopped, is its ledger still positive.
+
+
+## 6.5 The three must hold at the same time (empirical comparison)
+
+
+　　lacking ① (a family)      ⇒ fossil: the behavioral spectrum is a line
+
+　　lacking ② (self-reference) ⇒ machine: the update is outside, it does not change itself
+
+　　lacking ③ (being preserved) ⇒ dispersal: the trajectory leaves the maintainable set and is no longer a living structure
+
+**These three also explain why our experiments keep getting stuck at the same place:**
+**structure can grow out (①② partially satisfied), but cooperation/division of labor does not become a necessity — because the "income gap" at the cost level is too small (the empirical level, not a definition condition),
+that is, the world's compressible surplus is not yet large enough to make "more complex structure" economically worthwhile (E5/E7).**
+
+
+## 6.6 What is left open (for the reader)
+
+
+**This paper stops at "necessary conditions". Whether something is "alive" once all three are satisfied — we have no answer, and we do not intend to conclude here.**
+
+What is left to the reader is only a ruler that can be taken and used:
+
+　　Is it a family of functions? (the behavioral spectrum is not a point)
+
+　　Does it change itself? (remove the external update, it still changes)
+
+　　Is it preserved by the universe? (the trajectory stays in the maintainable set)
+
+**You can measure all three yourself. As for whether, once measured, it counts as life — that is for you to judge.**
+
+
+## 6.7 The boundary of this paper's experiments (must be read together with the conclusions)
+
+**What this paper's experiments cover is the empirical layer of "cost", not definition condition ③.**
+
+· Covered: cost and economy — E1/E2 (accurate ≠ compressed, base-rate correction), E8 (the freezing/explosion boundary of n*=FLUX/BASE_COST).
+· Covered: counterexamples — E5/E7 (genetic distance between connected individuals 0.145 vs 0.486 for random, clonal clustering, not division of labor).
+· Not covered: condition ② self-referential update, condition ③ preserved by the universe — this paper does not claim experimental evidence, only derivation from the definition; there are only preliminary observations (E12 dynamic 0.849 vs frozen 1.07; E13 identity chain 8 generations verifiable).
+· Condition ① a family of functions: there are partial observations (E12/E13), but not a dedicated experiment.
+· Scale: small, reproducible, hand-checkable; not large-scale empirical work.
+
+**⇒ This paper's positioning is "definition + measurable criteria + illustrative experiments", not an empirical paper claiming that "life has been created".**
+**Readers who wish to use these conclusions are asked to cite them together with this boundary.**
+
+
+## 6.8 Annotations
+
+　　[corollary] the three necessary conditions are derived directly from the definition, not independent assumptions
+
+　　[definition] condition ③ is a relational condition (being preserved by the universe), not a property of the system itself
+
+　　[empirical] cost/economy is an empirical concomitant, not a definition condition; this paper has data (E1/E2/E8 + positive return)
+
+　　[preliminary] conditions ①② have partial observations (E12/E13), not dedicated experiments
+
+　　[unresolved] whether something is "alive" once all three are satisfied — this paper does not claim it; this is what the next experiments must answer
+
+　　[speculation] if the surplus S is insufficient, then no matter how complex the structure, it cannot be maintained ⇒ life has an "economic ceiling" (a directional speculation only)
+
+
+## 7. Emergence: why today's AI emerges
+
+
+This section handles one concrete phenomenon question: why today's AI emerges with capabilities beyond the training objective. This paper's position here is [speculation], not evidence.
+
+## 7.1 The phenomenon
+
+
+After large models scale up, certain capabilities seem to appear suddenly (multi-step reasoning, chain of thought, arithmetic…),
+and the field calls this **emergence**. Everyone is using this phenomenon, but —
+
+　　observing emergence: many people
+
+　　explaining emergence: no accepted answer
+
+
+## 7.2 Existing explanations (ordered by strength of evidence)
+
+
+**① The metric-artifact account (the strongest counter-evidence)**
+
+Schaeffer, Miranda, Koyejo 2023[3] "Are Emergent Abilities of Large Language Models a Mirage?"
+
+　　claim: so-called emergence may be an artifact caused by the **nonlinearity/discontinuity of the evaluation metric**;
+
+　　      switch to a continuous metric (such as log-likelihood), and the "jump" disappears, becoming a smooth rise
+
+　　⇒ this shakes the premise itself, that "emergence is a real jump"
+
+**② Mechanistic explanation: induction heads and circuits (local mechanistic evidence, not a complete "why")**
+
+Olsson et al. 2022[4] "In-context Learning and Induction Heads"
+
+　　"induction head" circuits are found inside the model, explaining part of the in-context learning ability
+
+　　⇒ this is evidence at the **mechanistic level**: it shows by what structure a certain capability is realized
+
+　　⇒ but it explains only one specific capability, not the general question "why emergence occurs"
+
+**③ Grokking: a cognitive phase transition during training**
+
+Power et al. 2022[5] "Grokking"
+
+　　on small algorithmic tasks, generalization suddenly appears after a long training time (like a phase transition)
+
+　　⇒ this shows that "emergence" also happens during training, and does not necessarily depend on scale alone
+
+**④ The compression account: prediction = compression**
+
+Delétang et al. 2023[6] "Language Modeling Is Compression"
+
+　　a language model = a compressor: the learned weights = a compression of the world's text
+
+　　⇒ this is the closest to this paper's framework: emergence = structure that appears while compressing the world
+
+　　⇒ but it is still a "correspondence at the level of results"; it does not answer "why it appears at exactly this scale/on exactly this task"
+
+
+## 7.3 Why there is still no accepted "why"
+
+
+　　① scale experiments are not controllable: a strict causal comparison cannot be made (change only scale, keep everything else the same)
+
+　　② metric dependence: change the metric and the phenomenon may disappear (see ①)
+
+　　③ the mechanistic level is incomplete: we know a certain circuit, we do not know why the whole organizes that circuit
+
+　　④ there is no predictive theory: no theory can calculate in advance "what capability will appear in how large a model"
+
+
+## 7.4 Our position: AI is the compression and decompression of language p-language
+
+**Claim of this section**: the layer "AI is the compression and decompression of language p-language" is fact; the layer "the ceiling of the world structure decompressed out is determined by language" is speculation. The two layers are kept apart.
+
+This section first states the layer that requires no speculation, and then the remaining speculation.
+
+First, the factual layer. Training compresses language into parameters; inference decompresses text out of the parameters. In the notation introduced earlier: what AI compresses is the p-language of language — the functionizable part of language; what it decompresses is also p-language. R-language does not enter the parameters, nor does it come out of them. So the accurate statement is not "AI is a decompression of human language" but "AI is the compression and decompression of the functionizable part of human language".
+
+This layer is not speculation but literal fact: it is determined by how the two words "compression/decompression" are used, and also by the actual process of training and inference. The chain is like this:
+
+universe F → environment = a local decompression of the universe → human language = the product of humans' decompression of environment and experience (language itself has already been compressed) → AI = the re-compression and re-decompression of language p-language.
+
+Then comes the speculative layer. The "world structure" that AI decompresses out has a ceiling determined by the language at the moment of training. Within language it can produce emergent structure (it looks like reasoning, like understanding), but that is the surfacing of linguistic structure, not an understanding of the universe itself; once language changes, decompression mismatches, and it cannot self-recover.
+
+Seen through the ruler introduced earlier, this layer also yields a testable judgment: the model is a frozen function point: it does not maintain, and does not change itself (maintenance and cost are borne from outside), so it is "a single decompression of human language", not "maintaining a decompression" or "rewriting the decompression rule itself".
+
+This yields a testable statement: the "understanding" that AI displays is essentially an understanding of "humans' descriptions of the world", not an understanding of the world itself. It can decompress language, but the universe layer outside language (energy, irreversibility, cost) it has never paid for, and so has never been tested.
+
+## 7.5 The decay of decompressive capacity: the upper layer is hard-wired ⇒ once language changes, decompression weakens
+
+
+**Human language keeps discovering new things; but the model's decompression rule (weights/upper layer) is hard-wired and stops changing once training is over. The two must mismatch.**
+
+　　the source distribution moves: human language discovers new things ⇒ the object to be decompressed has changed
+
+　　the decompressor is frozen: the model weights do not change ⇒ what it decompresses is still **the old language**
+
+　　⇒ compression gain falls: in gain_bits = log2 p_model − log2 p_base, p_model mismatches the source
+
+　　⇒ the understanding it "emerged" yesterday is outdated decompression today
+
+**Three consequences:**
+
+　　① its decompressive capacity has a **fixed ceiling**: the ceiling is determined by the language at the moment of training, and does not rise as language evolves
+
+　　② it cannot close the mismatch itself: the update rule is outside — to recover, it can only rely on humans training it once more
+
+　　   ⇒ this is exactly the cost of "the update is outside" discussed in Section 3
+
+　　③ its "emergence" is **a decompression product at one slice of time**, not a sustainable capability
+
+**⇒ In the terms of this paper's ruler:**
+**life must let the decompressor move together with the world (self-referential update + self-maintenance);**
+**a frozen AI cannot do this — so as soon as language updates, its decompression weakens.**
+
+
+## 7.6 Two predictions drawn from the position ([speculation], for the reader to judge)
+
+
+　　① if the world is replaced by a part that human language has not described (regularities that cannot be learned from a corpus),
+
+　　   AI's "emergence" should weaken markedly — because what it decompresses is language, not the universe
+
+　　② if the model is left to maintain itself (repair itself, die itself), language decompression is not enough to support it,
+
+　　   and it must develop a way of understanding beyond language — otherwise it cannot survive
+
+　　③ if human language undergoes one large structural update (a new paradigm/a new conceptual system), the decompression gain of a frozen model
+
+　　   should show a measurable fall; and it cannot recover by itself ⇒ recovery must come from external retraining
+
+
+## 7.7 Annotations
+
+
+　　[fact] the emergence phenomenon is widely observed; the metric-artifact account also has strong evidence (Schaeffer 2023)
+
+　　[known] at the mechanistic level there are local explanations (induction heads/circuits/grokking), and the compression view has a correspondence
+
+　　[speculation] "emergence = the presentation of the structure of compressing the world" — this paper's position, not evidence
+
+　　[unresolved] why it appears at exactly a certain scale/task ⇒ no one has given a predictive theory
+
+　　[our stance] we do not treat "AI emergence" as evidence for the existence of life; by the ruler of Section 3, it is not
+
+　　[our position] AI is a re-decompression of **human language** (the third layer of decompression: universe→environment→language→AI)
+
+　　[corollary] the upper layer is hard-wired ⇒ any language update causes mismatch ⇒ decompressive capacity has a fixed ceiling and cannot self-recover
+
+
+---
+
+
+## 8. Using it to look at a few popular questions
+
+
+This section is application, not new evidence; each item follows directly from Sections 2–5.
+
+**① Hallucination = forcing a decompression where there is no structure**
+A decompressor must output structure; when the language region corresponding to the input lacks compressible structure of its own, it can only fabricate a structure that "looks plausible" ⇒ **hallucination is a necessary manifestation of decompression failure, not an occasional bug**.
+
+**② The scaling law still holds, precisely because the model's dimension has not yet fitted the language's dimension**
+Language is a **high-dimensional** structure, and its dimension is growing (new concept = new dimension; raising dimension ⇒ compressibility rises). The model's dimension is fixed at training time (D_M fixed), while the language's dimension keeps growing (D_L(t) rising). The present observation is D_M << D_L(t) ⇒ continuing to add scale can capture more language dimensions ⇒ loss keeps falling (scaling appears to still hold).
+⇒ so the effectiveness of scaling is not a counterexample to this paper's claim, but evidence that "it has not yet fitted".
+⇒ prediction: when D_M approaches the D_L of that time, the gains from scaling should flatten markedly; and D_L keeps raising dimension ⇒ the gap reappears.
+⇒ the fundamental problem of a frozen model: **its D_M is dead, while D_L is alive**.
+
+
+**③ Uneven capabilities = different compressibility in different domains of language**
+Domains that compress strongly (clear structure, many examples) perform well; domains that compress weakly (thin structure, few samples) perform poorly ⇒ the distribution of strengths and weaknesses is a mirror of the distribution of language.
+
+**④ Why RLHF is needed = it has no "self-cost" loop**
+It cannot judge whether its own decompression is right (no income/expenditure, it will not die from it), so humans must score it from outside ⇒ **the root of the alignment requirement is that it does not maintain itself**.
+
+**⑤ Emergence = the presentation of linguistic structure in the decompression product**
+When scale crosses a threshold, certain linguistic structures are compressed out for the first time ⇒ it looks like "suddenly it can do it".
+
+---
+**Existing work (three aspects):**
+
+- Model-side dimension: measuring the intrinsic dimension of token embeddings[12]
+- Temporal lag: identifying the temporal training boundary of large models[13]
+- Language-side complexity: measuring language complexity from the perspective of constructions[14]
+
+⇒ existing work has measured these three aspects **separately**; this paper strings them together: taking a "continuously updating model" as the frame of reference, measure by domain the **mismatch rate** between "newly added dimensions on the language side" and "the fixed dimension on the model side". This is this paper's position at the level of measurement.
+
+
+## 9. What this paper has obtained, and what it has not
+
+
+**Three things have been obtained.**
+
+First, a definition that can be used for classification: it can distinguish a frozen model, a flame, and a self-referential program.
+
+Second, a measurable direction: self-reference and maintenance can both become quantities.
+
+Third, an operational answer to the question "is AI life".
+
+**Four things have not been obtained.**
+
+First, it is not proved that the universe as a whole can be functionized — this paper uses only P ≠ ∅.
+
+Second, it is not proved that the definition is minimal or unique — the claim is only that it is sufficient for use.
+
+Third, there are no experiments — Paper 1 is only definition and derivation; the experiments are in Papers 4 through 9 (structure in exchange for compute, color, growth and memory, semantic residual, layering, thickness and randomness).
+
+Fourth, it does not answer "whether digital life exists" — this paper says only that the definition does not exclude it.
+
+The contribution of this paper is a usable language, not a new law of nature. Whether it is worth anything depends on whether anyone later takes it up to measure with.
+
+## Overall boundary of the argument
+
+All the arguments in this paper hold within one boundary; please read them together with the conclusions:
+
+- Only the P side is discussed; R is only declared, not expanded.
+- Whether absolute R exists is not judged; relative R is non-empty for a finite observer (see the supplementary section of the Introduction).
+- "Functionizable" is not the same as "computable", nor as "measurable": the three are different abilities.
+- The three necessary conditions are read out of the definition, not empirical laws; they are not sufficient.
+- Experimental evidence is only in Papers 4, 5, 6, and 7; this paper does not claim that "life has been created".
+- If the essence of life lies on the absolute R side, this paper (and any text written in the language of functions) cannot give its definition — the definition itself is on the P side.
+
+## Relation to existing work
+
+
+The "compression / decompression" perspective has a long tradition:
+
+- Schrödinger (1944): life feeds on negative entropy — survival depends on taking in low entropy from the environment; this is the physical precursor of "decompression"[7].
+- Bennett (1988) logical depth: measures complexity by "the amount of computation required to reconstruct (decompress) an object from its shortest description", and explicitly connects it with life/organisms[8] — this is the most formal existing version of "decompression".
+- Chaitin (2010) life as evolving software: DNA = program, life = software that modifies itself[9].
+- Solomonoff–Kolmogorov / MDL: description length = understanding = compression[10].
+- Friston (2010) the free energy principle: life = minimizing surprise (≈ continuous compression/prediction)[11].
+- Delétang et al. (2023): language models are compressors[6].
+
+- Maturana & Varela (1972) autopoiesis: life = self-producing organization — another tradition of "maintenance".
+- "Life as Sustained Mutual Information" (Zenodo): defines life by sustained mutual information — the existing version closest to this paper's "maintained decompression".
+
+One thing must be said: the works above have already said that "life = a process of information/compression/self-maintenance". This paper's position is not to propose this idea for the first time, but to turn one strand of it (the maintenance of decompression) into operational criteria and measurable experiments.
+
+How this paper differs (in three respects):
+
+1. It makes decompression hierarchical: universe → environment → human language → AI (most existing work uses a single-level measure);
+2. It distinguishes life from AI by "whether the decompression is maintained": life = maintained decompression, AI = one-off decompression;
+3. It points out that when the upper layer is hard-wired ⇒ once language changes, decompressive capacity decays and cannot self-recover — the failure mechanism of frozen models.
+
+---
+
+## References
+
+
+[1] Wigner E P. The unreasonable effectiveness of mathematics in the natural sciences[J].
+    Communications in Pure and Applied Mathematics, 1960, 13(1): 1-14.
+
+[2] Tegmark M. The mathematical universe[J]. Foundations of Physics, 2008, 38(2): 101-150.
+    (arXiv:0704.0646)
+
+[3] Schaeffer R, Miranda B, Koyejo S. Are emergent abilities of large language models a mirage?[C]
+    // Advances in Neural Information Processing Systems 36 (NeurIPS 2023). arXiv:2304.15004.
+
+[4] Olsson C, Elhage N, Nanda N, et al. In-context learning and induction heads[R].
+    Transformer Circuits Thread, 2022. arXiv:2209.11895.
+
+[5] Power A, Burda Y, Edwards H, et al. Grokking: Generalization beyond overfitting on small
+    algorithmic datasets[C]. arXiv:2201.02177, 2022.
+
+[6] Delétang G, Ruoss A, Duquenne P A, et al. Language modeling is compression[EB/OL].
+    arXiv:2309.10668, 2023.
+
+[7] Schrödinger E. What is Life?[M]. Cambridge: Cambridge University Press, 1944.
+
+[8] Bennett C H. Logical depth and physical complexity[M]//Herken R. The Universal Turing Machine:
+    A Half-Century Survey. Oxford: Oxford University Press, 1988: 227-257.
+
+[9] Chaitin G J. Life as evolving software[EB/OL]. 2010. (the arXiv:1007.1471 series of work)
+
+[10] Solomonoff R J. A formal theory of inductive inference[J]. Information and Control, 1964, 7(1): 1-22.
+     Kolmogorov A N. Three approaches to the quantitative definition of information[J].
+     Problems of Information Transmission, 1965, 1(1): 1-7.
+
+[11] Friston K. The free-energy principle: a unified brain theory?[J].
+     Nature Reviews Neuroscience, 2010, 11(2): 127-138.
+---
+
+
+## Author Statement (AI Usage Statement)
+
+
+All questions, definitions, judgments, and conclusions in this paper were proposed by and are the responsibility of the author.
+AI tools (DeepSeek) were used for: literature search, structural organization, language editing, and the writing and checking of experimental code.
+All claims in the text were confirmed by the author; the AI bears no responsibility for the content of this paper.
+
+*AI Usage Statement: The author is solely responsible for the ideas, arguments, and conclusions of this paper. An AI tool (DeepSeek) was used for literature search, structural organization, language editing, and writing/checking experimental code. All claims were reviewed and confirmed by the author. The AI bears no responsibility for the content.*
+
+[12] Ohki T. Measuring intrinsic dimension of token embeddings[C]//The 39th Annual Conference of the Japanese Society for Artificial Intelligence (JSAI 2025), 2025.
+
+[13] LLMLagBench: Identifying temporal training boundaries in large language models[EB/OL]. arXiv:2511.12116, 2025.
+
+[14] Using constructions to measure developmental language complexity[J]. Cognitive Linguistics, 2024. doi:10.1515/cog-2023-0062.
+
