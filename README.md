@@ -92,6 +92,8 @@
 《数字生命：一个可测量的生命定义（系列合集）》：https://doi.org/10.5281/zenodo.23543323 
 （文件：compendium.md / compendium.pdf）
 
+> Author ORCID: [0009-0006-3968-3242](https://orcid.org/0009-0006-3968-3242)
+
 ## English
 
 - **Series compendium (English)**: `english/compendium-en.md` — DOI: https://doi.org/10.5281/zenodo.23592170
