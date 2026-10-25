@@ -1,0 +1,225 @@
+# Paper 32 · The Life Function: From Representable Dimensions to Structure, to Compression and Decompression
+
+> He Qi · in collaboration with DeepSeek
+> Digital Life Series · Theory Paper 12 (internal No. 32, v2)
+> Date: 2026-10-26
+
+---
+
+## Abstract
+
+This paper gathers the formalisms scattered across earlier papers into one line: representable dimensions → structure → compression and decompression. It absorbs the core of *The Functionizable Function Form* (slices/composition law/time/judgment/self-reference), *The Three Identities of a Slice* (universe/environment/life), and the five-item comparison in *Why Large Models Look Human*.
+
+The main line. First, the function language: a slice is a function f: X→Y with representable dimensions; space is a chain of composed functions; time is a sequence of operators s_{t+1}=I_{σ(t)}(s_t) with step count k; judgment J passes once, choosing operators and deciding when to stop; self-reference has three layers — representation, parameters, structure — with modifications bounded by a fixed core Φ. Second, representable dimensions have three locations: inside the slice, on the composition law, and along time (time is not a representable dimension). Third, the same form has three slice identities: the universe slice, the environment sub-slice, and the life sub-slice; at a frozen instant life and environment have the same form, and the difference lies only in maintenance over time. Fourth, structure is the compression scheme: which distinctions to keep, which to merge, which past to press into structure. Fifth, the life function is narrow-in, wide-out: input is limited and already coarse-grained, output is unfolded by structure; compression is a dimension-reducing map, decompression is unfolding, not strictly reversible — "good enough for maintenance" suffices; which dimensions must be reversible is decided by environmental selection. Sixth, in time, input and output alternate step by step, forming a closed loop; structure changes at two time scales. Seventh, language is a public compression scheme: feeling→language is compression; language→description/understanding/logic is decompression; logic is the composition law of language. Eighth, compared with large models: they obtain the public scheme but have no feeling end, no true closed loop, no maintenance — human-like at the interface layer, not at the mechanism layer; hallucination is the decompression of dimensions not covered by structure.
+
+---
+
+## Notation
+
+| Term | One-line meaning |
+|---|---|
+| Slice | a function f: X → Y |
+| Representable dimension | d_in = dim(X), d_out = dim(Y); effective dimension = log of distinguishable states |
+| Spatial composition | chain of composed functions F = f_N ∘ … ∘ f_1 |
+| Temporal composition | operator sequence s_{t+1} = I_{σ(t)}(s_t); step count k |
+| Judgment J | one pass: choose operator, decide stop |
+| Self-reference | representation / parameter / structure self-reference |
+| Fixed core Φ | the set of constraints that cannot be changed |
+| Universe slice | U_t = (S_t, C_s, d_t) |
+| Environment | a sub-slice of the universe, not maintained |
+| Life | a sub-slice of the universe that maintains itself |
+| Compression | dimension-reducing map f: X → Y with dim(Y) < dim(X) |
+| Decompression | unfolding from a compressed representation (not unique) |
+| Narrow-in, wide-out | input dimension limited, output dimension unfolded by structure |
+| Surroundings (身围) | the environment seen by an individual = projection π_L(E) of its compression map |
+| Semi-closed loop | output continues text only, does not change the environment (large models) |
+| Interface layer / mechanism layer | input-output behavior / how it computes, maintains, changes itself |
+
+---
+
+## 0. Problem: Gathering the Form into One Line
+
+Earlier papers separately gave: the function language (Paper 26), the three slice identities (Paper 31), and the intuition of compression and decompression (notes). Read separately, each has to lay out the definitions again; read together, they are three stages of one thing. This paper gathers them into one line and writes "compression" genuinely into the function form.
+
+## 1. The Function Language: Slices, Composition, and Judgment
+
+A **slice** is a function f: X → Y with three items: (d_in, d_out, Δ). d_in = dim(X) and d_out = dim(Y) are representable dimensions; Δ is how it composes with adjacent slices.
+
+**Spatial composition** is the chain of composed functions:
+
+　　F_space = f_N ∘ … ∘ f_2 ∘ f_1
+
+The composition law requires type compatibility: Y(f_i) ⊆ X(f_{i+1}).
+
+**Temporal composition** is not a plain power but an operator chosen at each step:
+
+　　s_{t+1} = I_{σ(t)}(s_t), t = 0, 1, …, k−1
+
+where {I^(1), …, I^(m)} are available operators (each a chain of composed functions), σ(t) is which one is chosen at step t, and k is the step count (computational thickness). Three cases: σ constant = the same operator repeated (iteration/time); σ varying = different functions applied in sequence; mixed = a stretch of repetition then a switch.
+
+**Judgment** J is not iteration but one pass:
+
+　　J: S → D (D a finite judgment space, e.g., {right, wrong}, {converged, not converged})
+
+Judgment decides two things: which operator σ(t) = J_choose(s_t); when to stop k = J_stop(s_t).
+
+**Self-reference** has three layers, from weak to strong: representation self-reference (input contains its own representation), parameter self-reference (θ_{t+1} = U(θ_t, s_t)), structure self-reference (C_{t+1} = V(C_t, s_t)). All three are bounded by a fixed core Φ: θ ∈ Θ_Φ, C ∈ C_Φ. Human brain: can change synapses and local circuits; cannot change neuron types, large-scale anatomy, metabolic constraints.
+
+Combining the two: one temporal unfolding is written as conditional advance: s_0 → s_1 = I_{σ(0)}(s_0) → … → s_k = I_{σ(k−1)}(s_{k−1}), where σ(t) is decided by J_choose and k by J_stop.
+
+## 2. Representable Dimensions: Three Locations
+
+Representable dimensions are not in one place but three:
+
+- inside the slice: the number of axes of a slice itself;
+- on the composition law: degrees of freedom in how slices connect (order/parallel/shared/routing/self-reference);
+- along time: step count k, operator sequence σ(t), number of switchable operators m.
+
+Note: time is not a representable dimension; it is a degree of freedom of temporal composition (step count/sequence).
+
+### Four Typical Types
+
+By "whether space/time are continuous, and whether time is endogenous", function forms can be divided into four classes (the content of Paper 20 is merged here):
+
+- **Type A: continuous flow (endogenous time).** Continuous representation space and continuous time, written as differential equations; self-reference = the update rule is inside the system; being kept = there exists a maintainable set, and the orbit stays inside it.
+- **Type B: sampled dynamics (endogenous time, sampled into discrete).** Continuous representation space and discrete time, written as map iteration; the same thing as continuous flow under different sampling — the difference is that "step" is basic.
+- **Type C: automaton (external time).** Discrete representation space and discrete time; the digital world is this class: bits, states, transition rules, each step advanced by an external clock and interpreter; the digital world has no energy constraint, and "being kept" must be provided externally (power, maintenance, compute).
+- **Type D: hybrid (endogenous time).** Continuous flow plus discrete events: physiological quantities change continuously, but cell division, neural firing, and decisions are discrete events; dormancy and activation, disease and death are segment points. Biological life is probably this class.
+
+Continuity must be treated with restraint: continuous does not mean "more true", discrete does not mean "approximate"; they are choices of description granularity — the same system can be written as different types at different granularities.
+
+### Five Axes
+
+As a minimal profile, a function form can be recorded along five axes: space continuous/discrete; time continuous/discrete; time endogenous/external; degrees of freedom of the composition law; level of self-reference. Not all five are "dimensions": the first two are description granularity, the last three are mechanism and capacity.
+
+## 3. Three Identities: Universe, Environment, and Life
+
+The same form has three identities at three scales.
+
+**Universe slice**: the cross-section at one instant
+
+　　U_t = ( S_t, C_s, d_t )
+
+where S_t is the state space, C_s the spatial composition law, d_t the spatial representable dimension. Key: temporal composition is not inside the slice but between slices (T_comb: U_t → U_{t+1}); an instant has only spatial structure. The universe as a whole has no judge; judgment appears only in local subsystems. The "function form" of the universe can only be written inside the universe — this very form is a local representation slice of the universe, hence necessarily incomplete.
+
+**Environment**: a sub-slice of the universe
+
+　　E_t = ( S^E_t, C_s^E, d^E_t )
+
+Three subset relations: representable dimension d^E ⊆ d; composition law C_s^E ⊆ C_s; state is a projection S^E_t = π_E(S_t). The environment also has time: T_comb^E = T_comb|_E, plus boundary input u_t. The environment itself has no judgment and no self-reference — those belong to the life/observers inside it.
+
+**Life**: also a sub-slice of the universe; at a frozen instant it has the same form as the environment; the difference lies only in time — life can maintain itself. Four conditions:
+
+1. Being kept: the trajectory stays in the feasible region V, and the composition law is always defined;
+2. Open boundary: exchange with the environment (energy, matter, information);
+3. Self-referential regulation: some slices take their own state as input and correct themselves;
+4. Plasticity: change its own parameters and structure within the fixed core Φ.
+
+A sub-slice without 3 and 4 is the environment. A direct consequence: **at a frozen instant life cannot be distinguished; life must be recognized over time** — life = a trajectory that is kept, not a state.
+
+## 4. Structure: The Compression Scheme
+
+Structure is decomposition D plus composition law C. It is at the same time a compression scheme:
+
+- which distinctions are kept (written into slice dimensions and composition law);
+- which distinctions are merged (coarse-grained away);
+- which past inputs are pressed into structure (memory, consolidation).
+
+Life is selected by the environment, and what is selected is exactly this scheme: compressions that can keep themselves survive, those that cannot are eliminated. So "the compression of life" is not one function but "the functions left after the environment has sifted a family", written in structure.
+
+## 5. Compression and Decompression
+
+Compression is a dimension-reducing map: f: X → Y, dim(Y) < dim(X). Decompression unfolds from a compressed representation: g: Y → X' (X' need not equal X).
+
+The two directions correspond to two activities: perception/learning = compression (many-to-one, lossy); prediction/action/generation = decompression (one-to-many, not unique).
+
+Key: decompression is not a strict inverse; it only needs to be "good enough for maintenance". Which dimensions must be reversible is decided by environmental selection. A person needs to decompress the fact "there is a discount" (otherwise the decision is wrong), but does not need to decompress every detail of the day's light.
+
+## 6. The Life Function: Narrow-In, Wide-Out and Surroundings
+
+One step of the life function can be written: input in_t → structure (compression scheme + memory) → output out_t.
+
+The two directions are asymmetric:
+
+- Input: f_in: U → S. Dimension limited by itself, and already coarse-grained — input is always "compressed, limited";
+- Output: f_out: S → A. Dimension can be far larger than input (association, language, imagination); the extra dimensions come from structure (past compression).
+
+So: **the life function is narrow-in, wide-out.**
+
+An individual is a compression map π_L: U → S_L; the individual's surroundings = π_L(E), the projection of the environment under its compression. What it can distinguish are the kept dimensions; what it cannot distinguish are coarse-grained.
+
+## 7. Time: One-Step Mapping and Closed Loop
+
+Input and output are not at the same instant; they alternate step by step:
+
+　　step t: (s_t, in_t) → (s_{t+1}, out_t)
+　　out_t acts on the world → in_{t+1} = W(out_t, world)
+
+Three consequences:
+
+1. Dimensions unfold along time: one step's input is small, output unfolds step by step over time (association takes time);
+2. Output changes input in turn (closed loop): life sees "the world after my own action";
+3. Structure has two time scales: state changes fast, structure changes slowly (plasticity).
+
+## 8. Comparison: The Life Function and Large Models
+
+A large model is a "semi-finished" life function: it obtains the public compression scheme, but has no feeling end, no closed loop, no maintenance.
+
+| | Human brain | Large model |
+|---|---|---|
+| Slice | heterogeneous, low-dimensional but efficient | homogeneous, high-dimensional |
+| Spatial composition | variable (routing/projection) | fixed chain |
+| Temporal composition | operator sequence (mixed k=0 and k≥1) | k=1, m=1 (no iteration) |
+| Judgment | has J (choose/stop/consolidate) | no J |
+| Self-reference | three layers active | parameter self-reference only during training |
+| Maintenance | body + environment | power + operations |
+
+Conclusion: it looks human at the interface layer (input-output behavior), not at the mechanism layer (how it computes, maintains, changes itself).
+
+Restated in the language of compression: it learned the public compression scheme (language), but has no feeling end (no pre-symbolic compression on the input side), no true closed loop (output continues text only, does not change the environment), no maintenance (weights frozen); its hallucination = decompression of dimensions not covered by structure (decompression detached from reversibility). Chain-of-thought (CoT) externalizes steps into text (externally supplied time); tool calls externalize judgment (external judgment) — precisely because internally k=1 and there is no J, these must be supplied from outside.
+
+## 9. Language: The Public Compression Scheme
+
+Human language occupies a special place in this chain:
+
+- At the individual level: input is feeling (continuous, holistic, pre-symbolic); output is language (discrete, bounded, composable). Feeling → language is compression (categorization, lossy);
+- Language is also a decompression tool: world → language is description; language → feeling is understanding; language → language is reasoning;
+- So language is "a decompressible compression": details lost in compression, but a recomposable structure retained (words = categories, grammar = composition law, logic = rules of the composition law);
+- "Language describes more and more": not that each person remembers more, but that shared structure accumulates (culture, science, writing); the richer the structure, the finer the unfolding of one decompression.
+
+AI learned exactly this public scheme: it can compress/decompress language, so it describes and reasons; but it has no "feeling" end — its output is language recombining language.
+
+## 10. Testable Consequences
+
+1. At a frozen instant life cannot be distinguished: no single-instant check can decide life; one must observe over time (trajectory, repair, exchange).
+2. The more stable the environment, the more aggressive compression can be; when the environment changes, old compression criteria fail (dimensions that should be kept are lost).
+3. Input coarse-graining plus structure capacity jointly determine the residual floor of output: dimensions absent from structure will be absent from output.
+4. When output dimensions exceed structure coverage, "fabrication/hallucination" appears: decompression detached from reversibility.
+5. Language description capacity grows with shared structure accumulation: not that individuals become smarter, but that the public compression scheme becomes richer.
+6. Judgment and stopping are measurable: a system with a judge should save compute over fixed-step systems and be more robust on thick tasks.
+
+## 11. Limitations
+
+First, R is only declared, not developed: only the P side is written.
+
+Second, compression/decompression are formally written only as "dimension reduction/unfolding", without a strict "good enough" criterion (reversibility requirement depends on the environment, not operationalized).
+
+Third, the closed-loop form (in_{t+1} = W(out_t, world)) is coarse, not handling concrete mechanisms among action, perception, and environment.
+
+Fourth, the feasible region V and the fixed core Φ are not operationalized: judging "whether it is kept" and "what cannot be changed" still lack measurement protocols.
+
+Fifth, the language part and "feeling → language is compression" are conceptual discussions without experiments.
+
+Sixth, this paper is a formal synthesis, not new mathematics.
+
+---
+
+## Labels
+
+- **[Definition]** slice/composition/time operator sequence/judgment/three-layer self-reference/Φ; universe slice, environment sub-slice, four conditions of life; compression/decompression/narrow-in-wide-out/surroundings.
+- **[Synthesis]** merges the core of Paper 20 (function types), Paper 26 (functionizable form), Paper 31 (three identities), and Paper 30 (comparison with large models); consistent with the definitions of Papers 00/01, the contraction of Paper 13, and the five-item form of Paper 21 v2.
+- **[Consequence]** at a frozen instant life cannot be distinguished — direct from the form.
+- **[Conjecture]** "feeling → language is compression", "AI has no feeling end" — conceptual discussions.
+- **[Not claimed]** no strict information-theoretic definition of compression is given; no claim to explain consciousness or experience; R is not developed.
+
+> Written by He Qi; DeepSeek (AI) assisted with organization and writing; the views and responsibility belong to the author.
