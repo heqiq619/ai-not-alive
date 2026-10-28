@@ -1,0 +1,34 @@
+{
+  "model": "gpt2 (124M) local, frozen",
+  "data": "tinyshakespeare, 128-token chunks, val 10%",
+  "base_ppl_40batches": 103.1,
+  "skip_single_layer_ppl": {
+    "3": 94.14,
+    "6": 88.13
+  },
+  "skip_combo_ppl": {
+    "3_6": 87.64,
+    "3_6_10": 103.53
+  },
+  "random_skip_ppl": {
+    "0.05": 345.04,
+    "0.10": 1011.57,
+    "0.15": 1316.17
+  },
+  "trained_gates_ppl": 64.1,
+  "trained_open_rates": [
+    0.99,
+    0.98,
+    0.93,
+    0.86,
+    0.93,
+    0.83,
+    0.92,
+    0.99,
+    0.99,
+    0.95,
+    0.95,
+    0.97
+  ],
+  "note": "gates trained 200 steps, frozen GPT-2; single seed; needs replication"
+}

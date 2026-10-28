@@ -108,3 +108,7 @@
 - Earlier English papers (2, 3, 4, 9, alignment, safety) are referenced in the English compendium's contents.
 
 *Note: the Chinese text is authoritative; English files are translations.*
+
+## 复现材料
+
+- 论文-38（按 token 门控）的代码与数据：experiments/paper38-gating/（含复现步骤与关键数字）
