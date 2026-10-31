@@ -112,3 +112,5 @@
 ## 复现材料
 
 - 论文-38（按 token 门控）的代码与数据：experiments/paper38-gating/（含复现步骤与关键数字）
+
+- `paper39.md` / `paper39.txt` — 实验篇 18：按层与按 token 的门控：一组初步观察（待复核）· DOI: https://doi.org/10.5281/zenodo.23827192
