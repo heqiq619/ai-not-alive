@@ -116,3 +116,4 @@
 - `paper39.md` / `paper39.txt` — 实验篇 18：按层与按 token 的门控：一组初步观察（待复核）· DOI: https://doi.org/10.5281/zenodo.23827192- `paper40.md` / `paper40.txt` — 执行器工程第二篇：查询端稀疏执行（真省算力的工程观察）· DOI: https://doi.org/10.5281/zenodo.23834552
 - `essay-cliff-slope.md` — 散论《断崖与缓坡：数字生命从哪里长出来》· DOI: https://doi.org/10.5281/zenodo.23838161
 - `essay-cliff-slope-en.md` — Cliffs and Slopes: Where Does Digital Life Grow From? (English essay) · DOI: https://doi.org/10.5281/zenodo.23838401
+- `paper41.md` / `paper41.txt` — 执行器工程第三篇：GPT-2 门控与稀疏执行（云端补充）· DOI: https://doi.org/10.5281/zenodo.23840225
