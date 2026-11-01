@@ -118,4 +118,4 @@
 - `essay-cliff-slope-en.md` — Cliffs and Slopes: Where Does Digital Life Grow From? (English essay) · DOI: https://doi.org/10.5281/zenodo.23838401
 - `paper41.md` / `paper41.txt` — 执行器工程第三篇：GPT-2 门控与稀疏执行（云端补充）· DOI: https://doi.org/10.5281/zenodo.23840225
 - `paper42.md` / `paper42.pdf` — 执行器工程第四篇：层门控两族结果（从零训练 vs 预训练后训练）· DOI: https://doi.org/10.5281/zenodo.23849573
-- 合集最新版 v79（30 篇）：https://doi.org/10.5281/zenodo.23849587
+- 合集最新版 v80（29 篇，结构调整 + 去重）：https://doi.org/10.5281/zenodo.23856024
