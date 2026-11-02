@@ -124,4 +124,4 @@
 - `paper44.md` / `paper44.pdf` — 执行器工程汇总篇：门控与稀疏执行（取代 papers 39/40/41/42）· DOI: https://doi.org/10.5281/zenodo.23858151
 - 说明：执行器工程原 39/40/41/42 四篇已合并为 paper44；旧 DOI 仍有效，视为被汇总篇取代（superseded）。
 - `paper45.md` / `paper45.pdf` — 冻结子模型：接口、协调与分层（两组最小实验）· DOI: https://doi.org/10.5281/zenodo.23859913
-- `paper46.md` / `paper46.pdf` — 冻结模块与可训练大脑：数字蚊子的最小工程实现 · DOI: https://doi.org/10.5281/zenodo.23890474 (v2)
+- `paper46.md` / `paper46.pdf` — 冻结模块与可训练大脑：数字蚊子的最小工程实现 · DOI: https://doi.org/10.5281/zenodo.23890632 (v3)
