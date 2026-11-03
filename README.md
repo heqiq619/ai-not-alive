@@ -132,3 +132,5 @@
   - 实验卷（最早期的实验记录，后续基本不更新）：https://doi.org/10.5281/zenodo.23919841
   - 工程卷（持续更新，含工程笔记）：https://doi.org/10.5281/zenodo.23919849
 - `appendix-d-notes-essays.md` — 附录 D 笔记与散论（可表示维度的空间面与时间面；世界模型/具身模型散论）
+- `paper47.md` / `paper47.pdf` — 方向观察：加层、回放与蒸馏——大模型睡眠巩固 · DOI: https://doi.org/10.5281/zenodo.23927099
+- 工程卷 v2（5 篇，含方向观察 01）：https://doi.org/10.5281/zenodo.23927112
