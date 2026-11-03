@@ -118,7 +118,7 @@
 - `essay-cliff-slope-en.md` — Cliffs and Slopes: Where Does Digital Life Grow From? (English essay) · DOI: https://doi.org/10.5281/zenodo.23838401
 - `paper41.md` / `paper41.txt` — 执行器工程第三篇：GPT-2 门控与稀疏执行（云端补充）· DOI: https://doi.org/10.5281/zenodo.23840225
 - `paper42.md` / `paper42.pdf` — 执行器工程第四篇：层门控两族结果（从零训练 vs 预训练后训练）· DOI: https://doi.org/10.5281/zenodo.23849573
-- 合集最新版 v85（29 篇，新增工程笔记板块）：https://doi.org/10.5281/zenodo.23919654
+- 合集最新版 v86（29 篇 + 附录 D 笔记与散论）：https://doi.org/10.5281/zenodo.23920377
 - 英文要点 v2（11 篇，新增信息不增/内容收缩/语言与大脑/44/45/附录B）：https://doi.org/10.5281/zenodo.23884927
 
 - `paper44.md` / `paper44.pdf` — 执行器工程汇总篇：门控与稀疏执行（取代 papers 39/40/41/42）· DOI: https://doi.org/10.5281/zenodo.23858151
@@ -131,3 +131,4 @@
   - 理论卷（定义·理论·约束）：https://doi.org/10.5281/zenodo.23919825
   - 实验卷（最早期的实验记录，后续基本不更新）：https://doi.org/10.5281/zenodo.23919841
   - 工程卷（持续更新，含工程笔记）：https://doi.org/10.5281/zenodo.23919849
+- `appendix-d-notes-essays.md` — 附录 D 笔记与散论（可表示维度的空间面与时间面；世界模型/具身模型散论）
