@@ -127,3 +127,7 @@
 - `paper46.md` / `paper46.pdf` — 冻结模块与可训练大脑：数字蚊子的最小工程实现 · DOI: https://doi.org/10.5281/zenodo.23890632 (v3)
 - `essay-worldmodel.md` / `essay-worldmodel.pdf` — 散论《世界模型、具身模型与数字生命——我们站在哪》· DOI: https://doi.org/10.5281/zenodo.23891164
 - `eng-notes-01.md` / `eng-notes-01.pdf` — 工程笔记 01：门控与模块化的失败、修正与判断（随合集发布，无单独 DOI）
+- 分卷版（2026-11-03 发布）：
+  - 理论卷（定义·理论·约束）：https://doi.org/10.5281/zenodo.23919825
+  - 实验卷（最早期的实验记录，后续基本不更新）：https://doi.org/10.5281/zenodo.23919841
+  - 工程卷（持续更新，含工程笔记）：https://doi.org/10.5281/zenodo.23919849
