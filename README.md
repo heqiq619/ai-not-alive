@@ -118,7 +118,7 @@
 - `essay-cliff-slope-en.md` — Cliffs and Slopes: Where Does Digital Life Grow From? (English essay) · DOI: https://doi.org/10.5281/zenodo.23838401
 - `paper41.md` / `paper41.txt` — 执行器工程第三篇：GPT-2 门控与稀疏执行（云端补充）· DOI: https://doi.org/10.5281/zenodo.23840225
 - `paper42.md` / `paper42.pdf` — 执行器工程第四篇：层门控两族结果（从零训练 vs 预训练后训练）· DOI: https://doi.org/10.5281/zenodo.23849573
-- 合集最新版 v91（30 篇 + 五份附录；附录 C 三篇散论，新增 C.3 多模态对齐）：https://doi.org/10.5281/zenodo.23984475
+- 合集最新版 v92（30 篇 + 五份附录；C.3 多模态对齐含「语言本身就是多模态的」）：https://doi.org/10.5281/zenodo.23987363
 - 英文要点 v2（11 篇，新增信息不增/内容收缩/语言与大脑/44/45/附录B）：https://doi.org/10.5281/zenodo.23884927
 
 - `paper44.md` / `paper44.pdf` — 执行器工程汇总篇：门控与稀疏执行（取代 papers 39/40/41/42）· DOI: https://doi.org/10.5281/zenodo.23858151
@@ -138,4 +138,4 @@
 - 理论卷 v3（含附录 E 及定义补充）：https://doi.org/10.5281/zenodo.23966519
 - 附录 E《可表示维度的空间面与时间面》：https://doi.org/10.5281/zenodo.23946840（随合集 v88）
 - 散论《家庭机器人：身体、大脑该放哪，以及谁在维持》：https://doi.org/10.5281/zenodo.23983662
-- 散论《多模态——一个对齐工程问题》：https://doi.org/10.5281/zenodo.23984471
+- 散论《多模态——一个对齐工程问题》v2：https://doi.org/10.5281/zenodo.23987355
