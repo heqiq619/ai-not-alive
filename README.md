@@ -118,7 +118,7 @@
 - `essay-cliff-slope-en.md` — Cliffs and Slopes: Where Does Digital Life Grow From? (English essay) · DOI: https://doi.org/10.5281/zenodo.23838401
 - `paper41.md` / `paper41.txt` — 执行器工程第三篇：GPT-2 门控与稀疏执行（云端补充）· DOI: https://doi.org/10.5281/zenodo.23840225
 - `paper42.md` / `paper42.pdf` — 执行器工程第四篇：层门控两族结果（从零训练 vs 预训练后训练）· DOI: https://doi.org/10.5281/zenodo.23849573
-- 合集最新版 v93（C.2 家庭机器人含补记修正；C.3 多模态对齐）：https://doi.org/10.5281/zenodo.23988469
+- 合集最新版 v94（新增工程笔记 02《一个自学习的 LLM 模型》；共 31 篇 + 五附录）：https://doi.org/10.5281/zenodo.24046383
 - 英文要点 v2（11 篇，新增信息不增/内容收缩/语言与大脑/44/45/附录B）：https://doi.org/10.5281/zenodo.23884927
 
 - `paper44.md` / `paper44.pdf` — 执行器工程汇总篇：门控与稀疏执行（取代 papers 39/40/41/42）· DOI: https://doi.org/10.5281/zenodo.23858151
@@ -127,6 +127,7 @@
 - `paper46.md` / `paper46.pdf` — 冻结模块与可训练大脑：数字蚊子的最小工程实现 · DOI: https://doi.org/10.5281/zenodo.23890632 (v3)
 - `essay-worldmodel.md` / `essay-worldmodel.pdf` — 散论《世界模型、具身模型与数字生命——我们站在哪》· DOI: https://doi.org/10.5281/zenodo.23891164
 - `eng-notes-01.md` / `eng-notes-01.pdf` — 工程笔记 01：门控与模块化的失败、修正与判断（随合集发布，无单独 DOI）
+- `eng-notes-02.md` / `eng-notes-02.pdf` — 工程笔记 02：一个自学习的 LLM 模型——冻结、成长与切换（随合集 v94 发布，无单独 DOI）
 - 分卷版（2026-11-03 发布）：
   - 理论卷（定义·理论·约束）：https://doi.org/10.5281/zenodo.23919825
   - 实验卷（最早期的实验记录，后续基本不更新）：https://doi.org/10.5281/zenodo.23919841
