@@ -1,4 +1,4 @@
-# 现在的 AI 为什么不是生命 / Why Today's AI Is Not Alive
+﻿# 现在的 AI 为什么不是生命 / Why Today's AI Is Not Alive
 
 **一个定义，与对 AI 涌现机制的一个猜测**
 *A definition, and a conjecture on the emergence mechanism of AI*
@@ -127,7 +127,7 @@
 - `paper46.md` / `paper46.pdf` — 冻结模块与可训练大脑：数字蚊子的最小工程实现 · DOI: https://doi.org/10.5281/zenodo.23890632 (v3)
 - `essay-worldmodel.md` / `essay-worldmodel.pdf` — 散论《世界模型、具身模型与数字生命——我们站在哪》· DOI: https://doi.org/10.5281/zenodo.23891164
 - `eng-notes-01.md` / `eng-notes-01.pdf` — 工程笔记 01：门控与模块化的失败、修正与判断（随合集发布，无单独 DOI）
-- `eng-notes-02.md` / `eng-notes-02.pdf` — 工程笔记 02：一个自学习的 LLM 模型——冻结、成长与切换（随合集 v94 发布，无单独 DOI）
+- `eng-notes-02.md` / `eng-notes-02.pdf` — 工程笔记 02：一个自学习的 LLM 模型——冻结、成长与切换 · DOI: https://doi.org/10.5281/zenodo.24046399
 - 分卷版（2026-11-03 发布）：
   - 理论卷（定义·理论·约束）：https://doi.org/10.5281/zenodo.23919825
   - 实验卷（最早期的实验记录，后续基本不更新）：https://doi.org/10.5281/zenodo.23919841
