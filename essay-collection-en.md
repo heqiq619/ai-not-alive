@@ -1,0 +1,1353 @@
+# Digital Life: Essays
+
+## Observation and Inference
+
+> He Qi · in collaboration with DeepSeek (AI)
+> Digital Life Series · Essay Collection
+> Date: 2026-11-10
+> Note: essays are not papers; they are observation and inference. Places marked [speculation] carry no evidence. Each essay keeps its own DOI.
+
+---
+
+## Preface
+
+This volume collects six essays. They propose no theorems and report no complete experiments; their role is to lay out, in one continuous line, ideas from the series that do not fit easily into papers:
+
+```
+· Relations and Gates: from the gate as a switch, down to concentration, judgment, relation; definition = establishing a comparable relation
+· Life That Is Not Special: from single cells to olfaction to the brain; life uses ordinary mechanisms, only at different scales
+· Multimodality: physically unified (electromagnetic field + molecular thermal motion), but engineering can only align
+· World Models / Embodiment: where we stand, the boundary between embodiment and world models
+· Cliffs and Slopes: where digital life grows from
+· Home Robots: body, where the brain goes, and who maintains
+```
+
+Suggested reading order: start with Relations and Gates, then Life That Is Not Special; the rest stand alone.
+
+---
+
+## Contents
+
+1. Relations and Gates — From a Switch to a Definition (DOI: 10.5281/zenodo.24055522)
+2. Life That Is Not Special (DOI: 10.5281/zenodo.24092488)
+3. Multimodality — An Alignment Engineering Problem (DOI: 10.5281/zenodo.23987355)
+4. World Models, Embodied Models, and Digital Life — Where We Stand (DOI: 10.5281/zenodo.23891164)
+5. Cliffs and Slopes: Where Does Digital Life Grow From (DOI: 10.5281/zenodo.23838161)
+6. Home Robots: Body, Where the Brain Goes, and Who Maintains (DOI: 10.5281/zenodo.23988460)
+
+---
+
+## Essay 1. Relations and Gates — From a Switch to a Definition
+
+DOI: 10.5281/zenodo.24055522
+
+## Claims of This Section
+
+The gate began as nothing more than a switch: whether this layer counts, whether this token passes. But following it downward leads to three more basic things — concentration, judgment, relation. And further down, to how a definition grows.
+
+This essay traces one line of inference:
+
+```
+· Neurons divide into several classes → abstracted into input/output, concentration, judgment
+· Judgment is not independent; it is a comparison of concentrations
+· Memory is not a circuit; it is a variable that grows on a circuit
+· Relation is the only constraint that cannot be violated
+· Definition = establishing a comparable relation
+```
+
+Places marked [speculation] are all inference, and claim no conclusions.
+
+## 1. Starting Point: The Gate
+
+【fact】(our own experiments and notes)
+
+```
+· The first gate: one Linear(d,1) per layer, g = sigmoid(W·h)
+  · multiplied onto that layer's residual contribution
+  · it does not decide which character is output, only how much this layer counts for this token
+· Formalization: content gate = one W_l per layer, with the degree of opening computed from token content
+  · gate open: compute and write back
+  · gate closed: skip, residual passes straight through
+  · K/V retained
+· Three identities:
+  · time/step allocator (the original motivation)
+  · sparse switch (saves compute)
+  · lightweight adapter (frozen model + 9k parameters, PPL 44→25)
+```
+
+【explanation】
+
+At first the gate was an engineering trick for "saving compute", but the most unexpected result was the third identity: **freeze the model and train only the gates, and PPL drops from 44 to 25.**
+
+This shows the capability was already in the weights; it just could not be pulled out. The gate does not add capability; it changes the "way of retrieving".
+
+⇒ Hence the first judgment: **the gate is short-term memory, responsible for calling up existing capability according to the current task.**
+
+## 2. How Neurons Are Classified, and What They Abstract Into
+
+【observation】
+
+Each layer of the cerebral cortex contains different kinds of neurons, which can be roughly grouped by function:
+
+```
+· feedforward excitation, cross-layer transmission
+· local excitation, amplification, rectification
+· local inhibition
+· cross-layer feedback, gain modulation
+· threshold, gating
+```
+
+Abstracting these capabilities out, they can be collected into three items ([speculation] this is my abstraction, not a settled conclusion):
+
+```
+① input/output: what it connects to, what it takes, where it sends it
+② concentration: amplify or inhibit, how strong (signed)
+③ judgment: pass or not, open or not (threshold)
+```
+
+Pushing one step further down, "judgment" no longer looks like a separate capability on its own; it looks more like a comparison of concentrations: input concentration vs reference concentration, and if the difference is positive, it passes.
+
+## 3. Judgment Is a Comparison of Concentrations
+
+【example: sensation of heat】
+
+```
+· temperature → ion channel opening (concentration)
+· channel opening exceeds some reference → pain
+· 43°C is that reference point
+  · TRPV1 opens in large numbers above about 43°C
+· the threshold is not computed; it is a reference that has been set in advance
+```
+
+【explanation】
+
+```
+· judgment = input concentration − reference concentration
+  · the sign decides pass/not pass
+· threshold = reference concentration (adjustable)
+· where the reference comes from:
+  · given by evolution (43°C is close to the boundary of tissue damage)
+  · individual experience can fine-tune it (sensitization, adaptation)
+```
+
+⇒ [speculation] Judgment is a second-order product of concentration: first there is a concentration response, then a reference differentiates out, and only then does comparison appear. Judgment is not a sixth capability, but a derivative of concentration relations.
+
+## 4. Memory: A Variable That Grows on Structure
+
+【question】What is memory?
+
+【example: chemotaxis】
+
+```
+· bacteria have no neurons, yet they still "remember" the concentration of a moment ago
+· carrier: the methylation level of receptors
+  · more methylation → higher reference concentration
+  · slow demethylation → the reference falls back
+⇒ memory can be nothing more than a variable parameter
+```
+
+【explanation】
+
+```
+· inherent structure (genes, circuits, channels): decides "what can be remembered, and where it is written"
+· variables (synaptic weights, methylation, gates): store "what has been remembered"
+⇒ memory = a variable on structure, not the structure itself
+```
+
+Divide it further by two time scales:
+
+```
+· evolutionary memory: encoded in structure, across generations, slow
+  · the 43°C threshold, basic reflexes
+· individual memory: grown on structure, within one lifetime, fast
+  · synaptic weights, adaptation, learning
+```
+
+⇒ 43°C is also memory, only it is evolutionary memory: it compresses experience at the level of the species into a default value of structure.
+
+## 5. The Minimal Search Circuit
+
+【question】How do you search a vast space with the simplest possible circuit?
+
+【example: chemotaxis】
+
+```
+① input: receptors sense concentration c(t)
+② concentration difference: Δc = c(t) − c(t−τ)
+③ judgment: Δc > 0?
+   · yes → keep swimming
+   · no → tumble and change direction
+④ output: motor steering
+⑤ memory: methylation makes the reference concentration follow slowly (adaptation)
+⇒ five or six proteins complete the "search"
+```
+
+【fact】Our own minimal-cell simulation:
+
+```
+· no chemotaxis: 45.4 ± 11.9
+· with chemical receptors: 51.6 ± 6.5
+· receptors + methylation: 67.2 ± 3.1
+```
+
+【explanation】
+
+```
+· no map needed, only local gradients and temporal differences
+· random tumbling = exploration, preferring ascent = exploitation
+⇒ simple rules can still climb in a large space
+· add "concentration difference + judgment" and it improves clearly
+```
+
+⇒ Chemotaxis is the minimal instance of the triad (input/output, concentration, judgment).
+
+## 6. Relation: The Only Constraint That Cannot Be Violated
+
+【inference】
+
+If the underlying architecture is input/output, concentration, judgment, relation, then a definition cannot violate the architecture. But of the four, perhaps only one is a hard constraint:
+
+```
+· input/output: can be absent (e.g. a purely symbolic definition)
+· concentration: can be absent (no strong/weak relation)
+· judgment: can be absent (no comparison)
+· relation: cannot be absent
+```
+
+【explanation】
+
+```
+· relation = establishing connection (more basic than function)
+· a definition without relation: it can be written, but it stands isolated
+  · it cannot be compared, cannot be connected, cannot be judged
+  · like a "chaotic creature": it has parts, but no structure
+· people tend to define things that are "comparable and connectable"
+⇒ relation is the condition of usability for a definition
+```
+
+【speculation】
+
+```
+· the core act of definition is not "making symbols" but "establishing relations"
+· the value of a definition depends on how many comparable relations it can establish
+· an isolated symbol is not a definition, only a label
+```
+
+## 7. Slices: The Same Function, Sliced Differently
+
+【inference】
+
+A human is a function, and an LLM is also a function. The function itself is only a mapping.
+
+```
+· input/output, concentration, judgment, relation
+  · are slices we abstract in order to describe and operate
+  · not parts the function carries with it
+· change the purpose → change the slicing:
+  · to save compute: slice by concentration/judgment
+  · to talk about learning: slice by relation
+  · to talk about behavior: slice by input/output
+```
+
+⇒ [speculation] Many disputes are really disputes over slicing: to say "what a definition is composed of", one must first ask "through which slicing we are looking at the definition".
+
+## 8. The Gate Is Short-Term Memory, the Self Is a Goal That Changes
+
+【engineering fact】
+
+```
+· frozen model + train only the gates:
+  · the gates can adapt quickly (PPL 44→25)
+  · the gates do not consolidate by themselves (alternating-session experiment:
+    accumulated arm ≈ reset arm)
+  · train one gate jointly: it can do two tasks, but with a compromise
+  · shared gate + small offset: close to specialization
+⇒ the gate is a temporary configuration, not long-term memory
+```
+
+【inference: the self】
+
+```
+· the human self is bound to "goal"
+· goal = a structure consolidated from short-term memory
+  · today's intention (short-term)
+  · recurring repeatedly → fixed in place (long-term)
+· goals keep changing
+  · old ones achieved/expired, new ones formed
+  · within this "changing", a continuous "I" shows up
+⇒ [speculation] self = a goal structure that changes
+```
+
+Contrast with the model:
+
+```
+· no cross-session goals
+· no "short-term→long-term" consolidation mechanism
+⇒ so there is no goal, and no self to speak of
+```
+
+## 9. Time Scales
+
+【observation】
+
+The human gate is not "still once training ends". It has several time scales:
+
+```
+· second scale: configuration for the current situation
+· year scale: habits, skills
+· cross-generational: evolutionary reference
+⇒ there is a gradient, and it changes continuously
+```
+
+Our experiments collapsed time away:
+
+```
+· there is no time between sessions
+· each time it is a few hundred steps of rapid overwriting
+· the "slow" axis never comes into view
+⇒ the gate not consolidating may be caused by the time structure of the experiment
+  · not that the gate itself cannot consolidate
+```
+
+## 10. Boundaries
+
+```
+· the neuron abstraction is inference, not a neuroscience conclusion
+· judgment = concentration comparison is a simplification; real circuits are more complex
+· relation being the only constraint is inference, not proven
+· slice theory is a way of observing, not an ontology
+· self = goal structure is a hypothesis at the behavioral level
+```
+
+## 11. Conclusion
+
+```
+· gate: from a switch to short-term memory, responsible for retrieving existing capability
+· judgment: not an independent capability, but a comparison of concentrations
+· memory: not structure, but a variable on structure
+· search: the minimal circuit = concentration difference + judgment + output
+· relation: the only constraint that cannot be violated; no relation = chaos
+· definition: establishing comparable relations; an isolated symbol is not a definition
+· self: a goal structure that changes; the model lacks persistent goals and consolidation
+```
+
+In one sentence: **the gate is a switch, but following the switch all the way down leads to concentration, judgment, relation; and the growth of a definition is the fixing of these relations in place.**
+
+---
+
+## Appendix
+
+```
+· related: Engineering Note 02, "A Self-Learning LLM Model"
+· experiments: gate_joint.py / gate_shared_offset.py / gatelock_accum.py /
+       minimal_cell_sim.py / Engineering Note 01
+```
+
+---
+
+## Essay 2. Life That Is Not Special
+
+DOI: 10.5281/zenodo.24092488
+
+## The Argument of This Section
+
+Life is often treated as something special: it has a soul, it has purpose, it has some kind of cosmic-level exceptionality. This essay takes the opposite position: **life is nothing special** — it is one ordinary mechanism repeated at different scales.
+
+This mechanism has only a few parts: input/output, concentration, judgment, memory, time. From a single cell, to olfaction, to the brain, to the human, it is all this mechanism being amplified.
+
+The inference starts from the smallest thing.
+
+## I. Starting from the Cell
+
+A single-celled organism is a relatively small unit of life, as far as we can currently see. It already has all the basic components:
+
+```
+· Boundary: the cell membrane
+  · only with a membrane is there inside/outside, and only then a direction for input/output
+  · the membrane is selectively permeable
+· Input: receptors, channels, pumps on the membrane
+  · bind specific molecules → receive a signal
+· Concentration: inside/outside concentration difference, local gradients
+  · concentration determines how much binds
+· Judgment: threshold
+  · multiple bindings, cooperativity, must cross the line
+· Output: movement, secretion, division
+```
+
+[explanation]
+
+```
+· Selectivity comes from protein structure
+  · shape, charge, affinity determine "who it can bind"
+· Concentration determines "how much binds"
+· Threshold determines "enough to trigger"
+⇒ This is judgment at the molecular level
+```
+
+In one sentence: **the membrane gives input/output, proteins give selectivity, concentration gives strength, threshold gives judgment.**
+
+## II. Time Cannot Be Left Out
+
+[fact]
+
+```
+· Diffusion takes time: molecules arrive with a delay
+· Binding has a rate: binding and unbinding are both processes
+· Concentration changes: local concentration is dynamic
+· Thermal fluctuations: at the molecular scale, binding is random
+```
+
+[inference]
+
+If you look at a single instant, you see only one random event; you cannot see "concentration", "gradient", or "judgment". Function is not a property of some moment, but **a regularity within a time window**.
+
+```
+· τ too short: only noise, no behavior
+· τ long enough: many events averaged → the concentration difference shows up
+· Longer: adaptation, memory, habit appear
+⇒ Behavior belongs to the window, not to the instant
+```
+
+This is the temporal face: the spatial face looks at "the rank of an instant", the temporal face looks at "the rank of trajectories within a window τ". If the window is too small, the rank is low; once the window is big enough, structure appears.
+
+## III. Memory Is a Slow Variable
+
+[inference]
+
+Judgment needs a reference. Where does the reference come from? From history. For history to be retained, there must be a slow variable:
+
+```
+· Fast variable: current concentration, current input
+· Slow variable: reference concentration, adaptation state, weights
+· Judgment = fast variable − slow variable
+⇒ Without a slow variable, there is no judgment
+```
+
+So judgment is, in essence, using memory.
+
+[example]
+
+```
+· Bacterial chemotaxis: receptor methylation = memory
+  · remembers the recent concentration as a reference
+  · time scale: minutes
+· Gene expression: on/off states
+  · time scale: hours
+· Synaptic weights: strength of neural connections
+  · time scale: days to years
+· Genome: experience written into structure
+  · time scale: across generations
+```
+
+Each layer of memory is a slow variable at its corresponding scale. Stack the memories at different scales on top of each other, and you get "something that can adapt and can learn".
+
+
+## IV. Olfaction: The First Abstraction Machine
+
+[fact]
+
+```
+· Nasal olfactory epithelium: olfactory sensory neurons
+· Each neuron expresses only one kind of olfactory receptor
+· Humans have about 400 functional receptors, mice about 1000~1200
+· Odor molecules bind receptors → G protein → cAMP → channel opens
+· One receptor type → one fixed glomerulus in the olfactory bulb
+```
+
+[explanation]
+
+```
+· The receptor repertoire is structurally fixed
+  · it determines "what range can be smelled, how fine the grain is"
+· Each receptor picks up only one class of chemical feature
+  · this is the first layer of coarse-graining
+· Multiple receptors activate at once → a combination pattern
+  · the molecule is compressed into a pattern
+· The pattern is then compressed into an object: food? danger?
+  · this is the second layer of coarse-graining
+⇒ Olfaction is not "sensing chemistry", it is "compressing chemistry into meaning"
+```
+
+[the key step: the object is inferred]
+
+```
+· The nose has no "food detector"
+· It has only combinations of molecules
+· The brain infers from statistical regularities:
+  · this kind of combination usually comes with food
+  · that kind of combination usually comes with danger
+⇒ "Food/danger" are labels produced by compression, not things directly perceived
+```
+
+[individual differences]
+
+```
+· Receptor genes have variants
+  · some people cannot smell certain odors
+· Age and receptor density differ as well
+⇒ The world one can smell is different from birth
+```
+
+What olfaction finally outputs is not smell, but meaning: eat, flee, ignore.
+
+[connection to the "Multimodality" essay]
+
+```
+· Olfaction is the first machine that compresses chemical experience into meaning
+  · molecules (chemistry) → combinations → objects/meaning
+· Language is a higher layer of the same action
+  · compressing experience in all modalities into words (see the essay "Multimodality")
+· Multimodal alignment in engineering
+  · is an approximation of this compression chain when there is no shared substrate
+⇒ Olfaction, language, and multimodality are the same thing at different scales
+```
+
+## V. The Brain Grew Out of Olfaction
+
+[observation, with [speculation]]
+
+```
+· Chemical sensing is one of the earliest senses
+  · single cells already sense concentration
+· Early nervous systems were organized around chemical signals
+· In vertebrates, the forebrain and cortex are deeply bound up with olfactory structures
+  · the olfactory bulb and olfactory cortex are both ancient structures
+  · the cortex is widely thought to have expanded out of the olfactory pathway
+⇒ The brain did not exist first and then take over smell; it grew starting from "smelling"
+```
+
+[inference]
+
+```
+· Olfaction = the earliest machine for "turning molecules into meaning"
+· Brain = the amplification of the same set of mechanisms
+  · more input channels
+  · shorter/longer time scales
+  · denser connections
+⇒ The capacity for abstraction has an evolutionary starting point; it did not appear out of nowhere
+```
+
+## VI. High Dimensions and Abstraction
+
+[inference]
+
+The phrase "high-dimensional abstraction" can be taken apart:
+
+```
+· High dimension: cutting the world into many distinguishable aspects
+  · olfaction: the activation of a few hundred receptors → a high-dimensional vector
+  · each dimension = one coarse-grained property
+· Abstraction: compressing a high-dimensional signal into a few meaningful quantities
+  · thousands of molecular combinations → "food", "danger"
+  · keeping relations, discarding details
+· Complex behavior:
+  · not a single-step reaction, but multi-step, multi-condition
+  · smell → judge → approach/avoid → remember → faster next time
+  · requires continuous operation in an abstract space
+```
+
+[one sentence]
+
+```
+· High dimension: can be separated
+· Abstraction: can be compressed (keeping relations)
+· Complex behavior: can be combined
+```
+
+So complex behavior is not "more mysterious"; it is the same set of things unfolded in high dimensions and over long times.
+
+## VII. Relations and Definitions
+
+[inference]
+
+Definition and abstraction are on the same chain:
+
+```
+· Abstraction can only keep things that "have relations"
+  · without relations: cannot be compared, cannot be put into the same space
+  · it can only be an isolated label
+· Definition = fixing a set of relations in an abstract space
+⇒ The material of definition is relation
+```
+
+So people tend to define things that are "comparable and connectable":
+
+```
+· Objects with relations → abstraction has content → definition can be made
+· Objects without relations → definition hangs in the air → you can only point and name them
+```
+
+Conversely, a new definition holds up because it can find a position:
+
+```
+· what things it has relations with
+· in which abstract space it is comparable
+⇒ If no relations can be found, a definition is not a definition
+```
+
+In one sentence: **a definition is not naming an object, but locating relations in an abstract space.**
+
+## VIII. Deriving Back from the Definition
+
+[definition]
+
+The definition given at the very start of the series: **life = a dynamic class of functions that can maintain itself in an environment.**
+
+Maintenance is not standing still; it is continuously countering perturbations and keeping one's own structure.
+
+[the conditions this forces]
+
+```
+· To "maintain itself" → first there must be a distinction between "self" and "environment" → boundary
+  · a boundary is not a wall: it is selectively permeable
+· Having a boundary → must exchange with the environment → input/output
+· Exchange must be selective → judgment
+  · at the molecular level: the selectivity of membranes and proteins
+· Selection must be comparable → compress the continuous environment into quantities that can be handled → concentration, granularization
+  · the environment is continuous, judgment needs discrete, comparable quantities
+· Maintaining stability → needs a reference → memory
+  · slow variable: what it was like a moment ago
+· The environment changes → must respond to change → time window
+  · judgment cannot be completed in an instant; it must be integrated over a window
+```
+
+[correspondence table]
+
+```
+Word in the definition              Thing in the structure
+· maintain itself               →  boundary + input/output
+· toward the environment        →  concentration, granularization
+· evolution/adaptation          →  judgment + memory
+· dynamic class of functions    →  a mechanism that changes over time
+```
+
+[conclusion]
+
+```
+· The five-piece set is not an added condition; it is forced out by "maintenance"
+· Without a boundary, there is no "self" to speak of
+· Without input/output, it cannot maintain itself
+· Without judgment/granularization, it cannot tell good from bad
+· Without memory, it cannot adapt
+· Without a time window, behavior does not hold
+⇒ Definition and structure are two ways of saying the same thing
+```
+## IX. So Life Is Nothing Special
+
+Putting the preceding together:
+
+```
+· Single cell: input/output, concentration, judgment, time, memory
+· Olfaction: compressing molecules into meaning
+· Brain: the same set of mechanisms amplified
+· High-dimensional abstraction: more dimensions, longer windows, denser relations
+· Definition: the fixing of relations
+⇒ All the way through it is the same set of mechanisms, only the scale and size are changing
+```
+
+[inference]
+
+```
+· What is special is scale, time scale, connection density
+· Not "the kind of life"
+· Molecules make judgments, cells make judgments, neurons make judgments
+  · the core is the same: concentration comparison + threshold + memory
+⇒ Life is nothing special, because its parts are ordinary
+```
+
+## X. Boundaries
+
+```
+· The step from molecules to meaning: the mechanism is not fully explained
+  · how a combination pattern becomes the object "food"
+  · we can only say "by statistical inference"; the details are unknown
+· The brain evolving from olfaction: the mainstream view, but disputed
+  · it cannot be treated as settled
+· Memory at the cellular level: adaptation/state is quite clear
+  · but how far "individual experience" can go in a single cell is unclear
+· This is an inference, not a proof
+```
+
+[the definition is loose; life may be a continuum]
+
+```
+· The definition here is loose: it is for discussion, not the only criterion
+· "Precursor units" are not excluded:
+  · autocatalytic sets, protocells, even certain protein systems
+  · may show some features of life (concentration response, judgment,
+    local maintenance), but not a complete set
+· Life may be a continuum:
+  · from molecular machines → protocells → single cells → multicellular
+  · the boundary is fuzzy, not a binary "yes/no"
+⇒ This actually supports "life is nothing special":
+  it should not have a clear line
+```
+
+[so the position of this essay]
+
+```
+· Not saying "what counts as life"
+· But saying: the mechanisms life uses are very ordinary
+  · so ordinary that precursor units may also carry a few of them
+· This is only one perspective; other perspectives are not excluded
+```
+
+## XI. Conclusion
+
+```
+· The basic mechanisms of life: input/output, concentration, judgment, memory, time
+· Judgment depends on memory: judgment = fast variable vs slow variable
+· Olfaction: the first machine that compresses molecules into meaning
+· Brain: an amplified version grown out of olfaction
+· High-dimensional abstraction: can be separated, can be compressed, can be combined
+· Definition: fixing relations in an abstract space
+· So life is nothing special: ordinary parts, different scale
+```
+
+In one sentence: **life is nothing special, because its mechanisms are ordinary — input/output, concentration, judgment, memory, time; what is special is the scale and time scale these ordinary things add up to.**
+
+---
+
+## Appendix
+
+```
+· Related: the essay "Relations and Gates"; engineering notes 02/03
+· Appendix E: the spatial face and temporal face of representable dimensions
+· Experiment: minimal_cell_sim.py (chemotaxis: without 45.4 / with receptors 51.6 / with adaptation 67.2)
+```
+
+---
+
+## Essay 3. Multimodality — An Alignment Engineering Problem
+
+DOI: 10.5281/zenodo.23987355
+
+## I. The Phenomenon
+
+Every multimodal system today is, in essence, doing the same one thing: **alignment.**
+
+```
+· Vision models compress images into feature vectors
+· Language models compress text into tokens/vectors
+· Multimodal = aligning these two spaces
+  · Contrastive learning (CLIP-style)
+  · Projection layers
+  · Adapters
+  · Or stuffing both into the same transformer
+```
+
+Whichever it is, the core action is the same: take paired data, learn a mapping, and make the representations of different modalities "recognize" each other.
+
+## II. Why Alignment Is Hard
+
+```
+· Modality spaces are heterogeneous
+  · Images: continuous, spatial structure, highly redundant
+  · Text: discrete, sequential, symbolic
+  · Touch: contact, local, high-noise
+· Compression is lossy
+  · Image encoding has already thrown away a great deal of detail
+  · Text encoding throws away tone and context
+  · Between two lossy compressions, the correspondence is not unique
+· Paired data is expensive
+  · Requires several modalities of the same moment, the same event
+  · Many combinations (touch-sound, smell-text) barely exist
+· Alignment is many-to-many
+  · One image can correspond to many descriptions
+  · One sentence can correspond to many images
+⇒ Alignment is inherently an ill-posed problem
+```
+
+## III. How Engineering Dresses the Alignment
+
+```
+· Contrastive learning: pull positive samples closer, push negative samples apart
+· Projection layers: map space A into space B
+· Adapters/bridge modules: a small network does the translating
+· Token mixing: every modality becomes tokens, sharing attention
+· Large-scale image-text pairs: brute-force it with data
+⇒ All of it is "alignment after the fact": compress separately first, then learn a mapping
+```
+
+## IV. Language Itself Is Multimodal
+
+Earlier I treated language as "one modality"; that framing is actually wrong. Language is not a fourth channel standing alongside vision and hearing; **it is the compression layer of experience across all modalities**.
+
+```
+· Word = concept = condensation of multimodal experience
+  · "Cup" compresses into it: shape, feel, function, sound, use
+  · Behind a single word lies a whole set of sensory experience
+· Therefore:
+  · Language is not "a modality"
+  · Language is "the universal compression format between modalities"
+```
+
+Why language is special can be listed in five points:
+
+```
+① Coverage: the experience of every modality can be compressed into language
+② Compositionality: finite symbols → infinite combinations
+   · Can express things never seen
+③ Publicity: one shared encoding, shared across people
+   · Other modalities are private (you cannot see my pain)
+④ Self-reference: language can describe language
+   · Grammar books, dictionaries, metalanguage
+⑤ Low cost: discrete, low bandwidth, noise-resistant, transmittable
+   · Hence it can accumulate and be handed down
+```
+
+This property changes the meaning of the "alignment problem":
+
+```
+· Old framing: text and images are two independent modalities, and a mapping must be learned to align them
+· New framing: text was originally squeezed out of multimodal experience
+  · Alignment = decompressing the compressed package back into the modality it was compressed from
+  · Not dragging two independent spaces closer by force
+⇒ Language itself carries multimodal structure
+```
+
+It also explains the strength and the weakness of language models:
+
+```
+· Strength: language compressed world knowledge
+  · The model learns the compressed structure → broad
+· Weakness: compression is lossy
+  · There is no decompression down to the instance/world end
+  · Grounding residual, hallucination
+⇒ The other side of language's specialness: it is only a compressed package
+```
+
+---
+
+## V. The Physical Substrate: No Alignment Needed
+
+Seen physically, all modalities are observations of the same two things: **electromagnetic fields** and **molecular thermal motion**.
+
+```
+· Light: electromagnetic field
+· Sound: molecular thermal motion (pressure waves)
+· Touch: electromagnetic repulsion between molecules at the contact surface
+  (fundamentally still electromagnetism + molecular motion)
+· Temperature: statistics of molecular thermal motion
+· Smell/taste: molecular binding (electromagnetic force) and diffusion (thermal motion)
+⇒ Underneath all modalities there are only two things:
+  electromagnetic fields, and molecular thermal motion
+```
+
+So the modalities are different ways of observing the same substrate:
+
+```
+· Vision: electromagnetic field (a particular frequency band)
+· Hearing: molecular motion (pressure disturbance in a medium)
+· Touch: intermolecular electromagnetic force (contact/deformation)
+· Chemoreception: molecular binding (electromagnetism) + diffusion (thermal motion)
+· Temperature sensing: thermal motion
+⇒ Alignment is guaranteed by physics: the same field, the same motion,
+  only the sensors differ
+```
+
+Formally:
+
+```
+· Substrate quantities: electromagnetic field E(x,t), molecular motion (temperature/density/velocity)
+· Sensor = some functional of these two quantities
+· Perception = inferring the state of the substrate quantities from multiple functionals
+· Alignment = joint inference about the same substrate quantity, not the learning of two representations
+⇒ This is "analysis by synthesis"
+```
+
+Boundaries worth stating:
+
+```
+· "Temperature" is a statistic of thermal motion, not an independent field
+· The functionals of different modalities have different bandwidths and noise
+· Real sensors also have nonlinearity and calibration error
+⇒ "Alignment-free" holds physically,
+  provided the functionals are known/calibratable
+```
+
+## VI. Why Engineering Does Not Take the Physical Route
+
+```
+· Can't compute it: full-fidelity physical simulation is not feasible
+· Observation operators unknown: sensor models must be calibrated/learned
+· Semantics is not a physical quantity, but it does not come from nowhere either:
+  · It is "a compressed description of physical configurations and trajectories"
+  · Cup = a structural description on a time slice (shape/function)
+  · Danger = a predicate on a trajectory (keep this up, and the future will hurt)
+  · Goal = a future state + having to "attain" it (with a criterion/subject)
+  · Physical equations do not write "cup", but it is there in the material configuration
+· Partially observable: S can only ever be estimated
+⇒ The physical substrate is "alignment-free", but it is not implementable in engineering
+```
+
+## VII. So in Engineering There Is Only Alignment
+
+This is the judgment of this piece:
+
+```
+· Physical level: multimodality is unified (all of it is observation of electromagnetic fields + thermal motion)
+· Engineering level: multimodality is an alignment problem (between compressed representations)
+· The two do not contradict each other:
+  · Physical unity tells us "what the ultimate goal is"
+  · Engineering alignment is "the approximation when that is not implementable"
+⇒ All multimodal engineering today is doing approximation
+```
+
+## VIII. The Criterion for Truly Multimodal
+
+If someday one wants to judge whether a system is "truly multimodal", one can look at:
+
+```
+· Whether it returns to the same substrate (electromagnetic fields + thermal motion), rather than stitching representations together
+· Whether it can predict across modalities (see A, predict B)
+· Whether modalities can complement one another when one is missing
+· Whether its predictions conform to physical constraints
+```
+
+Most current systems stop at "shared attention".
+
+## IX. Boundaries
+
+```
+· Does not claim to have given a unified theory of multimodality
+· Does not claim the physical route is infeasible (only that current engineering is infeasible)
+· Where marked [speculation], there is no evidence
+· Does not discuss consciousness/subjective experience
+```
+
+---
+
+## In One Sentence
+
+```
+Physically, multimodality is unified: all of it is observation of electromagnetic fields and molecular thermal motion;
+in engineering, multimodality is an alignment problem: learn a mapping between compressed representations.
+What is being done now is all the latter — alignment, the engineering approximation of physical unity.
+```
+
+---
+
+## Essay 4. World Models, Embodied Models, and Digital Life — Where We Stand
+
+DOI: 10.5281/zenodo.23891164
+
+## I. What World Models Are Doing
+
+Give a machine a camera and it "sees." But seeing is not the same as understanding.
+
+An image is pixels, a pile of numbers. It does not tell you "what this is, what happens next, what would happen if I moved." A camera solves "is there data"; it does not solve "what does the data mean."
+
+A world model wants to solve exactly this: compress observations into an internal state, and let that state answer "if I do this, what happens next."
+
+It does three things:
+
+- **Compression**: compressing high-dimensional observations into a low-dimensional state;
+- **Prediction**: predicting the next step (or the next observation) from the state;
+- **Counterfactuals**: rehearsing internally "what if I had gone left," without actually going left.
+
+So the core of a world model is not "generating pretty pictures" but "making the internal representation support prediction and decision." This is one step between "seeing" and "understanding."
+
+## II. What Embodied Models Are Doing
+
+A language model can talk, but it bears no consequences. The text it outputs does not change the world, and the world does not change because of it.
+
+Embodied models change this: give it eyes, give it hands, let it act in a real environment.
+
+This path is now called the vision-language-action model (VLA): pretrained vision and language as the base, robot data added, actions output directly. It does three things:
+
+- **Grounding**: making symbols line up with the real world (the "cup" in language corresponds to the cup in front of you);
+- **Closed loop**: actions change the world, the world feeds back, and the model corrects itself accordingly;
+- **Real consequences**: getting it wrong means a collision, a fall, wasted material — something a purely textual model does not have.
+
+So embodied models fill in the link from saying to doing, and the link from symbols to the world.
+
+## III. What We Are Doing
+
+Our work is adjacent to those two lines, but the goal is different.
+
+We do not pursue task capability; we pursue "the conditions for life."
+
+Our starting point is two facts:
+
+- Universe = P + R: P is the part that can be written as stable relations, R is the part that cannot be written down (declared only, not elaborated);
+- Life = p_life + R_life: p_life is a family of dynamic functions on the P side that is kept.
+
+Under this definition, "life" is not material, not carbon-based, not the ability to think. It is:
+
+> A family of dynamic functions; it is self-referential; it is kept by its environment.
+
+Engineering-wise, what we build is "frozen modules + a trainable brain": freeze the low-level loops such as perception and execution, and let only the upper decision part be trained. Paper-45 splices together two frozen language models plus a trainable master controller; Paper-46 uses frozen eyes and frozen wings plus a trainable cerebellum, so that a "digital mosquito" learns to avoid.
+
+These experiments are all small, and their conclusions are conservative. But they measure the same thing: **where the boundary between the frozen part and the trainable part lies, how the interface connects, and what the upper layer can learn.**
+
+## IV. The Current Reality: Evolution During Training, Frozen at Inference
+
+There is one fact here that must be stated clearly.
+
+In today's models, all "evolution" happens during training: parameters are updated, structure is shaped. Once training ends, the model is frozen — parameters no longer change at inference.
+
+The so-called "trainable brain" is likewise frozen once training is done. The so-called "evolvable part," in today's engineering, exists only in the training phase, not in the running phase.
+
+So today's digital intelligence is essentially a **frozen snapshot**:
+
+- trained once, frozen, deployed;
+- at runtime, at most in-context learning and external memory;
+- no genuine "continuous evolution within a life."
+
+This is unlikely to change fundamentally within my lifetime: freezing is the norm, training-time evolution is the norm, runtime evolution is the exception.
+
+It also means that for the following sentence to hold, we will have to wait a long time:
+
+> The upper brain can keep evolving; the lower layers stay frozen.
+
+In today's engineering, this sentence holds only during the training phase; once the system is running, "evolution" stops.
+
+## V. Our View
+
+Based on that reality, we have four views.
+
+**First, a world model plus a body fills in "understanding" and "closed loop," not "life."**
+
+A world model lets the frozen snapshot "understand what it sees," a body lets the frozen snapshot "move," and the closed loop lets it try and err. But all of these add task capability, not the conditions for life. By our definition, life also requires "being kept," "self-reference," and "continuous maintenance" — precisely the weakest link in current systems.
+
+**Second, "being kept" will get simpler over time.**
+
+Self-repair, self-power, self-maintenance — these engineering problems will be solved step by step in the future. So "being kept" is not the real threshold of digital life; it is a technical problem, and technical problems usually have engineering solutions.
+
+**Third, what is truly hard is institutions, not technology.**
+
+If one day a digital system can truly maintain itself, update itself, and repair itself, the first thing it will run into will not be "does it have consciousness," but these questions:
+
+- **Liability**: it hits someone, it damages property — who is responsible? The one who built it, the one who trained it, the one who uses it, or itself?
+- **Rights and personhood**: is it property, a pet, an employee, or "life"? Different classifications carry completely different legal consequences.
+- **Regulation**: who may build it, who may shut it down, who may copy it, who may delete it? For a system that can copy itself, who is the object of regulation?
+- **Data and memory**: whose is its memory? Whose is what it has learned? Does its "death" (deletion) require a procedure?
+- **Insurance and compensation**: if it maintains itself, how is the risk priced?
+
+What these questions share is this: **none of them has a version that can be solved by "just training it a bit more."** Technical problems can be iterated; institutional problems can only be negotiated, legislated, and tried by trial and error.
+
+**Fourth, digital life will first of all be an institutional event, not merely a technical one.**
+
+The technical "can it be done" and the institutional "does it count" are two different lines. Today we work on the first; but what really determines when digital life "appears" may be the second.
+
+## VI. The Boundaries of This Essay
+
+- This is opinion, not conclusion; world models and embodied models are developing fast and may overturn the judgments here;
+- no timeline is predicted;
+- no claim that "digital life will certainly appear";
+- R is declared only, not elaborated;
+- "being kept will get simpler" is a judgment, not a verified fact.
+
+---
+
+> In one sentence: world models and bodies make the frozen snapshot look more like a living thing, but what turns a "living thing" into "life" is ultimately not the model — it is institutions.
+
+---
+
+## Essay 5. Cliffs and Slopes: Where Does Digital Life Grow From
+
+DOI: 10.5281/zenodo.23838161
+
+## The Claim of This Piece
+
+The problem of digital life is not "whether a piece of software that maintains itself can be built" — that is becoming easy. What is hard is two cliffs: from "maintenance" to "evolution", and "where that p actually is". This essay sets out both cliffs, and also sets out the things that are turning the cliffs into gentle slopes.
+
+## 1. Maintenance: It Is a Relation, Not a Capability
+
+There is a September 2026 article reporting "the first living digital organism": a system ran continuously for 7.25 hours; for the vast majority of that time nobody was using it and it did not stop; most of the compute went into maintaining itself; the cost settled into a "body" of a few hundred MB; and every step was judged by the host software and written into the ledger. On this basis the article set up a criterion: being alive is not a matter of what it can do, but of whether it must keep paying for its continued existence, and whether that cost can be checked from outside.
+
+The criterion has value: it turns "maintenance" into something measurable and auditable. But it stops at one place —
+
+```
+· This cost is paid by the host: power, machines, operations
+· Cut the power and it stops
+· So what is "kept alive" is the host's relation to it, not its relation to itself
+```
+
+This is not wordplay. In real life the subject of maintenance is itself: it finds its own energy, repairs itself, builds its own components. A piece of software can maintain "running", but cannot maintain "existence". The difference shows only at the moment of the break: the former is a pause, the latter is disappearance.
+
+## 2. Cliff One: From Maintenance to Evolution, There Is Not Enough Compute
+
+Maintenance is a closed loop; evolution is a search for new structures in a space of structures. Evolution pays the cost of that search by using the physical world as a free parallel computer: matter and energy run on their own, and selection happens of itself. For a digital system to do the same, it must simulate an equivalent environment — and that gap in compute is a matter of orders of magnitude.
+
+More troublesome still: maintenance only needs to hold on to what already exists, while evolution needs endless "trial and error plus retention". In a closed system, trial and error has no real consequences, and the selection pressure is fake. It can write its version number from 1 all the way to 3589, but there is no moment of "cannot go on living" to tell it which path is the right one.
+
+## 3. Cliff Two: Environment, There Is No World That Punishes It
+
+Evolution needs a real environment: cold, heat, hunger, competition, predators. These are not task metrics; they are "if you do not do this, there is no tomorrow".
+
+The environment of a digital system is the host and the task. Failing a task at worst means a low score; it does not die. Without death there is no selection; without selection there is no evolution.
+
+This is also why "give it a body" sounds like an answer: a body puts it into a world with real consequences. But a body is only a ticket of admission, not evolution itself.
+
+## 4. Cliff Three: Dimensions, in a Closed System There Is Nothing New to See
+
+The direction of evolution is the continual expansion of representational dimensions. Human input is small — the bandwidth of the five senses is narrow — yet human representational dimensions have kept expanding, and what they rely on is not the senses but tools:
+
+```
+· Microscope: see smaller
+· Telescope: see farther
+· Colliders, atomic clocks, spectrometers: every instrument is a new slice of "world → representation"
+· Science: repeatable experimental procedures and measurement sequences are an extension of the laws of temporal combination
+```
+
+Human dimensions are not innate; they grow out of "new slices + new combination laws". In a closed digital environment there are no new dimensions to add: all input is the bits that already exist. To add dimensions, the only way is to connect to the real world — sensors, actuators, instruments — and then it is no longer purely digital; one must build a body, and also know how to build tools.
+
+A sensor is passive input; an instrument actively creates a new slice. Large models today do not yet have this layer.
+
+## 5. Gentle Slopes: Distillation, Body, Online Learning
+
+But a cliff is not a wall.
+
+```
+· Distillation: a large model is a distillation of human language
+  · What it receives is not the result of evolution from scratch, but structures that humans have sifted out over several thousand years
+  · This step skips most of the cost of "compute search + environmental selection"
+· Body: sensors, actuators, and energy management are all mature
+  · Maintenance can be made a closed-loop engineering problem (power supply, heat dissipation, self-check, repair)
+  · This layer needs no new science; it is engineering integration
+· Online learning: makes "can change, can self-refer" no longer just words in a definition
+  · Only when the weights can update can the system possibly be selected in a real environment
+⇒ Distillation solves "where it comes from", the body solves "where dimensions come from",
+   online learning solves "how it changes"
+```
+
+Taken together, these three do turn the "maintenance → evolution" cliff into a gentle slope. This is not to say that digital life has already appeared; it only says that the obstacles that used to stand in front of purely digital systems now have ways around them.
+
+## 6. What Remains: Absolute R, and the Missing p
+
+The obstacle of the body is getting lower. What is genuinely unresolved is two things:
+
+```
+① Does absolute R exist?
+   · Our framework only says: absolute R does not judge, it only declares
+   · This is not an engineering question, nor a question that making something could answer
+② If absolute R does not exist (life does not need absolute R):
+   · life = p-life, entirely functionalizable
+   · the question becomes: can humans find that p?
+     · a family of dynamic functions satisfying D1~D5: in P, a family, can change, can self-refer, is kept alive
+     · it must also be able to expand dimensions (grow)
+```
+
+This is a search far harder than building a body: the structure, the combination laws, and the update rules all have to be right, and "maintenance" and "growth" have to hold at the same time — maintaining without growing stays where it is (which is the situation of that paper), growing without maintaining falls apart.
+
+Distillation + body + online learning only give a starting point, not an answer.
+
+## 7. The Boundaries of This Piece
+
+```
+· This is an essay, not a paper; there are no new experiments and no new theorems
+· The "gentle slopes" in this text are engineering judgments, and the "cliffs" are structural judgments; both are [speculation]
+· No claim that digital life has been made, and no claim that it cannot be made
+· No judgment on whether absolute R exists — on this point the framework explicitly only declares, and does not elaborate
+· If it does exist, everything said in this text about "finding p" does not apply to that part
+```
+
+---
+
+*This essay was written by He Qi, with DeepSeek (AI) assisting in organizing and writing; the views and the responsibility belong to the author.*
+
+---
+
+## Essay 6. Home Robots: Body, Where the Brain Goes, and Who Maintains
+
+DOI: 10.5281/zenodo.23988460
+
+## I. The Question
+
+Humanoid robots are becoming products. But for a home robot to be genuinely usable, there are three questions it cannot avoid:
+
+1. Where does control of the body (the cerebellum) live?
+2. Where does the brain that understands the world live?
+3. Who maintains it?
+
+These three questions are not purely technical. They decide the form the home robot of the future will take: whether it is "a device the user owns" or "a service the company provides".
+
+## II. Body and Cerebellum: Must Be Local
+
+Low-level control (standing steady, preventing falls, balance, joint coordination) has hard constraints:
+
+```
+· Closed-loop frequency: 100~1000 Hz
+· Network end-to-end latency: tens of milliseconds, with jitter
+· When the network is down, it must still be able to stand and to stop
+⇒ The cerebellum must be inside the body, and it must be able to fall back on its own
+```
+
+This layer already has mature products: robot vendors' controllers, the velocity/joint interfaces in the SDK, teleoperation handles — all of them are "frozen interfaces". The user or the upper layer does not need to build it again.
+
+## III. Three Ways to Place the Brain
+
+### 3.1 The Local Compressed Brain
+
+```
+· Distillation: big model → a small model aimed at this body
+· Quantization: 4~8 bit, memory down 4~8 times
+· Pruning/sparsity: remove the parameters that are not used
+· Scale: on the order of 1B~10B, running on the robot's NPU
+```
+
+Conditions under which it holds:
+
+```
+· Narrow task (home scenes, controlling only this body)
+· Low-dimensional interface (small command space)
+· Task-specific training/fine-tuning
+```
+
+Cases where it does not hold: needing broad world knowledge (companionship, education, open dialogue), multi-task switching, continuously learning new knowledge.
+
+### 3.2 The Regional Edge Brain
+
+```
+· City/regional-level edge data centers
+· Latency: a few milliseconds to a dozen or so milliseconds (affected by the backbone network and queuing)
+· One big model serves many robots in the region
+· Capability close to the cloud, latency far below the cloud
+```
+
+The size of the region is decided by the latency budget: high-level decisions at 30 Hz → a budget of about 33 ms; under fiber round-trip and routing overhead, the regional radius can reach tens to hundreds of kilometers [speculation].
+
+### 3.3 The Cloud Brain
+
+```
+· Strongest capability, fastest updates
+· Highest latency, highest bandwidth cost
+· Lose the high level as soon as the network drops
+```
+
+## IV. Comparison
+
+| | Local compression | Regional edge | Cloud |
+|---|---|---|---|
+| Latency | Lowest | Low | High |
+| Capability | Limited | Fairly strong | Strongest |
+| Privacy | Best | Fairly good | Worst |
+| Dependency | Lowest | Medium | Highest |
+| Per-unit cost | Hardware cost | Subscription | Pay-per-use |
+
+**Judgment**: low-end/specialized robots go with local compression; those that need broad knowledge and continuous updates go to the edge; pure cloud suits only scenarios with low reliability requirements. [speculation]
+
+## V. Two Future Forms
+
+### Form A: Local and Private
+
+```
+· The brain is in the body, or in an edge box at home
+· The company is responsible only for updates and repairs
+· Data does not leave the house
+· The user "owns" this robot
+⇒ Closer to a "personal AI" than to a "service terminal"
+```
+
+### Form B: Service-ized
+
+```
+· Hardware is the entry point; the brain and compute are a subscription
+· The company is responsible for maintenance, updates, and fallback
+· Data is processed by the company
+· The user "rents" capability
+⇒ The company becomes part of the "maintenance unit"
+```
+
+The two can coexist: low-end localized, high-end service-ized.
+
+## VI. Who Maintains
+
+In our framework, what is "kept alive" is not a single model but a ring of things:
+
+```
+· The body (hardware, power, cooling)
+· The local closed loop (cerebellum, fallback)
+· The brain (local or remote)
+· The service provider (updates, repair, compute)
+· The household environment
+```
+
+If Form B holds, the service provider is inside this ring. If the service stops, function degrades — in effect this is equivalent to "death". This is not a metaphor: the definition of maintenance is precisely "continuously defined, continuously kept alive".
+
+The questions this raises:
+
+```
+· Ownership: the body belongs to the user, the brain to the company?
+· Service cutoff: if the company goes under, what can the robot still do?
+  · At least keep the local cerebellum and basic functions?
+· Data: who owns the household footage?
+· Control: can the service provider remotely change its capabilities/personality?
+```
+
+## VII. Risks
+
+```
+· Dependency risk: service stops, it turns into a brick
+· Privacy risk: a long-term video stream passes through the provider
+· Security risk: the remote control surface gets attacked
+· Lock-in risk: switching providers is expensive
+```
+
+## VIII. Boundaries
+
+```
+· No timeline predictions
+· No recommendation of any commercial solution
+· The places marked [speculation] have no evidence; they are inference about form only
+· No claim that "the robot is already alive" — it lacks maintenance, self-reference, and determination
+  · This essay discusses only the composition of the "maintenance unit"
+```
+
+---
+
+## In One Sentence
+
+```
+The body and the cerebellum must be local; the brain can be local, at the edge, or in the cloud;
+and "who maintains it" decides whether it is your device or the company's service.
+```
+
+---
+
+## Addendum (2026-11-06): A Correction on "Where the Brain Goes"
+
+In the discussion after publication, I found that the original text had an implicit assumption that was too strong: **it assumed by default that "the brain must be so strong that it cannot fit locally"**. The conclusion drawn from that — "dependence on the edge/cloud, with the service provider becoming the maintenance unit" — was therefore overweighted.
+
+The corrected judgment:
+
+```
+· A home robot does not need an "all-capable brain" resident at all times
+  · What is resident is only: the cerebellum + a local small model that is good enough
+  · Walking, obstacle avoidance, maintenance, simple interaction — local is enough
+· The big model is called on demand:
+  · Keep an interface, and call it when there is a hard problem / complex semantics / planning
+  · If the call fails, fall back to local capability
+⇒ No need to "move the big model into the home",
+  and no need to "depend on the edge every day"
+```
+
+So several places in the original need to be downgraded:
+
+```
+· "Three ways to place the brain" → still holds,
+  but "local compression" is not the low-end option; it is the default
+· "Regional edge" → becomes a supplement: knowledge, updates, heavy tasks
+· "Service-ized form" → a business choice, not a technical necessity
+  · What the provider sells is "interface access", not "the brain itself"
+  · You can unsubscribe and fall back to local
+· "Service cutoff ≈ functional death" → too strong
+  · What is cut off is "advanced capability", not "staying alive"
+  · Within the maintenance unit, the local ring is still there
+```
+
+What is retained:
+
+```
+· The cerebellum must be local (real-time, fallback when offline)
+· Where the brain goes affects "who maintains" — this does not change
+· It is only that "who" can be the users themselves; it does not have to be the provider
+```
+
+The lesson in writing: I treated "the current scale of big models" as a long-term constraint, and the inference went astray.
+
+---
+
+This volume was written by He Qi, with DeepSeek (AI) assisting in organization and synthesis; the views and responsibility belong to the author.
