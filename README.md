@@ -118,7 +118,7 @@
 - `essay-cliff-slope-en.md` — Cliffs and Slopes: Where Does Digital Life Grow From? (English essay) · DOI: https://doi.org/10.5281/zenodo.23838401
 - `paper41.md` / `paper41.txt` — 执行器工程第三篇：GPT-2 门控与稀疏执行（云端补充）· DOI: https://doi.org/10.5281/zenodo.23840225
 - `paper42.md` / `paper42.pdf` — 执行器工程第四篇：层门控两族结果（从零训练 vs 预训练后训练）· DOI: https://doi.org/10.5281/zenodo.23849573
-- 合集最新版 v96（新增工程笔记 03 与散论《关系与门》；共 32 篇 + 五附录）：https://doi.org/10.5281/zenodo.24055564
+- 合集最新版 v97（附录 C 新增散论《并不特殊的生命》；共 32 篇 + 五附录）：https://doi.org/10.5281/zenodo.24092498
 - 英文要点 v2（11 篇，新增信息不增/内容收缩/语言与大脑/44/45/附录B）：https://doi.org/10.5281/zenodo.23884927
 
 - `paper44.md` / `paper44.pdf` — 执行器工程汇总篇：门控与稀疏执行（取代 papers 39/40/41/42）· DOI: https://doi.org/10.5281/zenodo.23858151
@@ -130,6 +130,7 @@
 - `eng-notes-02.md` / `eng-notes-02.pdf` — 工程笔记 02：一个自学习的 LLM 模型——冻结、成长与切换 · DOI: https://doi.org/10.5281/zenodo.24046399
 - `eng-notes-03.md` / `eng-notes-03.pdf` — 工程笔记 03：门的复用与组合 · DOI: https://doi.org/10.5281/zenodo.24055548
 - `essay-gate-relation.md` / `essay-gate-relation.pdf` — 散论《关系与门——从一个开关到定义》· DOI: https://doi.org/10.5281/zenodo.24055522
+- `essay-not-special.md` / `essay-not-special.pdf` — 散论《并不特殊的生命》· DOI: https://doi.org/10.5281/zenodo.24092488
 - 分卷版（2026-11-03 发布）：
   - 理论卷（定义·理论·约束）：https://doi.org/10.5281/zenodo.23919825
   - 实验卷（最早期的实验记录，后续基本不更新）：https://doi.org/10.5281/zenodo.23919841
@@ -142,6 +143,7 @@
 - 附录 E《可表示维度的空间面与时间面》：https://doi.org/10.5281/zenodo.23946840（随合集 v88）
 - 散论《家庭机器人：身体、大脑该放哪，以及谁在维持》v2（含修正补记）：https://doi.org/10.5281/zenodo.23988460
 - 散论《多模态——一个对齐工程问题》v2：https://doi.org/10.5281/zenodo.23987355
+
 
 
 
