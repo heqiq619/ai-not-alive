@@ -1,6 +1,6 @@
-﻿# Digital Life: Essays
+﻿# Life Is Not Special
 
-## Observation and Inference
+## Notes on Gates, Relations, and Definitions
 
 > He Qi · in collaboration with DeepSeek (AI)
 > Digital Life Series · Essay Collection
@@ -1173,4 +1173,5 @@ The lesson in writing: I treated "the current scale of big models" as a long-ter
 ---
 
 This volume was written by He Qi, with DeepSeek (AI) assisting in organization and synthesis; the views and responsibility belong to the author.
+
 
