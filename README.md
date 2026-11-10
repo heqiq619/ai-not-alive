@@ -118,7 +118,7 @@
 - `essay-cliff-slope-en.md` — Cliffs and Slopes: Where Does Digital Life Grow From? (English essay) · DOI: https://doi.org/10.5281/zenodo.23838401
 - `paper41.md` / `paper41.txt` — 执行器工程第三篇：GPT-2 门控与稀疏执行（云端补充）· DOI: https://doi.org/10.5281/zenodo.23840225
 - `paper42.md` / `paper42.pdf` — 执行器工程第四篇：层门控两族结果（从零训练 vs 预训练后训练）· DOI: https://doi.org/10.5281/zenodo.23849573
-- 合集最新版 v98（散论《并不特殊的生命》更新至 v3：新增「从定义推回来」；共 32 篇 + 五附录）：https://doi.org/10.5281/zenodo.24092712
+- 合集最新版 v99（附录 C 新增散论《结构指路》；共 32 篇 + 五附录）：https://doi.org/10.5281/zenodo.24103810
 - 英文要点 v2（11 篇，新增信息不增/内容收缩/语言与大脑/44/45/附录B）：https://doi.org/10.5281/zenodo.23884927
 
 - `paper44.md` / `paper44.pdf` — 执行器工程汇总篇：门控与稀疏执行（取代 papers 39/40/41/42）· DOI: https://doi.org/10.5281/zenodo.23858151
@@ -131,7 +131,8 @@
 - `eng-notes-03.md` / `eng-notes-03.pdf` — 工程笔记 03：门的复用与组合 · DOI: https://doi.org/10.5281/zenodo.24055548
 - `essay-gate-relation.md` / `essay-gate-relation.pdf` — 散论《关系与门——从一个开关到定义》· DOI: https://doi.org/10.5281/zenodo.24055522
 - `essay-not-special.md` / `essay-not-special.pdf` — 散论《并不特殊的生命》（v3：含「从定义推回来」）· DOI: https://doi.org/10.5281/zenodo.24092488（概念 DOI，指向最新版）
-- `essay-collection.md` / `essay-collection.pdf` — 散论集（6 篇，观察与推演）· DOI: https://doi.org/10.5281/zenodo.24092888
+- `essay-structure-guide.md` / `essay-structure-guide.pdf` — 散论《结构指路——压缩如何改变搜索》· DOI: https://doi.org/10.5281/zenodo.24103765
+- `essay-collection.md` / `essay-collection.pdf` — 散论集（7 篇，观察与推演）· DOI: https://doi.org/10.5281/zenodo.24092888（概念 DOI，指向最新版 v2）
 - `essay-collection-en.md` / `essay-collection-en.pdf` — Life Is Not Special — Notes on Gates, Relations, and Definitions (English translation of the 6-essay collection) · DOI: https://doi.org/10.5281/zenodo.24092918（概念 DOI，指向最新版 v2）
 - 分卷版（2026-11-03 发布）：
   - 理论卷（定义·理论·约束）：https://doi.org/10.5281/zenodo.23919825
@@ -145,6 +146,7 @@
 - 附录 E《可表示维度的空间面与时间面》：https://doi.org/10.5281/zenodo.23946840（随合集 v88）
 - 散论《家庭机器人：身体、大脑该放哪，以及谁在维持》v2（含修正补记）：https://doi.org/10.5281/zenodo.23988460
 - 散论《多模态——一个对齐工程问题》v2：https://doi.org/10.5281/zenodo.23987355
+
 
 
 
