@@ -172,3 +172,4 @@
 
 - `note-structure-subspace.md` / `note-structure-subspace.html` — 笔记《结构作为子空间——一个可测的版本》· DOI: https://doi.org/10.5281/zenodo.24179795
 
+- 合集 v107：加入工程笔记 08《结构作为子空间》· DOI: https://doi.org/10.5281/zenodo.24179874
