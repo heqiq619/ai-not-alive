@@ -170,3 +170,5 @@
 
 
 
+- `note-structure-subspace.md` / `note-structure-subspace.html` — 笔记《结构作为子空间——一个可测的版本》· DOI: https://doi.org/10.5281/zenodo.24179795
+

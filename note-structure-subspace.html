@@ -1,0 +1,82 @@
+<!doctype html><html><head><meta charset="utf-8"><title>笔记：结构作为子空间——一个可测的版本</title><style>
+body { max-width: 820px; margin: 40px auto; padding: 0 24px 60px;
+       font-family: "Songti SC","SimSun","Noto Serif CJK SC",serif;
+       font-size: 16px; line-height: 1.9; color: #1a1a1a; }
+h1 { font-size: 26px; margin: 8px 0 6px; }
+h2 { font-size: 21px; margin: 34px 0 10px; border-bottom: 1px solid #ddd; padding-bottom: 6px; }
+h3 { font-size: 18px; margin: 24px 0 8px; }
+blockquote { color: #555; border-left: 3px solid #bbb; margin: 6px 0 18px; padding: 4px 14px;
+             font-size: 14.5px; line-height: 1.7; }
+pre { background: #f6f6f4; border: 1px solid #e3e3df; border-radius: 6px;
+      padding: 12px 14px; overflow-x: auto; font-size: 13.5px; line-height: 1.65;
+      font-family: Consolas,"Cascadia Mono","Courier New",monospace; }
+code { background: #f2f2ef; padding: 1px 5px; border-radius: 3px; font-size: 14px;
+       font-family: Consolas,monospace; }
+table { border-collapse: collapse; width: 100%; margin: 14px 0; font-size: 14.5px; }
+th, td { border: 1px solid #d8d8d2; padding: 7px 10px; text-align: left; }
+th { background: #f3f3ef; }
+hr { border: none; border-top: 1px solid #ddd; margin: 34px 0; }
+p { margin: 10px 0; }
+</style></head><body><h1>笔记：结构作为子空间——一个可测的版本</h1>
+<blockquote>何淇 · 与 DeepSeek 协作</blockquote>
+<blockquote>数字生命系列 · 内部笔记（草稿，未发布）</blockquote>
+<blockquote>日期：2026-11-13</blockquote>
+<blockquote>状态：合成数据有干净结果，真模型有初步迹象。不是结论。</blockquote>
+<hr>
+<h2>一、先说清&quot;模型&quot;这两个字</h2>
+<p>冻结的模型是一个固定的函数：训练完，参数不动，它就是输入到输出的一个映射。它拟合的是某个数据分布，不是&quot;理解&quot;。</p>
+<p>在这个函数内部，隐藏层的激活构成一套表示。对同一批输入，不同模型、不同容量、不同种子，都会给出各自的表示。我们想问的是：这些表示之间有没有共同结构。</p>
+<p>如果把&quot;结构&quot;定义成具体坐标，就卡住了：同一个函数可以有无穷多种坐标实现，旋转换基都不改变输入输出。所以我们退一步，把结构定义为<b>子空间</b>：一组会一起变化的方向。子空间在换基下不变，可以算距离、算包含，也能用实验测。</p>
+<hr>
+<h2>二、三条可测的关系</h2>
+<h3>1. 耦合 → 有效维度低 → 小容量也能迁移</h3>
+<p>合成数据：内在变量 z∈R^4，观测 x=tanh(Az)+噪声（32 维），任务 1 和任务 2 都依赖 z。</p>
+<p>学生模型容量 b 从 2 扫到 256：先训任务 1，冻结，再接一个新头学任务 2。</p>
+<p>结果：</p>
+<p>• b≈8~16 时迁移明显变好；无耦合数据（z∈R^32）要 b≈128 才改善。</p>
+<p>• 学到的特征比随机特征好 16%~36%（b=8~64）。</p>
+<p>• 直接在原始 x 上做 ridge，任务 2 误差 1.11；b=8 的冻结特征已经到 0.58。</p>
+<p>含义：数据有低维主干时，小模型能学到可迁移的表示；主干越少，需要容量越大。</p>
+<h3>2. 不同容量的表示收敛到同一结构</h3>
+<p>同一份有结构数据，训宽度 16/32/64/128/256 的 MLP，比较不同宽度之间的表示相似度（CKA）。</p>
+<p>结果（跨宽度 vs 同宽度换种子）：</p>
+<p>• 有结构：0.894~0.961 vs 0.888~0.967，几乎持平。</p>
+<p>• 无耦合：0.310~0.765 vs 0.530~0.865，明显低一截。</p>
+<p>• 随机数据：0.138~0.567 vs 0.085~0.621，可由种子波动解释。</p>
+<p>注意这是相似，不是包含。</p>
+<h3>3. 近似包含：小模型的方向落在大模型子空间里</h3>
+<p>包含度 C = 小模型特征能量落在大学子空间里的比例。</p>
+<p>合成数据（structured）：</p>
+<p>• C = 0.956~0.991，随机子空间基线 0.031~0.265，同宽换种子 0.902~0.985。</p>
+<p>• 随机数据：C≈同宽种子基线，随宽度上升，可由维度效应解释。</p>
+<p>真模型（Qwen2.5 一族的 0.5B / 1.5B / 3B，同一 tokenizer，3000 个 token）：</p>
+<table>
+<tr><th>语料</th><th>尺寸对</th><th>小→大</th><th>小→随机初始化大</th><th>小→随机子空间</th><th>大→小</th></tr>
+<tr><td>中文</td><td>0.5B→1.5B</td><td>0.954</td><td>0.782</td><td>0.513</td><td>0.905</td></tr>
+<tr><td>中文</td><td>1.5B→3B</td><td>0.977</td><td>0.846</td><td>0.684</td><td>0.952</td></tr>
+<tr><td>代码</td><td>0.5B→1.5B</td><td>0.960</td><td>0.803</td><td>0.513</td><td>0.928</td></tr>
+<tr><td>代码</td><td>1.5B→3B</td><td>0.980</td><td>0.866</td><td>0.686</td><td>0.960</td></tr>
+<tr><td>英文</td><td>0.5B→1.5B</td><td>0.966</td><td>0.810</td><td>0.521</td><td>0.939</td></tr>
+<tr><td>英文</td><td>1.5B→3B</td><td>0.985</td><td>0.860</td><td>0.688</td><td>0.971</td></tr>
+</table>
+<p>含义：三份语料、两对尺寸，方向全部一致——小模型的表示大部分落在更大模型的子空间里，且高于同宽度随机初始化对照（多 0.11~0.17）和随机子空间基线；小→大始终高于大→小（差 0.01~0.05）。所以&quot;小模型不是另一套结构，而是同一批方向的少扩展&quot;这个说法在真模型上有重复证据。</p>
+<p>但输入统计的贡献仍然大：未训练的随机模型也能装下 0.78~0.86，且随模型变大而升高，留给&quot;学习&quot;的余量在缩小（3B 对的 margin 只有 0.11~0.13）。</p>
+<hr>
+<h2>三、可以说什么，不能说什么</h2>
+<p>可以说：</p>
+<p>• 数据有强结构时，不同容量学到的表示高度相似、近似包含，且小容量足以迁移。</p>
+<p>• 这个性质在 Qwen2.5 0.5B/1.5B 上有对应迹象（0.934 对比 0.694）。</p>
+<p>• 数据没有结构时，同样实验看不到这个性质。</p>
+<p>不能说：</p>
+<p>• 不能说&quot;语言的主干就是逻辑/关系&quot;。我们只测了合成主干和真模型的表示共享，没测过&quot;主干=逻辑&quot;。</p>
+<p>• 不能说&quot;大模型包含小模型&quot;是严格包含；0.934 不是 1，随机初始化对照也高。</p>
+<p>• 不能说结论可跨语料、跨层、跨模型族外推：真模型只测了一段中文、最后层、两个尺寸。</p>
+<hr>
+<h2>四、没测到的和需要再验的</h2>
+<p>• 记忆化区间（小数据+大容量）没测到崩溃：任务太简单，200 个样本就够学主干；换成高内在维度、更复杂映射再试。</p>
+<p>• 真模型只做了一次：换语料（代码/英文/其他来源）、换层（早期层 vs 最后层）、换尺寸（加 3B）才能判断 0.934 是不是普遍。</p>
+<p>• &quot;多源数据&quot;没碰：主干候选应定义为跨源不变的表示方向，分支候选是源特有的方向。这需要多来源数据。</p>
+<p>• 最小生命模型那条线（v1~v10）是多窗口的负结果，和本笔记不是同一件事，不混写。</p>
+<hr>
+<h2>五、一句话</h2>
+<p>数据有结构时，不同容量的模型学到的是同一批方向的扩展；容量小不是换了一种理解，而是少走了几步。这个说法在合成数据上干净，在真模型上只是方向一致的弱证据。</p></body></html>
