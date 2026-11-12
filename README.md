@@ -118,7 +118,7 @@
 - `essay-cliff-slope-en.md` — Cliffs and Slopes: Where Does Digital Life Grow From? (English essay) · DOI: https://doi.org/10.5281/zenodo.23838401
 - `paper41.md` / `paper41.txt` — 执行器工程第三篇：GPT-2 门控与稀疏执行（云端补充）· DOI: https://doi.org/10.5281/zenodo.23840225
 - `paper42.md` / `paper42.pdf` — 执行器工程第四篇：层门控两族结果（从零训练 vs 预训练后训练）· DOI: https://doi.org/10.5281/zenodo.23849573
-- 合集最新版 v103（附录 C 新增散论《本质与近似》；共 33 篇 + 五附录）：https://doi.org/10.5281/zenodo.24145715
+- 合集最新版 v104（执行器工程新增论文-49《门》；工程笔记 04/05；共 36 篇 + 五附录）：https://doi.org/10.5281/zenodo.24153316
 - 英文要点 v2（11 篇，新增信息不增/内容收缩/语言与大脑/44/45/附录B）：https://doi.org/10.5281/zenodo.23884927
 
 - `paper44.md` / `paper44.pdf` — 执行器工程汇总篇：门控与稀疏执行（取代 papers 39/40/41/42）· DOI: https://doi.org/10.5281/zenodo.23858151
@@ -142,13 +142,17 @@
   - 工程卷（持续更新，含工程笔记）：https://doi.org/10.5281/zenodo.23919849
 - `appendix-d-notes-essays.md` — 附录 D 笔记与散论（可表示维度的空间面与时间面；世界模型/具身模型散论）
 - `paper47.md` / `paper47.pdf` — 方向观察：加层、回放与蒸馏——大模型睡眠巩固 · DOI: https://doi.org/10.5281/zenodo.23927099
-- 工程卷 v4（7 篇，含工程笔记 02/03）：https://doi.org/10.5281/zenodo.24055589
+- 工程卷 v5（10 篇，含论文-49 与工程笔记 02~05）：https://doi.org/10.5281/zenodo.24153338
 - `paper48.md` / `paper48.pdf` — 论文-48《结构、压缩与维持——一个生命定义的合流》（v2：含结语「有限的界面，壮丽的生命」）· DOI: https://doi.org/10.5281/zenodo.24126565（概念 DOI，指向最新版）
+- `paper49.md` / `paper49.pdf` — 论文-49《门：结构上的可塑接口》· DOI: https://doi.org/10.5281/zenodo.24153246
+- `eng-notes-04.md` / `eng-notes-04.pdf` — 工程笔记 04《组合任务的门》· DOI: https://doi.org/10.5281/zenodo.24153264
+- `eng-notes-05.md` / `eng-notes-05.pdf` — 工程笔记 05《门的极限》· DOI: https://doi.org/10.5281/zenodo.24153299
 - 附录 D 更新：修正「有效维度利用率」口径（1881 为样本张成方向，非容量利用率）
 - 理论卷 v3（含附录 E 及定义补充）：https://doi.org/10.5281/zenodo.23966519
 - 附录 E《可表示维度的空间面与时间面》：https://doi.org/10.5281/zenodo.23946840（随合集 v88）
 - 散论《家庭机器人：身体、大脑该放哪，以及谁在维持》v2（含修正补记）：https://doi.org/10.5281/zenodo.23988460
 - 散论《多模态——一个对齐工程问题》v2：https://doi.org/10.5281/zenodo.23987355
+
 
 
 
