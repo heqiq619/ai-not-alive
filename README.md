@@ -172,6 +172,9 @@
 
 - `note-structure-subspace.md` / `note-structure-subspace.html` — 笔记《结构作为子空间——一个可测的版本》· DOI: https://doi.org/10.5281/zenodo.24179794（概念 DOI，指向最新版 v2）
 
-- 合集 v108：加入工程笔记 08《结构作为子空间》（简介补口径提醒）· DOI: https://doi.org/10.5281/zenodo.24180165
+- 合集 v109：门汇总为两篇（论文-50/51），移除旧门控篇 · DOI: https://doi.org/10.5281/zenodo.24187297
 
+
+- paper50-gate-summary.md / .pdf — 论文-50《门：从可塑接口到重配比》· DOI: https://doi.org/10.5281/zenodo.24187271
+- paper51-gate-joint.md / .pdf — 论文-51《门与模型一起训练：门的稀疏性是结构选择》· DOI: https://doi.org/10.5281/zenodo.24187281
 
