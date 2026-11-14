@@ -142,7 +142,7 @@
   - 工程卷（持续更新，含工程笔记）：https://doi.org/10.5281/zenodo.23919849
 - `appendix-d-notes-essays.md` — 附录 D 笔记与散论（可表示维度的空间面与时间面；世界模型/具身模型散论）
 - `paper47.md` / `paper47.pdf` — 方向观察：加层、回放与蒸馏——大模型睡眠巩固 · DOI: https://doi.org/10.5281/zenodo.23927099
-- 工程卷 v7（新增论文-52）：https://doi.org/10.5281/zenodo.24218365
+- 工程卷 v8（论文-52 v2：记忆接口实验与消融）：https://doi.org/10.5281/zenodo.24221777
 - `paper48.md` / `paper48.pdf` — 论文-48《结构、压缩与维持——一个生命定义的合流》（v2：含结语「有限的界面，壮丽的生命」）· DOI: https://doi.org/10.5281/zenodo.24126565（概念 DOI，指向最新版）
 - `paper49.md` / `paper49.pdf` — 论文-49《门：结构上的可塑接口》· DOI: https://doi.org/10.5281/zenodo.24153246
 - `eng-notes-04.md` / `eng-notes-04.pdf` — 工程笔记 04《组合任务的门》· DOI: https://doi.org/10.5281/zenodo.24153264
@@ -172,11 +172,12 @@
 
 - `note-structure-subspace.md` / `note-structure-subspace.html` — 笔记《结构作为子空间——一个可测的版本》· DOI: https://doi.org/10.5281/zenodo.24179794（概念 DOI，指向最新版 v2）
 
-- 合集 v111：新增论文-52（上下文卸载与局部适配）· DOI: https://doi.org/10.5281/zenodo.24218350
+- 合集 v112：论文-52 v2（记忆接口 + 消融）· DOI: https://doi.org/10.5281/zenodo.24221755
 
 
 - paper50-gate-summary.md / .pdf — 论文-50《门：从可塑接口到重配比》· DOI: https://doi.org/10.5281/zenodo.24187271
 - paper51-gate-joint.md / .pdf — 论文-51《门与模型一起训练：门的稀疏性是结构选择》· DOI: https://doi.org/10.5281/zenodo.24187281
+
 
 
 
