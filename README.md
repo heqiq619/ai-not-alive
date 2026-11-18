@@ -172,11 +172,12 @@
 
 - `note-structure-subspace.md` / `note-structure-subspace.html` — 笔记《结构作为子空间——一个可测的版本》· DOI: https://doi.org/10.5281/zenodo.24179794（概念 DOI，指向最新版 v2）
 
-- 合集 v112：论文-52 v2（记忆接口 + 消融）· DOI: https://doi.org/10.5281/zenodo.24221755
+- 合集 v114：论文-54（自生长：池化注意力与模块化生长）· DOI: https://doi.org/10.5281/zenodo.24329062
 
 
 - paper50-gate-summary.md / .pdf — 论文-50《门：从可塑接口到重配比》· DOI: https://doi.org/10.5281/zenodo.24187271
 - paper51-gate-joint.md / .pdf — 论文-51《门与模型一起训练：门的稀疏性是结构选择》· DOI: https://doi.org/10.5281/zenodo.24187281
+
 
 
 
