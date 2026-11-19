@@ -142,7 +142,7 @@
   - 工程卷（持续更新，含工程笔记）：https://doi.org/10.5281/zenodo.23919849
 - `appendix-d-notes-essays.md` — 附录 D 笔记与散论（可表示维度的空间面与时间面；世界模型/具身模型散论）
 - `paper47.md` / `paper47.pdf` — 方向观察：加层、回放与蒸馏——大模型睡眠巩固 · DOI: https://doi.org/10.5281/zenodo.23927099
-- 工程卷 v11（新增论文-55：数字生命的结构）：https://doi.org/10.5281/zenodo.24348491
+- 工程卷 v12（新增论文-56：最小生命）：https://doi.org/10.5281/zenodo.24360273
 - `paper48.md` / `paper48.pdf` — 论文-48《结构、压缩与维持——一个生命定义的合流》（v2：含结语「有限的界面，壮丽的生命」）· DOI: https://doi.org/10.5281/zenodo.24126565（概念 DOI，指向最新版）
 - `paper49.md` / `paper49.pdf` — 论文-49《门：结构上的可塑接口》· DOI: https://doi.org/10.5281/zenodo.24153246
 - `eng-notes-04.md` / `eng-notes-04.pdf` — 工程笔记 04《组合任务的门》· DOI: https://doi.org/10.5281/zenodo.24153264
@@ -172,11 +172,12 @@
 
 - `note-structure-subspace.md` / `note-structure-subspace.html` — 笔记《结构作为子空间——一个可测的版本》· DOI: https://doi.org/10.5281/zenodo.24179794（概念 DOI，指向最新版 v2）
 
-- 合集 v115：论文-55（数字生命的结构：记忆、时间性、模块化与自我）· DOI: https://doi.org/10.5281/zenodo.24348304
+- 合集 v116：论文-56（最小生命：目标驱动的自我修改原型）· DOI: https://doi.org/10.5281/zenodo.24360237
 
 
 - paper50-gate-summary.md / .pdf — 论文-50《门：从可塑接口到重配比》· DOI: https://doi.org/10.5281/zenodo.24187271
 - paper51-gate-joint.md / .pdf — 论文-51《门与模型一起训练：门的稀疏性是结构选择》· DOI: https://doi.org/10.5281/zenodo.24187281
+
 
 
 
