@@ -1,5 +1,7 @@
 ﻿# 现在的 AI 为什么不是生命 / Why Today's AI Is Not Alive
 
+> 从这里开始：[数字生命：读本（总纲 + 四章）](https://doi.org/10.5281/zenodo.24360957) —— 整个系列的压缩入口；原文（合集/分卷）为档案与证据。
+
 **一个定义，与对 AI 涌现机制的一个猜测**
 *A definition, and a conjecture on the emergence mechanism of AI*
 
@@ -9,10 +11,14 @@
 
 ## 系列 / The series
 
+> 从这里开始：[数字生命：读本（总纲 + 四章）](https://doi.org/10.5281/zenodo.24360957) —— 整个系列的压缩入口；原文（合集/分卷）为档案与证据。
+
 五篇短文，中文版与英文版均已发布为预印本（Zenodo，开放获取）。
 *Five short papers — both the Chinese originals and the English editions are published as open-access preprints on Zenodo.*
 
 | # | 中文标题 | English title | 中文 DOI | English DOI |
+
+> 从这里开始：[数字生命：读本（总纲 + 四章）](https://doi.org/10.5281/zenodo.24360957) —— 整个系列的压缩入口；原文（合集/分卷）为档案与证据。
 |---|---|---|---|---|
 | 1 | 现在的 AI 为什么不是生命 | Why Today's AI Is Not Alive: Life as a Maintained Decompression | [10.5281/zenodo.23560594](https://doi.org/10.5281/zenodo.23560594)（v2） | [10.5281/zenodo.23528456](https://doi.org/10.5281/zenodo.23528456)（v2） |
 | 2 | 容量不能替代数据的更新 | The First Measurement: Capacity Cannot Substitute for Data Updates | [10.5281/zenodo.23503050](https://doi.org/10.5281/zenodo.23503050) | [10.5281/zenodo.23525429](https://doi.org/10.5281/zenodo.23525429) |
@@ -23,6 +29,8 @@
 ---
 
 ## 这篇论文说什么 / What this paper argues
+
+> 从这里开始：[数字生命：读本（总纲 + 四章）](https://doi.org/10.5281/zenodo.24360957) —— 整个系列的压缩入口；原文（合集/分卷）为档案与证据。
 
 本文提出一个可操作的生命定义：**生命 = 一族会自指、会变化、会自我维持的动态函数（函数类）**；
 环境 = 宇宙自发涌现的局部解压（分层，不自我维持），生命既活在它的那一层环境里，也活在宇宙里。
@@ -44,6 +52,8 @@
 ---
 
 ## 文件 / Files
+
+> 从这里开始：[数字生命：读本（总纲 + 四章）](https://doi.org/10.5281/zenodo.24360957) —— 整个系列的压缩入口；原文（合集/分卷）为档案与证据。
 
 中文原文 / Chinese originals:
 
@@ -71,6 +81,8 @@
 
 ## 引用 / Citation
 
+> 从这里开始：[数字生命：读本（总纲 + 四章）](https://doi.org/10.5281/zenodo.24360957) —— 整个系列的压缩入口；原文（合集/分卷）为档案与证据。
+
 以 Zenodo 记录为准；上表十个 DOI 中的任何一个都可引用。中文版为原始版本，英文版为译本。
 *Zenodo records are canonical. Any of the ten DOIs above can be cited; the Chinese originals are the primary versions and the English editions are translations.*
 
@@ -78,16 +90,22 @@
 
 ## 许可 / License
 
+> 从这里开始：[数字生命：读本（总纲 + 四章）](https://doi.org/10.5281/zenodo.24360957) —— 整个系列的压缩入口；原文（合集/分卷）为档案与证据。
+
 论文 / Papers: CC-BY-4.0（随 Zenodo 记录 / as recorded on Zenodo）· 代码 / Code: 见 `code/` 目录 / see `code/`
 
 ---
 
 ## 声明 / Disclosure
 
+> 从这里开始：[数字生命：读本（总纲 + 四章）](https://doi.org/10.5281/zenodo.24360957) —— 整个系列的压缩入口；原文（合集/分卷）为档案与证据。
+
 本文由何淇创作，DeepSeek（AI）协助文献检索、结构梳理、文字润色、翻译与实验代码编写；全部观点与责任属于作者。
 *Written by He Qi with AI (DeepSeek) assistance for literature search, structure, editing, translation, and experiment code; all views and responsibilities belong to the author.*
 
 ## 合集 / Compendium
+
+> 从这里开始：[数字生命：读本（总纲 + 四章）](https://doi.org/10.5281/zenodo.24360957) —— 整个系列的压缩入口；原文（合集/分卷）为档案与证据。
 
 《数字生命：一个可测量的生命定义（系列合集）》：https://doi.org/10.5281/zenodo.23543323 
 （文件：compendium.md / compendium.pdf）
@@ -95,6 +113,8 @@
 > Author ORCID: [0009-0006-3968-3242](https://orcid.org/0009-0006-3968-3242)
 
 ## English
+
+> 从这里开始：[数字生命：读本（总纲 + 四章）](https://doi.org/10.5281/zenodo.24360957) —— 整个系列的压缩入口；原文（合集/分卷）为档案与证据。
 
 - **Series compendium (English)**: `english/compendium-en.md` — DOI: https://doi.org/10.5281/zenodo.23592170
 - Introduction: `english/paper-00-en.md` — DOI: https://doi.org/10.5281/zenodo.23592095
@@ -110,6 +130,8 @@
 *Note: the Chinese text is authoritative; English files are translations.*
 
 ## 复现材料
+
+> 从这里开始：[数字生命：读本（总纲 + 四章）](https://doi.org/10.5281/zenodo.24360957) —— 整个系列的压缩入口；原文（合集/分卷）为档案与证据。
 
 - 论文-38（按 token 门控）的代码与数据：experiments/paper38-gating/（含复现步骤与关键数字）
 
@@ -177,6 +199,7 @@
 
 - paper50-gate-summary.md / .pdf — 论文-50《门：从可塑接口到重配比》· DOI: https://doi.org/10.5281/zenodo.24187271
 - paper51-gate-joint.md / .pdf — 论文-51《门与模型一起训练：门的稀疏性是结构选择》· DOI: https://doi.org/10.5281/zenodo.24187281
+
 
 
 
