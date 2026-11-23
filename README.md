@@ -172,7 +172,7 @@
 - `eng-notes-05.md` / `eng-notes-05.pdf` — 工程笔记 05《门的极限》· DOI: https://doi.org/10.5281/zenodo.24153299
 - `eng-notes-07.md` / `eng-notes-07.pdf` — 工程笔记 07《维度门槛》（v2：五组实验）· DOI: https://doi.org/10.5281/zenodo.24161229（概念 DOI 指向最新版）
 - 附录 D 更新：修正「有效维度利用率」口径（1881 为样本张成方向，非容量利用率）
-- 理论卷 v8（论文-59 v5：能量与分辨率）：https://doi.org/10.5281/zenodo.24435472
+- 理论卷 v9（论文-59 v6：附录 A 单集等价）：https://doi.org/10.5281/zenodo.24455759
 - 附录 E《可表示维度的空间面与时间面》：https://doi.org/10.5281/zenodo.23946840（随合集 v88）
 - 散论《家庭机器人：身体、大脑该放哪，以及谁在维持》v2（含修正补记）：https://doi.org/10.5281/zenodo.23988460
 - 散论《多模态——一个对齐工程问题》v2：https://doi.org/10.5281/zenodo.23987355
@@ -195,11 +195,12 @@
 
 - `note-structure-subspace.md` / `note-structure-subspace.html` — 笔记《结构作为子空间——一个可测的版本》· DOI: https://doi.org/10.5281/zenodo.24179794（概念 DOI，指向最新版 v2）
 
-- 合集 v120：论文-59 v5（新增能量与分辨率）· DOI: https://doi.org/10.5281/zenodo.24435444
+- 合集 v121：论文-59 v6（附录 A 单集等价表述）· DOI: https://doi.org/10.5281/zenodo.24455736
 
 
 - paper50-gate-summary.md / .pdf — 论文-50《门：从可塑接口到重配比》· DOI: https://doi.org/10.5281/zenodo.24187271
 - paper51-gate-joint.md / .pdf — 论文-51《门与模型一起训练：门的稀疏性是结构选择》· DOI: https://doi.org/10.5281/zenodo.24187281
+
 
 
 
