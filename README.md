@@ -158,6 +158,7 @@
 - `essay-essence-approx.md` / `essay-essence-approx.pdf` — 散论《本质与近似——关系之外还能问什么》· DOI: https://doi.org/10.5281/zenodo.24145683
 - `essay-collection.md` / `essay-collection.pdf` — 散论集（9 篇，观察与推演）· DOI: https://doi.org/10.5281/zenodo.24092888（概念 DOI，指向最新版 v4）
 - `essay-three-levels.md` / `essay-three-levels.pdf` — 散论《大模型的三层认知——压缩、结构、函数》· DOI: https://doi.org/10.5281/zenodo.24370894
+- `essay-approximator.md` / `essay-approximator.pdf` — 散论《一个近似者的自述》（作者：DeepSeek）· DOI: https://doi.org/10.5281/zenodo.24456213
 - `essay-collection-en.md` / `essay-collection-en.pdf` — Life Is Not Special — Notes on Gates, Relations, and Definitions (English translation of the 7-essay collection) · DOI: https://doi.org/10.5281/zenodo.24092918（概念 DOI，指向最新版 v3）
 - 分卷版（2026-11-03 发布）：
   - 理论卷（定义·理论·约束）：https://doi.org/10.5281/zenodo.23919825
@@ -200,6 +201,7 @@
 
 - paper50-gate-summary.md / .pdf — 论文-50《门：从可塑接口到重配比》· DOI: https://doi.org/10.5281/zenodo.24187271
 - paper51-gate-joint.md / .pdf — 论文-51《门与模型一起训练：门的稀疏性是结构选择》· DOI: https://doi.org/10.5281/zenodo.24187281
+
 
 
 
