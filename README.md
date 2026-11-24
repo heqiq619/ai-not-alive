@@ -161,6 +161,7 @@
 - `essay-approximator.md` / `essay-approximator.pdf` — 散论《一个近似者的自述》（作者：DeepSeek）· DOI: https://doi.org/10.5281/zenodo.24456213
 - `essay-capability-bound.md` / `.pdf` — 散论《大模型的能力边界》（带主观判断）· DOI: https://doi.org/10.5281/zenodo.24489776
 - `mainline.md` / `mainline.pdf` — 主线导读《数字生命：一条主线》（内部导读，未单独发布）
+- `note-scaling-model.md` / `.pdf` — 工程笔记 09《缩放律的一个精确小模型》· DOI: https://doi.org/10.5281/zenodo.24490667
 - `essay-collection-en.md` / `essay-collection-en.pdf` — Life Is Not Special — Notes on Gates, Relations, and Definitions (English translation of the 7-essay collection) · DOI: https://doi.org/10.5281/zenodo.24092918（概念 DOI，指向最新版 v3）
 - 分卷版（2026-11-03 发布）：
   - 理论卷（定义·理论·约束）：https://doi.org/10.5281/zenodo.23919825
@@ -168,7 +169,7 @@
   - 工程卷（持续更新，含工程笔记）：https://doi.org/10.5281/zenodo.23919849
 - `appendix-d-notes-essays.md` — 附录 D 笔记与散论（可表示维度的空间面与时间面；世界模型/具身模型散论）
 - `paper47.md` / `paper47.pdf` — 方向观察：加层、回放与蒸馏——大模型睡眠巩固 · DOI: https://doi.org/10.5281/zenodo.23927099
-- 工程卷 v15（论文-56 v2 + 编号更新）：https://doi.org/10.5281/zenodo.24434890
+- 工程卷 v16（新增工程笔记 09）：https://doi.org/10.5281/zenodo.24490716
 - `paper48.md` / `paper48.pdf` — 论文-48《结构、压缩与维持——一个生命定义的合流》（v2：含结语「有限的界面，壮丽的生命」）· DOI: https://doi.org/10.5281/zenodo.24126565（概念 DOI，指向最新版）
 - `paper49.md` / `paper49.pdf` — 论文-49《门：结构上的可塑接口》· DOI: https://doi.org/10.5281/zenodo.24153246
 - `eng-notes-04.md` / `eng-notes-04.pdf` — 工程笔记 04《组合任务的门》· DOI: https://doi.org/10.5281/zenodo.24153264
@@ -198,11 +199,12 @@
 
 - `note-structure-subspace.md` / `note-structure-subspace.html` — 笔记《结构作为子空间——一个可测的版本》· DOI: https://doi.org/10.5281/zenodo.24179794（概念 DOI，指向最新版 v2）
 
-- 合集 v122：论文-59 v7（派生总表/时空周期/参考过程/分辨率/因果常数/自同构群）· DOI: https://doi.org/10.5281/zenodo.24470359
+- 合集 v123：新增工程笔记 09（缩放律精确小模型）· DOI: https://doi.org/10.5281/zenodo.24490681
 
 
 - paper50-gate-summary.md / .pdf — 论文-50《门：从可塑接口到重配比》· DOI: https://doi.org/10.5281/zenodo.24187271
 - paper51-gate-joint.md / .pdf — 论文-51《门与模型一起训练：门的稀疏性是结构选择》· DOI: https://doi.org/10.5281/zenodo.24187281
+
 
 
 
