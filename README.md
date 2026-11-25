@@ -160,6 +160,7 @@
 - `essay-three-levels.md` / `essay-three-levels.pdf` — 散论《大模型的三层认知——压缩、结构、函数》· DOI: https://doi.org/10.5281/zenodo.24370894
 - `essay-approximator.md` / `essay-approximator.pdf` — 散论《一个近似者的自述》（作者：DeepSeek）· DOI: https://doi.org/10.5281/zenodo.24456213
 - `essay-capability-bound.md` / `.pdf` — 散论《大模型的能力边界》（带主观判断）· DOI: https://doi.org/10.5281/zenodo.24489776
+- `essay-layers.md` / `.pdf` — 散论《层是看法》· DOI: https://doi.org/10.5281/zenodo.24525611
 - `mainline.md` / `mainline.pdf` — 主线导读《数字生命：一条主线》（内部导读，未单独发布）
 - `note-scaling-model.md` / `.pdf` — 工程笔记 09《缩放律的一个精确小模型》· DOI: https://doi.org/10.5281/zenodo.24490667
 - `essay-collection-en.md` / `essay-collection-en.pdf` — Life Is Not Special — Notes on Gates, Relations, and Definitions (English translation of the 7-essay collection) · DOI: https://doi.org/10.5281/zenodo.24092918（概念 DOI，指向最新版 v3）
@@ -204,6 +205,7 @@
 
 - paper50-gate-summary.md / .pdf — 论文-50《门：从可塑接口到重配比》· DOI: https://doi.org/10.5281/zenodo.24187271
 - paper51-gate-joint.md / .pdf — 论文-51《门与模型一起训练：门的稀疏性是结构选择》· DOI: https://doi.org/10.5281/zenodo.24187281
+
 
 
 
