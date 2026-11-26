@@ -161,6 +161,7 @@
 - `essay-approximator.md` / `essay-approximator.pdf` — 散论《一个近似者的自述》（作者：DeepSeek）· DOI: https://doi.org/10.5281/zenodo.24456213
 - `essay-capability-bound.md` / `.pdf` — 散论《大模型的能力边界》（带主观判断）· DOI: https://doi.org/10.5281/zenodo.24489776
 - `essay-layers.md` / `.pdf` — 散论《层是看法》v2（+模块化结构/验证器开放问题）· DOI: https://doi.org/10.5281/zenodo.24550827
+- `essay-own-judge.md` / `.pdf` — 散论《自己的判断者》· DOI: https://doi.org/10.5281/zenodo.24566450
 - `modular-diagram.png` — 模块化结构图（数据源→底层模块→中层融合→顶层）
 - `mainline.md` / `mainline.pdf` — 主线导读《数字生命：一条主线》（内部导读，未单独发布）
 - `note-scaling-model.md` / `.pdf` — 工程笔记 09《缩放律的一个精确小模型》· DOI: https://doi.org/10.5281/zenodo.24490667
@@ -178,7 +179,7 @@
 - `eng-notes-05.md` / `eng-notes-05.pdf` — 工程笔记 05《门的极限》· DOI: https://doi.org/10.5281/zenodo.24153299
 - `eng-notes-07.md` / `eng-notes-07.pdf` — 工程笔记 07《维度门槛》（v2：五组实验）· DOI: https://doi.org/10.5281/zenodo.24161229（概念 DOI 指向最新版）
 - 附录 D 更新：修正「有效维度利用率」口径（1881 为样本张成方向，非容量利用率）
-- 理论卷 v10（论文-59 v7）：https://doi.org/10.5281/zenodo.24470458
+- 理论卷 v11（论文-59 §4.5 信息结构vs量）：https://doi.org/10.5281/zenodo.24566521
 - 附录 E《可表示维度的空间面与时间面》：https://doi.org/10.5281/zenodo.23946840（随合集 v88）
 - 散论《家庭机器人：身体、大脑该放哪，以及谁在维持》v2（含修正补记）：https://doi.org/10.5281/zenodo.23988460
 - 散论《多模态——一个对齐工程问题》v2：https://doi.org/10.5281/zenodo.23987355
@@ -201,11 +202,12 @@
 
 - `note-structure-subspace.md` / `note-structure-subspace.html` — 笔记《结构作为子空间——一个可测的版本》· DOI: https://doi.org/10.5281/zenodo.24179794（概念 DOI，指向最新版 v2）
 
-- 合集 v123：新增工程笔记 09（缩放律精确小模型）· DOI: https://doi.org/10.5281/zenodo.24490681
+- 合集 v124：结构重整（散论=第七部分、附录=第八部分）+ 新散论 · DOI: https://doi.org/10.5281/zenodo.24566485
 
 
 - paper50-gate-summary.md / .pdf — 论文-50《门：从可塑接口到重配比》· DOI: https://doi.org/10.5281/zenodo.24187271
 - paper51-gate-joint.md / .pdf — 论文-51《门与模型一起训练：门的稀疏性是结构选择》· DOI: https://doi.org/10.5281/zenodo.24187281
+
 
 
 
